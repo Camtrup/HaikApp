@@ -7,6 +7,10 @@
   <ItemGroup>
     <Folder Include="Models\" />
     <Folder Include="ViewModels\" />
+    <Folder Include="Pages\Pictures\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Pages\Pictures\" />
+  </ItemGroup>
 </Project>
