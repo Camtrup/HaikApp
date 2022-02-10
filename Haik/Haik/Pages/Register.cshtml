@@ -1,7 +1,7 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Register bruker";
+    ViewData["Title"] = "Home page";
 }
 
 <div class="text-center">
@@ -13,6 +13,7 @@
         <label for="lname">Etternavn:</label><br>
         <input type="text" id="lname" name="lname" required placeholder="Nordmann"><br><br>
 
+        <p>Velg kjønn:</p>
         <input type="radio" id="gender_female" name="gender" value="female">
         <label for="female">Kvinne</label><br>
         <input type="radio" id="gender_male" name="gender" value="male">
@@ -20,6 +21,7 @@
         <input type="radio" id="gender_other" name="gender" value="other">
         <label for="other">Annet</label>
 
+        <br>
         <label for="username">Brukernavn:</label><br>
         <input type="text" id="username" name="username" required placeholder="olanordmann"><br><br>
 
@@ -35,10 +37,12 @@
         <label for="date">Fødselsdato:</label><br>
         <input type="date" id="date" name="date" required value="YYYY-MM-DD" min="1900-01-01" max="2022-02-10"><br><br>
 
-        <label for="description">Beskrivelse:</label>
-        <textarea name="description" form="register_form" placeholder="Skriv litt om deg selv...">Beskrivelse</textarea>
+        <label for="description">Beskrivelse:</label><br>
+        <textarea name="description" form="register_form" placeholder="Skriv litt om deg selv..."></textarea>
+
+        <br>
 
         <input type="submit" value="Registrer Bruker">
-    </form>
 
-</div>
+        <img src="~/Pictures/Hiking-register.jpg" />
+    </form>
