@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/Users/casperamtrup/Desktop/PU/haik/Haik/Haik/Haik.csproj": {}
+    "C:\\PU-prosjekt\\Haik\\Haik\\Haik.csproj": {}
   },
   "projects": {
-    "/Users/casperamtrup/Desktop/PU/haik/Haik/Haik/Haik.csproj": {
+    "C:\\PU-prosjekt\\Haik\\Haik\\Haik.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/casperamtrup/Desktop/PU/haik/Haik/Haik/Haik.csproj",
+        "projectUniqueName": "C:\\PU-prosjekt\\Haik\\Haik\\Haik.csproj",
         "projectName": "Haik",
-        "projectPath": "/Users/casperamtrup/Desktop/PU/haik/Haik/Haik/Haik.csproj",
-        "packagesPath": "/Users/casperamtrup/.nuget/packages/",
-        "outputPath": "/Users/casperamtrup/Desktop/PU/haik/Haik/Haik/obj/",
+        "projectPath": "C:\\PU-prosjekt\\Haik\\Haik\\Haik.csproj",
+        "packagesPath": "C:\\Users\\marie\\.nuget\\packages\\",
+        "outputPath": "C:\\PU-prosjekt\\Haik\\Haik\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/casperamtrup/.config/NuGet/NuGet.Config"
+          "C:\\Users\\marie\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -55,7 +57,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/x64/sdk/6.0.101/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.405\\RuntimeIdentifierGraph.json"
         }
       }
     }

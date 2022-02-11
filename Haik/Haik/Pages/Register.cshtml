@@ -4,45 +4,53 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Registrer bruker</h1>
-    <form id="register_form" action="/action_page.php">
-        <label for="fname">Fornavn:</label><br>
-        <input type="text" id="fname" name="fname" required placeholder="Ola"><br>
+<div style="float: left">
+    <img src="~/Pictures/Hiking-register.jpg"
+         width="500"
+         height="750" />
+</div>
 
-        <label for="lname">Etternavn:</label><br>
+<div class="text-center" style="text-align: right;">
+    <h1 class="display-4">Registrer bruker</h1><br>
+    <form id="register_form" action="/action_page.php">
+        <label for="fname">Fornavn:</label>
+        <input type="text" id="fname" name="fname" required placeholder="Ola"><br><br>
+
+        <label for="lname">Etternavn:</label>
         <input type="text" id="lname" name="lname" required placeholder="Nordmann"><br><br>
 
-        <p>Velg kjønn:</p>
-        <input type="radio" id="gender_female" name="gender" value="female">
-        <label for="female">Kvinne</label><br>
-        <input type="radio" id="gender_male" name="gender" value="male">
-        <label for="mae">Mann</label><br>
-        <input type="radio" id="gender_other" name="gender" value="other">
-        <label for="other">Annet</label>
+        <p>
+            Velg kjønn:
+            <input type="radio" id="gender_female" name="gender" value="female">
+            <label for="female">Kvinne</label>
+            <input type="radio" id="gender_male" name="gender" value="male">
+            <label for="mae">Mann</label>
+            <input type="radio" id="gender_other" name="gender" value="other">
+            <label for="other">Annet</label><br>
+        </p>
 
-        <br>
-        <label for="username">Brukernavn:</label><br>
-        <input type="text" id="username" name="username" required placeholder="olanordmann"><br><br>
-
-        <label for="email">E-post:</label><br>
+        <label for="email">E-post:</label>
         <input type="email" id="email" name="email" required placeholder="olanordmann@epost.no"><br><br>
 
-        <label for="password">Passord:</label><br>
-        <input type="text" id="password" name="password" required placeholder="*********"><br><br>
-
-        <label for="rpassword">Gjenta passord:</label><br>
-        <input type="text" id="rpassword" name="rpassword" required placeholder="********"><br><br>
-
-        <label for="date">Fødselsdato:</label><br>
+        <label for="date">Fødselsdato:</label>
         <input type="date" id="date" name="date" required value="YYYY-MM-DD" min="1900-01-01" max="2022-02-10"><br><br>
 
-        <label for="description">Beskrivelse:</label><br>
-        <textarea name="description" form="register_form" placeholder="Skriv litt om deg selv..."></textarea>
-
         <br>
+        <label for="username">Brukernavn:</label>
+        <input type="text" id="username" name="username" required placeholder="olanordmann"><br><br>
 
-        <input type="submit" value="Registrer Bruker">
+        <label for="description">Beskrivelse:</label>
+        <textarea name="description" form="register_form" placeholder="Skriv litt om deg selv..."></textarea><br><br>
 
-        <img src="~/Pictures/Hiking-register.jpg" />
+        <label for="password">Passord:</label><br>
+        <input type="password" id="password" name="password" required placeholder="*********"><br><br>
+
+        <label for="rpassword">Gjenta passord:</label><br>
+        <input type="password" id="rpassword" name="rpassword" required placeholder="*********"><br><br>
+
+        <button type="submit">Registrer Bruker </button>
+
+
     </form>
+</div>
+
