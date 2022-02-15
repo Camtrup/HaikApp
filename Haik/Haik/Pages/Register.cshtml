@@ -1,5 +1,5 @@
 ﻿@page
-@model IndexModel
+@model registerModel
 @{
     ViewData["Title"] = "Home page";
 }
@@ -12,7 +12,7 @@
 
 <div class="text-center" style="text-align: right;">
     <h1 class="display-4">Registrer bruker</h1><br>
-    <form id="register_form" action="/action_page.php">
+    <form id="register_form" method="post">
         <label for="fname">Fornavn:</label>
         <input type="text" id="fname" name="fname" required placeholder="Ola"><br><br>
 
@@ -37,7 +37,7 @@
 
         <br>
         <label for="username">Brukernavn:</label>
-        <input type="text" id="username" name="username" required placeholder="olanordmann"><br><br>
+        <input asp-for="registerModel.username" type="text" id="username" name="username" required placeholder="olanordmann"><br><br>
 
         <label for="description">Beskrivelse:</label>
         <textarea name="description" form="register_form" placeholder="Skriv litt om deg selv..."></textarea><br><br>
