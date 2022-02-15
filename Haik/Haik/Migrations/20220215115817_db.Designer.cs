@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Haik.Migrations
 {
     [DbContext(typeof(HaikDBContext))]
-    [Migration("20220210140229_Haik")]
-    partial class Haik
+    [Migration("20220215115817_db")]
+    partial class db
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
