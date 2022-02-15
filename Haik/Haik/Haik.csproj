@@ -7,6 +7,14 @@
   <ItemGroup>
     <Folder Include="Models\" />
     <Folder Include="ViewModels\" />
+    <Folder Include="wwwroot\Pictures\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Remove="wwwroot\Pictures\Hiking-register.jpg" />
+    <Content Remove="wwwroot\Pictures\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="wwwroot\Pictures\Hiking-register.jpg" />
+  </ItemGroup>
 </Project>
