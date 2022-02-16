@@ -116,3 +116,5 @@ C:/PU-prosjekt/Haik/Haik/obj/Debug/net5.0/Haik.csproj.CopyComplete
 /Users/casperamtrup/Desktop/PU/haik/Haik/Haik/obj/Debug/net5.0/ref/Haik.dll
 /Users/casperamtrup/Desktop/PU/haik/Haik/Haik/obj/Debug/net5.0/Haik.pdb
 /Users/casperamtrup/Desktop/PU/haik/Haik/Haik/obj/Debug/net5.0/Haik.genruntimeconfig.cache
+/Users/casperamtrup/Desktop/PU/haik/Haik/Haik/obj/Debug/net5.0/Haik.csproj.AssemblyReference.cache
+/Users/casperamtrup/Desktop/PU/haik/Haik/Haik/obj/Debug/net5.0/Razor/Pages/Login.cshtml.g.cs

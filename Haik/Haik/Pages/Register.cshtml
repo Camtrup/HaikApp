@@ -1,5 +1,5 @@
 ﻿@page
-@model registerModel
+@model Haik.Pages.RegisterModel
 @{
     ViewData["Title"] = "Home page";
 }
@@ -37,7 +37,7 @@
 
         <br>
         <label for="username">Brukernavn:</label>
-        <input asp-for="registerModel.username" type="text" id="username" name="username" required placeholder="olanordmann"><br><br>
+        <input asp-for="registerViewModel.UserName" type="text" id="username" name="username" required placeholder="olanordmann"><br><br>
 
         <label for="description">Beskrivelse:</label>
         <textarea name="description" form="register_form" placeholder="Skriv litt om deg selv..."></textarea><br><br>

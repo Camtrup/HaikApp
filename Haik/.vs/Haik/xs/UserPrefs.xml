@@ -1,13 +1,11 @@
 ﻿<Properties StartupConfiguration="{8E2F8544-59F1-4981-938E-CFCAFDBAAF9F}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Haik/Pages/Error.cshtml.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Haik/Pages/Login.cshtml.cs">
     <Files>
-      <File FileName="Haik/Pages/appsettings.json" Line="32" Column="27" />
       <File FileName="Haik/Models/HaikDbContext.cs" Line="33" Column="6" />
-      <File FileName="Haik/ViewModels/RegisterViewModel.cs" Line="17" Column="19" />
-      <File FileName="Haik/ViewModels/LoginViewModel.cs" Line="1" Column="1" />
-      <File FileName="Haik/Pages/Register.cshtml" Line="37" Column="1" />
-      <File FileName="Haik/Pages/Error.cshtml" Line="1" Column="1" />
-      <File FileName="Haik/Pages/Error.cshtml.cs" Line="1" Column="1" />
+      <File FileName="Haik/ViewModels/RegisterViewModel.cs" Line="11" Column="9" />
+      <File FileName="Haik/Pages/Register.cshtml" Line="9" Column="21" />
+      <File FileName="Haik/Pages/Login.cshtml.cs" Line="1" Column="1" />
+      <File FileName="Haik/Pages/Register.cshtml.cs" Line="20" Column="24" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -16,8 +14,9 @@
             <Node name="Haik" expanded="True">
               <Node name="Models" expanded="True" />
               <Node name="Pages" expanded="True">
-                <Node name="Error.cshtml" expanded="True">
-                  <Node name="Error.cshtml.cs" selected="True" />
+                <Node name="Error.cshtml" expanded="True" />
+                <Node name="Login.cshtml" expanded="True">
+                  <Node name="Login.cshtml.cs" selected="True" />
                 </Node>
                 <Node name="Register.cshtml" expanded="True" />
               </Node>

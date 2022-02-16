@@ -1,5 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Haik.Models;
+using Haik.ViewModels;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -11,16 +15,36 @@ namespace Haik.Pages
   public class RegisterModel : PageModel
   {
     private readonly ILogger<RegisterModel> _logger;
+    private readonly HaikDBContext dbContext;
+    private readonly UserManager<ApplicationUser> userManager;
+    public RegisterViewModel registerViewModel { get; set; }
+    private IEnumerable<ApplicationUser> DBUsers { get; set; }
 
-    public RegisterModel(ILogger<RegisterModel> logger)
+
+        public RegisterModel(UserManager<ApplicationUser> userManager, HaikDBContext dbContext)
     {
-      _logger = logger;
+        this.userManager = userManager;
+        this.dbContext = dbContext;
+        
     }
 
-    public void OnPost()
+    public void OnGet()
     {
-      var username = Request.Form["username"];
-      Console.WriteLine("Hello, World");
+      
+    }
+
+    public async Task<IActionResult> OnPostAsync()
+    {
+ 
+        DBUsers = await dbContext.Users.ToListAsync();
+        foreach (ApplicationUser i in DBUsers)
+        {
+            if (i.UserName == registerViewModel.UserName)
+            {
+                return RedirectToPage("Error");
+            }
+        }
+        return Page();
     }
   }
 }
