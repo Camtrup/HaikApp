@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Haik.Migrations
 {
     [DbContext(typeof(HaikDBContext))]
-    [Migration("20220215115817_db")]
-    partial class db
+    [Migration("20220217124511_Trips")]
+    partial class Trips
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -84,6 +84,27 @@ namespace Haik.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
+                });
+
+            modelBuilder.Entity("Haik.Models.TripDb", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OwnerId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Participants")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Trips");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
