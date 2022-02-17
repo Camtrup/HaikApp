@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\PU-prosjekt\\Haik\\Haik\\Haik.csproj": {}
+    "/Users/casperamtrup/Desktop/PU/haik/Haik/Haik/Haik.csproj": {}
   },
   "projects": {
-    "C:\\PU-prosjekt\\Haik\\Haik\\Haik.csproj": {
+    "/Users/casperamtrup/Desktop/PU/haik/Haik/Haik/Haik.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\PU-prosjekt\\Haik\\Haik\\Haik.csproj",
+        "projectUniqueName": "/Users/casperamtrup/Desktop/PU/haik/Haik/Haik/Haik.csproj",
         "projectName": "Haik",
-        "projectPath": "C:\\PU-prosjekt\\Haik\\Haik\\Haik.csproj",
-        "packagesPath": "C:\\Users\\marie\\.nuget\\packages\\",
-        "outputPath": "C:\\PU-prosjekt\\Haik\\Haik\\obj\\",
+        "projectPath": "/Users/casperamtrup/Desktop/PU/haik/Haik/Haik/Haik.csproj",
+        "packagesPath": "/Users/casperamtrup/.nuget/packages/",
+        "outputPath": "/Users/casperamtrup/Desktop/PU/haik/Haik/Haik/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\marie\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/casperamtrup/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -39,6 +37,28 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.AspNetCore": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Identity": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.13, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.14, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.13, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -57,7 +77,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.405\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/x64/sdk/6.0.101/RuntimeIdentifierGraph.json"
         }
       }
     }
