@@ -39,7 +39,7 @@ namespace Haik.Pages
         DBUsers = await dbContext.Users.ToListAsync();
         foreach (ApplicationUser i in DBUsers)
         {
-            if (i.UserName == registerViewModel.UserName)
+            if (i.Email == registerViewModel.Email)
             {
                 return RedirectToPage("Error");
             }

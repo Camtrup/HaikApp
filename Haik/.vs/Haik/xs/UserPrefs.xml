@@ -1,23 +1,24 @@
 ﻿<Properties StartupConfiguration="{8E2F8544-59F1-4981-938E-CFCAFDBAAF9F}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Haik/Pages/Register.cshtml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Haik/Pages/Register.cshtml.cs">
     <Files>
       <File FileName="Haik/Models/HaikDbContext.cs" Line="33" Column="6" />
       <File FileName="Haik/Pages/Login.cshtml.cs" />
       <File FileName="Haik/Pages/Login.cshtml" />
-      <File FileName="Haik/Pages/Register.cshtml" Line="17" Column="43" />
-      <File FileName="Haik/Pages/Register.cshtml.cs" />
-      <File FileName="Haik/ViewModels/RegisterViewModel.cs" Line="19" Column="45" NotebookId="1" />
+      <File FileName="Haik/Pages/Register.cshtml" Line="32" Column="33" />
+      <File FileName="Haik/Pages/Register.cshtml.cs" Line="46" Column="10" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="Haik" expanded="True" selected="True">
+          <Node name="Haik" expanded="True">
             <Node name="Haik" expanded="True">
               <Node name="Models" expanded="True" />
               <Node name="Pages" expanded="True">
                 <Node name="Error.cshtml" expanded="True" />
                 <Node name="Login.cshtml" expanded="True" />
-                <Node name="Register.cshtml" expanded="True" />
+                <Node name="Register.cshtml" expanded="True">
+                  <Node name="Register.cshtml.cs" selected="True" />
+                </Node>
               </Node>
               <Node name="ViewModels" expanded="True" />
               <Node name="wwwroot" expanded="True" />

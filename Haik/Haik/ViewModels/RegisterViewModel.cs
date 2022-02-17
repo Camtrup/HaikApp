@@ -27,5 +27,13 @@ namespace Haik.ViewModels
         [Required]
         [DataType(DataType.Password)]
         public string Password { get; set; }
+        [Required]
+        [DataType(DataType.Date)]
+        public string DateOfBirth { get; set; }
+        [DataType(DataType.Date)]
+        public string Description { get; set; }
+        [Required]
+        [DataType(DataType.Text)]
+        public string Gender { get; set; }
     }
 }
