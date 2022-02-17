@@ -31,7 +31,11 @@ namespace Haik.Pages
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
-            
+            if (ModelState.IsValid)
+            {
+                var idResult = await signInManager.PasswordSignInAsync(loginViewModel.Email, loginViewModel.Password, loginViewModel.StaySignedIn, false);
+                return idResult.Succeeded ? RedirectToPage("Index") : Page(); 
+            }
             return Page();
         }
     }
