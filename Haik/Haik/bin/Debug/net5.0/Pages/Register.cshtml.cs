@@ -17,8 +17,10 @@ namespace Haik.Pages
     private readonly ILogger<RegisterModel> _logger;
     private readonly HaikDBContext dbContext;
     private readonly UserManager<ApplicationUser> userManager;
-    public RegisterViewModel registerViewModel { get; set; }
+    [BindProperty]
+    public  RegisterViewModel registerViewModel { get; set; }
     private IEnumerable<ApplicationUser> DBUsers { get; set; }
+    private SignInManager<ApplicationUser> signInManager;
 
 
         public RegisterModel(UserManager<ApplicationUser> userManager, HaikDBContext dbContext)
@@ -33,18 +35,25 @@ namespace Haik.Pages
       
     }
 
-    public async Task<IActionResult> OnPostAsync()
-    {
- 
-        DBUsers = await dbContext.Users.ToListAsync();
-        foreach (ApplicationUser i in DBUsers)
+        public async Task<IActionResult> OnPostAsync()
         {
-            if (i.Email == registerViewModel.Email)
+            if (ModelState.IsValid)
             {
-                return RedirectToPage("Error");
+                var user = new ApplicationUser()
+                {
+                    UserName = registerViewModel.Email,
+                    Email = registerViewModel.Email
+                };
+
+                var result = await userManager.CreateAsync(user, registerViewModel.Password);
+                if (result.Succeeded)
+                {
+                    await signInManager.SignInAsync(user, false);
+                    return RedirectToPage("Index");
+                }
             }
+            return Page();
+
         }
-        return Page();
     }
-  }
 }
