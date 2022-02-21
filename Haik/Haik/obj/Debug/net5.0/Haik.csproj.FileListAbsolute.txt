@@ -130,6 +130,7 @@ C:\Users\amtru\source\repos\haik\Haik\Haik\bin\Debug\net5.0\ref\Haik.dll
 C:\Users\amtru\source\repos\haik\Haik\Haik\bin\Debug\net5.0\Haik.pdb
 C:\Users\amtru\source\repos\haik\Haik\Haik\bin\Debug\net5.0\Haik.Views.dll
 C:\Users\amtru\source\repos\haik\Haik\Haik\bin\Debug\net5.0\Haik.Views.pdb
+C:\Users\amtru\source\repos\haik\Haik\Haik\bin\Debug\net5.0\Humanizer.dll
 C:\Users\amtru\source\repos\haik\Haik\Haik\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.Internal.dll
 C:\Users\amtru\source\repos\haik\Haik\Haik\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 C:\Users\amtru\source\repos\haik\Haik\Haik\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
@@ -138,6 +139,7 @@ C:\Users\amtru\source\repos\haik\Haik\Haik\bin\Debug\net5.0\Microsoft.AspNetCore
 C:\Users\amtru\source\repos\haik\Haik\Haik\bin\Debug\net5.0\Microsoft.Data.SqlClient.dll
 C:\Users\amtru\source\repos\haik\Haik\Haik\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
 C:\Users\amtru\source\repos\haik\Haik\Haik\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\amtru\source\repos\haik\Haik\Haik\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\amtru\source\repos\haik\Haik\Haik\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
 C:\Users\amtru\source\repos\haik\Haik\Haik\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.SqlServer.dll
 C:\Users\amtru\source\repos\haik\Haik\Haik\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
@@ -167,7 +169,6 @@ C:\Users\amtru\source\repos\haik\Haik\Haik\bin\Debug\net5.0\runtimes\win-x86\nat
 C:\Users\amtru\source\repos\haik\Haik\Haik\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
 C:\Users\amtru\source\repos\haik\Haik\Haik\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\Users\amtru\source\repos\haik\Haik\Haik\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\amtru\source\repos\haik\Haik\Haik\obj\Debug\net5.0\Haik.csproj.AssemblyReference.cache
 C:\Users\amtru\source\repos\haik\Haik\Haik\obj\Debug\net5.0\Haik.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\amtru\source\repos\haik\Haik\Haik\obj\Debug\net5.0\Haik.AssemblyInfoInputs.cache
 C:\Users\amtru\source\repos\haik\Haik\Haik\obj\Debug\net5.0\Haik.AssemblyInfo.cs
@@ -183,6 +184,7 @@ C:\Users\amtru\source\repos\haik\Haik\Haik\obj\Debug\net5.0\Haik.TagHelpers.outp
 C:\Users\amtru\source\repos\haik\Haik\Haik\obj\Debug\net5.0\Haik.RazorCoreGenerate.cache
 C:\Users\amtru\source\repos\haik\Haik\Haik\obj\Debug\net5.0\Razor\Pages\Error.cshtml.g.cs
 C:\Users\amtru\source\repos\haik\Haik\Haik\obj\Debug\net5.0\Razor\Pages\Index.cshtml.g.cs
+C:\Users\amtru\source\repos\haik\Haik\Haik\obj\Debug\net5.0\Razor\Pages\IndexLoggedIn.cshtml.g.cs
 C:\Users\amtru\source\repos\haik\Haik\Haik\obj\Debug\net5.0\Razor\Pages\Login.cshtml.g.cs
 C:\Users\amtru\source\repos\haik\Haik\Haik\obj\Debug\net5.0\Razor\Pages\Privacy.cshtml.g.cs
 C:\Users\amtru\source\repos\haik\Haik\Haik\obj\Debug\net5.0\Razor\Pages\Register.cshtml.g.cs
@@ -198,6 +200,4 @@ C:\Users\amtru\source\repos\haik\Haik\Haik\obj\Debug\net5.0\Haik.dll
 C:\Users\amtru\source\repos\haik\Haik\Haik\obj\Debug\net5.0\ref\Haik.dll
 C:\Users\amtru\source\repos\haik\Haik\Haik\obj\Debug\net5.0\Haik.pdb
 C:\Users\amtru\source\repos\haik\Haik\Haik\obj\Debug\net5.0\Haik.genruntimeconfig.cache
-C:\Users\amtru\source\repos\haik\Haik\Haik\obj\Debug\net5.0\Razor\Pages\IndexLoggedIn.cshtml.g.cs
-C:\Users\amtru\source\repos\haik\Haik\Haik\bin\Debug\net5.0\Humanizer.dll
-C:\Users\amtru\source\repos\haik\Haik\Haik\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\amtru\source\repos\haik\Haik\Haik\obj\Debug\net5.0\Haik.csproj.AssemblyReference.cache

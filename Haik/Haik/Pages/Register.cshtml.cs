@@ -14,26 +14,26 @@ namespace Haik.Pages
 {
   public class RegisterModel : PageModel
   {
-    private readonly HaikDBContext dbContext;
-    private readonly UserManager<ApplicationUser> userManager;
-    private SignInManager<ApplicationUser> signInManager;
+        private readonly HaikDBContext dbContext;
+        private readonly UserManager<ApplicationUser> userManager;
+        private SignInManager<ApplicationUser> signInManager;
     
-    [BindProperty]
-    public  RegisterViewModel registerViewModel { get; set; }
+        [BindProperty]
+        public  RegisterViewModel registerViewModel { get; set; }
 
 
         public RegisterModel(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, HaikDBContext dbContext)
-    {
+        {
         this.userManager = userManager;
         this.signInManager = signInManager;
         this.dbContext = dbContext;
         
-    }
+        }
 
-    public void OnGet()
-    {
-      
-    }
+        public void OnGet()
+        {
+        
+        }
 
         public async Task<IActionResult> OnPostAsync()
         {
