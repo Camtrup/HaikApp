@@ -17,9 +17,13 @@ namespace Haik.Pages
             _logger = logger;
         }
 
-        public void OnGet()
+        public async Task<IActionResult> OnGet()
         {
-
+            if (true) //Sjekke om en har sjekket av "husk meg"
+            {
+                return RedirectToPage("/IndexLoggedIn");
+            }
+            return Page();
         }
     }
 }
