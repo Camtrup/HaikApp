@@ -1,7 +1,90 @@
 ﻿@page
 @model Haik.Pages.LoginModel
 @{
+    ViewData["Title"] = "Home page";
 }
+
+<link rel="stylesheet" href="~/css/logInsite.css" />
+
+<style>
+    body {
+        background-image: url("https://i.ibb.co/CsxWpnx/Untitled-1.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100%;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    div {
+        text-align: center;
+    }
+
+    button {
+        text-align: center;
+    }
+
+
+   
+</style>
+
+
+
+
+<div class="text-center" style=" text-align: center">
+
+
+
+
+    <h1 class="display-3"><b>Logg inn</b></h1><br><br />
+    <form id="register_form" action="/action_page.php">
+
+
+
+
+        <div class="container">
+            <label asp-for="loginViewModel.Email"><b>Email:</b></label><br>
+            <input type="text" id="email" name="email" required placeholder="olanordmann@epost.no"><br>
+            <br />
+
+
+
+            <label for="password"><b>Passord:</b></label><br>
+            <input type="password" id="password" name="password" required placeholder="*********"><br><br><br /><br />
+
+            
+            <button type="submit" class="loginbtn">Logg inn </button><br><br><br /><br />
+
+
+            <label>
+                <input type="checkbox" checked="checked" name="remember"> Husk meg
+            </label>
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    </form>
+</div>
+
+
+
+
+
+<!---
 
 <div class="container mt-5">
     <div class="row justify-content-center align-items-center">
@@ -11,28 +94,33 @@
             <form method="post">
                 <div asp-validation-summary="All" class="text-danger"> </div>
                 <div class="mb-3">
-                    <label class="form-label" asp-for="loginViewModel.Email">Email</label>
+                    <label class="hallo" asp-for="loginViewModel.Email">Email</label>
                     <input type="text" asp-for="loginViewModel.Email" class="form-control" />
                     <span asp-validation-for="loginViewModel.Email" class="text-danger" />
                 </div>
-                a
-                <div class="mb-3">
-                    <label class="form-label" asp-for="loginViewModel.Password">Passord</label>
-                    <input type="password" asp-for="loginViewModel.Password" class="form-control" />
-                    <span asp-validation-for="loginViewModel.Password" class="text-danger" />
-                </div>
+                <p style="background-image: url('loginnbilde.jfif');">
+                    <img src="~/Pictures/loginnbilde.jfif" />
 
-                <div class="mb-3">
-                    <label class="form-label" asp-for="loginViewModel.StaySignedIn">Forbli innlogget?</label>
-                    <input type="checkbox" asp-for="loginViewModel.StaySignedIn" class="form-control" />
-                    <span asp-validation-for="loginViewModel.StaySignedIn" class="text-danger" />
-                </div>
+                </p>
 
-                <div class="mb-3">
-                    <button type="submit" class="btn btn-primary">Logg inn</button>
-                </div>
+                    <div class="mb-3">
+                        <label class="form-label" asp-for="loginViewModel.Password">Passord</label>
+                        <input type="password" asp-for="loginViewModel.Password" class="form-control" />
+                        <span asp-validation-for="loginViewModel.Password" class="text-danger" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" asp-for="loginViewModel.StaySignedIn">Forbli innlogget?</label>
+                        <input type="checkbox" asp-for="loginViewModel.StaySignedIn" class="form-control" />
+                        <span asp-validation-for="loginViewModel.StaySignedIn" class="text-danger" />
+                    </div>
+
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-primary">Logg inn</button>
+                    </div>
 
             </form>
         </div>
     </div>
 </div>
+    -->
