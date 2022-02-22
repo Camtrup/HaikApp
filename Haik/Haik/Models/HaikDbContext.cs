@@ -28,7 +28,6 @@ namespace Haik.Models
         }
 
 
-        //public DbSet<TurAppen.Model.Walk> Walks { get; set; }
-        //public DbSet<TurAppen.Model.Comment> Comments { get; set; }
+        public DbSet<Haik.Models.TripDb> Trips { get; set; } 
     }
 }
