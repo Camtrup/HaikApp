@@ -4,10 +4,28 @@
     ViewData["Title"] = "Home page";
 }
 
+<link rel="stylesheet" href="~/css/logInsite.css" />
+
+<style>
+    .display-4 {
+        margin-left: 550px;
+    }
+
+
+    form {
+        margin-left: 550px;
+        height: 600px;
+    }
+
+ 
+
+</style>
+
 <div style="float: left">
     <img src="~/Pictures/Hiking-register.jpg"
          width="500"
-         height="750" />
+         height="650" />
+
 </div>
 
 <div class="text-center" style="text-align: right;">
@@ -48,9 +66,58 @@
         <label for="rpassword">Gjenta passord:</label><br>
         <input asp-for="registerViewModel.ConfirmPassword" type="password" id="rpassword" name="rpassword" required placeholder="*********"><br><br>
 
-        <button type="submit">Registrer Bruker </button>
+                </div>
+            </div>
+       
+
+            <div class="form-group">
+                <p>
+
+                    Velg kjønn: <br />
+                    <input type="radio" id="gender_female" name="gender" value="female">
+                    <label for="female">Kvinne</label>
+                    <input type="radio" id="gender_male" name="gender" value="male">
+                    <label for="mae">Mann</label>
+                    <input type="radio" id="gender_other" name="gender" value="other">
+                    <label for="other">Annet</label><br>
+                </p>
+            </div>
+      
+
+
+
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="date">Fødselsdato:</label><br>
+                    <input type="date" id="date" name="date" required value="YYYY-MM-DD" min="1900-01-01" max=document.write(new Date().toLocaleDateString()); />
+                    <br><br>
+                </div>
+                <div class="form-group col-md-4">
+
+                    <label for="description">Beskrivelse:</label><br />
+                    <textarea name="description" form="register_form" placeholder="Skriv litt om deg selv..."></textarea><br><br>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="password">Passord:</label><br />
+                    <input type="password" id="password" name="password" required placeholder="*********"><br><br>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="rpassword">Gjenta passord:</label><br />
+                    <input type="password" id="rpassword" name="rpassword" required placeholder="*********"><br><br>
+
+                </div>
+            </div>
+        
+
+
+        <button type="submit" class="registerbtn">Registrer Bruker </button>
+
 
 
     </form>
-</div>
 
+
+<!---form-group col-lg-12-->
