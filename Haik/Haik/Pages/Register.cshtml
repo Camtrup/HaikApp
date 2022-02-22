@@ -1,98 +1,128 @@
 ﻿@page
 @model Haik.Pages.RegisterModel
 @{
-ViewData["Title"] = "Home page";
 }
+
+
+
 
 <link rel="stylesheet" href="~/css/logInsite.css" />
 
 <style>
-.display-4 {
-    margin-left: 550px;
-}
+    .display-4 {
+        margin-left: 550px;
+    }
 
 
-form {
-    margin-left: 550px;
-    height: 600px;
-}
-
-form input{
-    margin-right: 10px;
-}
-
+    form {
+        margin-left: 550px;
+        height: 600px;
+    }
 </style>
 
 <div style="float: left">
-<img src="~/Pictures/Hiking-register.jpg"
-        width="500"
-        height="650" />
+    <img src="~/Pictures/Hiking-register.jpg"
+         width="500"
+         height="700" />
 
 </div>
 
 
-<h1 class="display-4">Registrer bruker</h1><br>
+
+
+
+<h1 class="display-4"><b>Registrer bruker</b></h1>
+
 <br>
-<form asp-action="Register" id="register_form" method="post">
+
+<form method="post" id="register_form">
+
+
     <div class="form-row">
         <div class="form-group col-md-4">
-            <label asp-for="registerViewModel.FirstName" for="firstname">Fornavn:</label>
-            <input asp-for="registerViewModel.FirstName" type="text" id="firstname" name="firstname" required placeholder="Ola" /><br><br>
+
+
+            <label for="fname">Fornavn:</label><br />
+            <input type="text" id="fname" name="fname" required placeholder="Ola"><br /><br />
         </div>
+
         <div class="form-group col-md-4">
-            <label asp-for="registerViewModel.LastName" for="lastname">Etternavn:</label>
-            <input asp-for="registerViewModel.LastName" type="text" id="lastname" name="lastname" required placeholder="Nordmann" /><br><br>
+            <label for="lname">Etternavn:</label><br />
+            <input type="text" id="lname" name="lname" required placeholder="Nordmann"><br> <br>
+
+        </div>
+
+    </div>
+
+
+    <div class="form-row">
+        <div class="form-group col-md-4">
+
+            <label for="username">Brukernavn:</label><br>
+            <input type="text" id="username" name="username" required placeholder="olanordmann"><br><br>
+        </div>
+
+        <div class="form-group col-md-4">
+            <label for="email">E-post:</label><br>
+            <input type="email" id="email" name="email" required placeholder="olanordmann@epost.no"><br><br>
+
+
         </div>
     </div>
+
+
     <div class="form-group">
         <p>
-            Velg kjønn:
-            <input asp-for="registerViewModel.Gender" type="radio" id="gender_female" name="gender" value="female" />
-            <label asp-for="registerViewModel.Gender" for="female">Kvinne</label>
-            <input asp-for="registerViewModel.Gender" type="radio" id="gender_male" name="gender" value="male" />
-            <label asp-for="registerViewModel.Gender" for="male">Mann</label>
-            <input asp-for="registerViewModel.Gender" type="radio" id="gender_other" name="gender" value="other" />
-            <label asp-for="registerViewModel.Gender" for="other">Annet</label><br>
+
+            Velg kjønn: <br />
+            <input type="radio" id="gender_female" name="gender" value="female">
+            <label for="female">Kvinne</label>
+            <input type="radio" id="gender_male" name="gender" value="male">
+            <label for="mae">Mann</label>
+            <input type="radio" id="gender_other" name="gender" value="other">
+            <label for="other">Annet</label><br>
         </p>
     </div>
 
-    <div class="form-row">
-        <div class="form-group col-md-4">
-            <label asp-for="registerViewModel.DateOfBirth" for="dateofbirth">Fødselsdato:</label>
-            <input asp-for="registerViewModel.DateOfBirth" type="date" id="date" name="dateofbirth" required value="YYYY-MM-DD" min="1900-01-01" max="2022-02-10" /><br><br>
-        </div>
-    </div>
-     <div class="form-row">
-        <div class="form-group col-md-4">
-            <label asp-for="registerViewModel.Email" for="email">E-post:</label>
-            <input asp-for="registerViewModel.Email" type="email" id="email" name="email" required placeholder="olanordmann@epost.no" /><br><br>
-        </div>
-        <div class="form-group col-md-4">
-            <label asp-for="registerViewModel.UserName" for="username">Brukernavn:</label>
-            <input asp-for="registerViewModel.UserName" type="text" id="username" name="username" required placeholder="olanordmann" /><br><br>
-        </div>
-    </div>
-    <div class="form-group col-md-4">
-        <label asp-for="registerViewModel.Description" for="description">Beskrivelse:</label>
-        <textarea asp-for="registerViewModel.Description" name="description" form="register_form" placeholder="Skriv litt om deg selv..."></textarea><br><br>
-    </div>
-    <div class="form-row">
-        <div class="form-group col-md-4">
-            <label asp-for="registerViewModel.Password" for="password">Passord:</label><br>
-            <input asp-for="registerViewModel.Password" type="password" id="password" name="password" required placeholder="*********" /><br><br>
-        </div>
-        <div class="form-group col-md-4">
-            <label asp-for="registerViewModel.ConfirmPassword" for="confirmpassword">Gjenta passord:</label><br>
-            <input asp-for="registerViewModel.ConfirmPassword" type="password" id="rpassword" name="confirmpassword" required placeholder="*********" /><br><br>
-        </div>
-    </div>
-    <button type="submit" class="registerbtn">Registrer Bruker </button>
-    <div asp-validation-summary="All" class="text-danger"> </div>
-</form>
 
-       
+
+
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label for="date">Fødselsdato:</label><br>
+            <input type="date" id="date" name="date" required value="YYYY-MM-DD" min="1900-01-01" max=document.write(new Date().toLocaleDateString()); />
+            <br><br>
+        </div>
+        <div class="form-group col-md-4">
+
+            <label for="description">Beskrivelse:</label><br />
+            <textarea name="description" form="register_form" placeholder="Skriv litt om deg selv..."></textarea><br><br>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label for="password">Passord:</label><br />
+            <input type="password" id="password" name="password" required placeholder="*********"><br><br>
+        </div>
+        <div class="form-group col-md-4">
+            <label for="rpassword">Gjenta passord:</label><br />
+            <input type="password" id="rpassword" name="rpassword" required placeholder="*********"><br><br>
+
+        </div>
+    </div>
+    <label for="adminTekst">Er du administrator? Lag et Admin passord:</label><br />
+    <label for="APIkey">Admin passord:</label><br />
+    <input asp-for="registerViewModel.APIkey" type="text" required placeholder="*********" />
 
           
+
+
+    <button type="submit" class="registerbtn">Registrer Bruker </button>
+
+
+
+</form>
 
 
 <!---form-group col-lg-12-->
