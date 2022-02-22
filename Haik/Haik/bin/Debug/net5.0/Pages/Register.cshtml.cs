@@ -1,3 +1,4 @@
+
 ﻿using Haik.Models;
 using Haik.ViewModels;
 using Microsoft.AspNetCore.Identity;
@@ -19,7 +20,7 @@ namespace Haik.Pages
         private SignInManager<ApplicationUser> signInManager;
     
         [BindProperty]
-        public  RegisterViewModel registerViewModel { get; set; }
+        public RegisterViewModel registerViewModel { get; set; }
 
 
         public RegisterModel(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, HaikDBContext dbContext)
@@ -41,8 +42,11 @@ namespace Haik.Pages
             {
                 var user = new ApplicationUser()
                 {
-                    UserName = registerViewModel.Email,
-                    Email = registerViewModel.Email
+                    UserName = registerViewModel.UserName,
+                    Email = registerViewModel.Email,
+                    Description = registerViewModel.Description,
+                    Gender = registerViewModel.Gender,
+                    DateOfBirth = registerViewModel.DateOfBirth
                 };
 
                 var result = await userManager.CreateAsync(user, registerViewModel.Password);
@@ -57,3 +61,4 @@ namespace Haik.Pages
         }
     }
 }
+
