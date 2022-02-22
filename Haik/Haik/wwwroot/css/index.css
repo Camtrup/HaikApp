@@ -1,0 +1,56 @@
+﻿.container {
+    max-width: 100%;
+    margin: 0;
+}
+
+.mainIntroductionContainer {
+    background-image: url(../Pictures/indexBackground.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 960px;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+.mainIntroductionContainer p {
+    width: 60%;
+    position: absolute;
+    bottom: 10%;
+}
+.mainIntroductionContainer .indexBtnContainer {
+    position: absolute;
+    bottom: 50%;
+    left: 20%;
+}
+.mainIntroductionContainer .indexBtnContainer a{
+    margin: 50px;
+}
+.indexSearchBarContainer {
+    height: 300px;
+    background-image: url(../Pictures/indexSearchBackground.jpg);
+    background-position-y: 50%;
+    background-size:cover;
+    position: relative;
+    margin-bottom: 20px;
+}
+.indexSearchBarContainer form {
+    position: absolute;
+    width: 50%;
+    top: 45%;
+    left: 30%;
+    margin: auto;
+}
+
+.indexLoggedInMainContainer {
+    max-width: 80%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 40px;
+}
+.indexLoggedInMainContainer div{
+    height: 200px;
+    border: solid grey 3px;
+    border-radius: 10px;
+    text-align: center;
+}
