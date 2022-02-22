@@ -1,38 +1,22 @@
 ﻿<Properties StartupConfiguration="{8E2F8544-59F1-4981-938E-CFCAFDBAAF9F}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Haik/wwwroot/lib/bootstrap/dist/css/bootstrap.css">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Haik/Pages/Register.cshtml">
     <Files>
       <File FileName="Haik/ViewModels/RegisterViewModel.cs" Line="22" Column="41" />
-      <File FileName="Haik/Pages/Index.cshtml.cs" Line="1" Column="1" />
-      <File FileName="Haik/Pages/Index.cshtml" Line="7" Column="13" />
+      <File FileName="Haik/Pages/Index.cshtml.cs" Line="30" Column="10" />
+      <File FileName="Haik/Pages/Index.cshtml" Line="23" Column="1" />
       <File FileName="Haik/appsettings.json" Line="1" Column="1" />
       <File FileName="Haik/Models/HaikDbContext.cs" Line="1" Column="1" />
       <File FileName="Haik/wwwroot/lib/bootstrap/dist/css/bootstrap.css" Line="580" Column="2" />
-      <File FileName="Haik/wwwroot/css/index.css" Line="5" Column="19" NotebookId="1" />
+      <File FileName="Haik/Pages/Register.cshtml.cs" Line="17" Column="26" />
+      <File FileName="Haik/Pages/Register.cshtml" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Haik" expanded="True">
             <Node name="Haik" expanded="True">
-              <Node name="Models" expanded="True" />
               <Node name="Pages" expanded="True">
-                <Node name="Shared" expanded="True" />
-                <Node name="Index.cshtml" expanded="True" />
-                <Node name="Register.cshtml" expanded="True" />
-              </Node>
-              <Node name="ViewModels" expanded="True" />
-              <Node name="wwwroot" expanded="True">
-                <Node name="css" expanded="True" />
-                <Node name="lib" expanded="True">
-                  <Node name="bootstrap" expanded="True">
-                    <Node name="dist" expanded="True">
-                      <Node name="css" expanded="True">
-                        <Node name="bootstrap.css" selected="True" />
-                      </Node>
-                    </Node>
-                  </Node>
-                </Node>
-                <Node name="Pictures" expanded="True" />
+                <Node name="Register.cshtml" expanded="True" selected="True" />
               </Node>
             </Node>
           </Node>
@@ -40,11 +24,7 @@
       </Pad>
       <Pad Id="ClassPad">
         <State name="__root__">
-          <Node name="Haik" expanded="True">
-            <Node name="Haik" expanded="True">
-              <Node name="Haik" selected="True" />
-            </Node>
-          </Node>
+          <Node name="Haik" selected="True" />
         </State>
       </Pad>
       <Pad Id="MonoDevelop.Debugger.WatchPad">
