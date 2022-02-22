@@ -30,7 +30,7 @@ namespace Haik.ViewModels
         [Required]
         [DataType(DataType.Date)]
         public string DateOfBirth { get; set; }
-        [DataType(DataType.Date)]
+        [DataType(DataType.Text)]
         public string Description { get; set; }
         [Required]
         [DataType(DataType.Text)]

@@ -14,37 +14,46 @@ namespace Haik.Pages
 {
   public class RegisterModel : PageModel
   {
-    private readonly ILogger<RegisterModel> _logger;
-    private readonly HaikDBContext dbContext;
-    private readonly UserManager<ApplicationUser> userManager;
-    public RegisterViewModel registerViewModel { get; set; }
-    private IEnumerable<ApplicationUser> DBUsers { get; set; }
+        private readonly HaikDBContext dbContext;
+        private readonly UserManager<ApplicationUser> userManager;
+        private SignInManager<ApplicationUser> signInManager;
+    
+        [BindProperty]
+        public  RegisterViewModel registerViewModel { get; set; }
 
 
-        public RegisterModel(UserManager<ApplicationUser> userManager, HaikDBContext dbContext)
-    {
+        public RegisterModel(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, HaikDBContext dbContext)
+        {
         this.userManager = userManager;
+        this.signInManager = signInManager;
         this.dbContext = dbContext;
         
-    }
-
-    public void OnGet()
-    {
-      
-    }
-
-    public async Task<IActionResult> OnPostAsync()
-    {
- 
-        DBUsers = await dbContext.Users.ToListAsync();
-        foreach (ApplicationUser i in DBUsers)
-        {
-            if (i.Email == registerViewModel.Email)
-            {
-                return RedirectToPage("Error");
-            }
         }
-        return Page();
+
+        public void OnGet()
+        {
+        
+        }
+
+        public async Task<IActionResult> OnPostAsync()
+        {
+            if (ModelState.IsValid)
+            {
+                var user = new ApplicationUser()
+                {
+                    UserName = registerViewModel.Email,
+                    Email = registerViewModel.Email
+                };
+
+                var result = await userManager.CreateAsync(user, registerViewModel.Password);
+                if (result.Succeeded)
+                {
+                    await signInManager.SignInAsync(user, false);
+                    return RedirectToPage("/Index");
+                }
+            }
+            return Page();
+
+        }
     }
-  }
 }
