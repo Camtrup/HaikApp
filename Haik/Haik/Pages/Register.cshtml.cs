@@ -17,18 +17,23 @@ namespace Haik.Pages
     private readonly ILogger<RegisterModel> _logger;
     private readonly HaikDBContext dbContext;
     private readonly UserManager<ApplicationUser> userManager;
+    [BindProperty]
     public RegisterViewModel registerViewModel { get; set; }
     private IEnumerable<ApplicationUser> DBUsers { get; set; }
 
+        private readonly SignInManager<ApplicationUser> signInManager;
 
-        public RegisterModel(UserManager<ApplicationUser> userManager, HaikDBContext dbContext)
+
+        public RegisterModel(UserManager<ApplicationUser> userManager, HaikDBContext dbContext, SignInManager<ApplicationUser> signInManager)
     {
         this.userManager = userManager;
         this.dbContext = dbContext;
-        
-    }
+            this.signInManager = signInManager;
 
-    public void OnGet()
+
+        }
+
+        public void OnGet()
     {
       
     }
@@ -36,14 +41,45 @@ namespace Haik.Pages
     public async Task<IActionResult> OnPostAsync()
     {
  
-        DBUsers = await dbContext.Users.ToListAsync();
-        foreach (ApplicationUser i in DBUsers)
-        {
-            if (i.Email == registerViewModel.Email)
+        if(Environment.GetEnvironmentVariable("ApiKey") == registerViewModel.APIkey)
             {
-                return RedirectToPage("Error");
+                //admin confirmed
+                if (ModelState.IsValid)
+                {
+                    var u = new ApplicationUser()
+                    {
+                        UserName = registerViewModel.Email,
+                        Email = registerViewModel.Email,
+                        Admin = true
+                    };
+
+                    var result = await userManager.CreateAsync(u, registerViewModel.Password);
+                    if (result.Succeeded)
+                    {
+                        await signInManager.SignInAsync(u, false);
+                        return RedirectToPage("Index");
+                    }
+                }
             }
-        }
+            else
+            {
+                if (ModelState.IsValid)
+                {
+                    var u = new ApplicationUser()
+                    {
+                        UserName = registerViewModel.Email,
+                        Email = registerViewModel.Email,
+                        Admin = false
+                    };
+
+                    var result = await userManager.CreateAsync(u, registerViewModel.Password);
+                    if (result.Succeeded)
+                    {
+                        await signInManager.SignInAsync(u, false);
+                        return RedirectToPage("Index");
+                    }
+                }
+            }
         return Page();
     }
   }
