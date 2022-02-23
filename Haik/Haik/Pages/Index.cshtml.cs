@@ -21,8 +21,8 @@ namespace Haik.Pages
         
         public async Task<IActionResult> OnGet()
         {
-            Debug.WriteLine("");
-            if (User.Identity.Name != "NULL") //Sjekke om en har sjekket av "husk meg"
+            Debug.WriteLine(User.Identity.Name);
+            if (User.Identity.Name != null) //Sjekke om en har sjekket av "husk meg"
             {
                 return RedirectToPage("/IndexLoggedIn");
             }
