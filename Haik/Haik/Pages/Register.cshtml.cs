@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace Haik.Pages
 {
@@ -37,6 +38,7 @@ namespace Haik.Pages
         }
 
         public async Task<IActionResult> OnPostAsync()
+        
         {
             if (ModelState.IsValid)
             {
@@ -46,6 +48,8 @@ namespace Haik.Pages
                     Email = registerViewModel.Email,
                     Description = registerViewModel.Description,
                     Gender = registerViewModel.Gender,
+                    FirstName = registerViewModel.FirstName,
+                    LastName = registerViewModel.LastName,
                     DateOfBirth = registerViewModel.DateOfBirth
                 };
 

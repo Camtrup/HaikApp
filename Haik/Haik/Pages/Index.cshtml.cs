@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
-using System.Diagnostics;
+ using System.Diagnostics;
 
 namespace Haik.Pages
 {
@@ -22,7 +22,7 @@ namespace Haik.Pages
         public async Task<IActionResult> OnGet()
         {
             Debug.WriteLine(User.Identity.Name);
-            if (User.Identity.Name != null) //Sjekke om en har sjekket av "husk meg"
+            if (User.Identity.Name != "NULL") //Sjekke om en har sjekket av "husk meg"
             {
                 return RedirectToPage("/IndexLoggedIn");
             }

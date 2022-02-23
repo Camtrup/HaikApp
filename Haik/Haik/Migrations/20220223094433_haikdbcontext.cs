@@ -26,6 +26,7 @@ namespace Haik.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Admin = table.Column<bool>(type: "bit", nullable: false),
                     FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -55,15 +56,21 @@ namespace Haik.Migrations
                 name: "Trips",
                 columns: table => new
                 {
-                    ID = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Location = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Participants = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    OwnerId = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    OwnerId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Duration = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Difficulty = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Date = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Equipment = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Trips", x => x.ID);
+                    table.PrimaryKey("PK_Trips", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(

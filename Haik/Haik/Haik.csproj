@@ -13,7 +13,6 @@
   <ItemGroup>
     <Content Remove="wwwroot\Pictures\Hiking-register.jpg" />
     <Content Remove="wwwroot\Pictures\" />
-    <Content Remove="Pages\IndexLoggedIn.cshtml" />
     <Content Remove="wwwroot\Pictures\indexBackground.jpg" />
     <Content Remove="wwwroot\Pictures\indexSearchBackground.jpg" />
     <Content Remove="wwwroot\css\index.css" />
@@ -34,9 +33,10 @@
     <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.13" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.13" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Remove="Pages\IndexLoggedIn.cshtml.cs" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.13">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Pages\Register.cshtml.cs">
