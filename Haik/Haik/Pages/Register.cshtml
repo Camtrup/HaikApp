@@ -1,10 +1,10 @@
 ﻿@page
 @model Haik.Pages.RegisterModel
 @{
-ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Home page";
 }
 
-<link rel="stylesheet" href="~/css/logInsite.css" />
+<link rel="stylesheet" />
 
 <style>
     .display-4 {
@@ -14,25 +14,27 @@ ViewData["Title"] = "Home page";
 
     form {
         margin-left: 550px;
-        height: 600px;
+        background-size: cover;
+        background-position: center;
+        height: 960px;
+        
     }
 
-        form input {
-            margin-right: 10px;
-        }
+    form input {
+        margin-right: 20px;
+    }
 </style>
 
 <div style="float: left">
     <img src="~/Pictures/Hiking-register.jpg"
          width="500"
-         height="650" />
+         height="800" />
 
 </div>
 
 
-<h1 class="display-4">Registrer bruker</h1>
-<br>
-<br>
+<h1 class="display-4 text-info"><b>Registrer bruker</b></h1>
+<br />
 <form asp-action="Register" id="register_form" method="post">
     <div class="form-row">
         <div class="form-group col-md-4">
@@ -46,13 +48,15 @@ ViewData["Title"] = "Home page";
     </div>
     <div class="form-group">
         <p>
+
             Velg kjønn:
-            <input asp-for="registerViewModel.Gender" type="radio" id="gender_female" name="Gender" value="female" />
             <label for="female">Kvinne</label>
-            <input asp-for="registerViewModel.Gender" type="radio" id="gender_male" name="Gender" value="male" />
-            <label for="male">Mann</label>
-            <input asp-for="registerViewModel.Gender" type="radio" id="gender_other" name="Gender" value="other" />
-            <label for="other">Annet</label><br>
+            <input type="radio" id="gender_female" name="gender" value="female">
+            <label for="mae">Mann</label>
+            <input type="radio" id="gender_male" name="gender" value="male">
+            <label for="other">Annet</label>
+            <input type="radio" id="gender_other" name="gender" value="other">
+
         </p>
     </div>
 
@@ -72,9 +76,9 @@ ViewData["Title"] = "Home page";
             <input asp-for="registerViewModel.UserName" type="text" id="username" name="Username" required placeholder="olanordmann" /><br><br>
         </div>
     </div>
-    <div class="form-group col-md-4">
-        <label asp-for="registerViewModel.Description" for="description">Beskrivelse:</label>
-        <textarea asp-for="registerViewModel.Description" name="description" form="register_form" placeholder="Skriv litt om deg selv..."></textarea><br><br>
+    <div class="form-group">
+        <label asp-for="registerViewModel.Description" for="description">Beskrivelse:</label><br />
+        <textarea asp-for="registerViewModel.Description" name="description" form="register_form" placeholder="Skriv litt om deg selv..."></textarea><br>
     </div>
     <div class="form-row">
         <div class="form-group col-md-4">
@@ -87,14 +91,15 @@ ViewData["Title"] = "Home page";
         </div>
     </div>
 
-    <label for="adminTekst">Er du administrator? Lag et Admin passord:</label><br />
-    <label for="APIkey">Admin passord:</label><br />
-    <input asp-for="registerViewModel.APIkey" type="text" name="APIKey" placeholder="*********" />
-    <br />
+    <div class="p-3 mb-2 border border-info text-black-50">
+        <label for="adminTekst">Er du administrator? </label><br />
+        <label for="APIkey">Lag et Admin passord:</label><br />
+        <input asp-for="registerViewModel.APIkey" type="text" name="APIKey" placeholder="*********" />
+    </div>
+        <br />
 
-
-    <button type="submit" class="registerbtn">Registrer Bruker </button>
-    <br />
-    <div asp-validation-summary="All" class="text-danger"> </div>
+        <button type="submit" class="btn btn-info">Registrer Bruker </button>
+        <br />
+        <div asp-validation-summary="All" class="text-danger"> </div>
 
 </form>

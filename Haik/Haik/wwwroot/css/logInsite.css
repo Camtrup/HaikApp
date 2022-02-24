@@ -8,8 +8,6 @@ namespace Haik.wwwroot.css {
 }
 
 
-
-
 .registerbtn {
     background-color: #17a2b8;
     width: 150px;
@@ -19,13 +17,11 @@ namespace Haik.wwwroot.css {
 }
 
 .text-center {
-    background-color: #D8DEDC;
+    background-color: #ffffff;
     height: 600px;
     border: solid;
     width: 400px;
     margin-left: 400px;
-   
-    
 }
 
 .loginbtn {
@@ -37,14 +33,12 @@ namespace Haik.wwwroot.css {
     font-size: 16px;
 }
 
-
-
-
-
 body {
-    
-    background-color: #D8DEDC;
+    height: 500px;
+    width: 500px;
+    background-color: transparent;
 }
+
 
 
     
