@@ -4,14 +4,16 @@
     ViewData["Title"] = "Home page";
 }
 
-<link rel="stylesheet" href="~/css/logInsite.css" />
+<link rel="stylesheet"  />
 
 <style>
     body {
-        background-image: url("https://i.ibb.co/CsxWpnx/Untitled-1.jpg");
-        background-repeat: no-repeat;
+        background-image: url(../Pictures/logInBackground.jpg);
+        background-size: cover;
         background-position: center;
-        background-size: 100%;
+        height: 960px;
+        text-align: center;
+        position: relative;
     }
 
     h1 {
@@ -35,16 +37,10 @@
 
 <div class="text-center" style=" text-align: center">
 
-
-
-
-    <h1 class="display-3"><b>Logg inn</b></h1><br><br />
     <form id="register_form" action="/action_page.php">
 
-
-
-
-        <div class="container">
+        <div class="container bg-light" style="width: 350px; height: 500px";>
+            <h1 class="display-3 text-info"><b>Logg inn</b></h1><br><br />
             <label asp-for="loginViewModel.Email"><b>Email:</b></label><br>
             <input type="text" id="email" name="email" required placeholder="olanordmann@epost.no"><br>
             <br />
@@ -52,10 +48,10 @@
 
 
             <label for="password"><b>Passord:</b></label><br>
-            <input type="password" id="password" name="password" required placeholder="*********"><br><br><br /><br />
+            <input type="password" id="password" name="password" required placeholder="*********"><br><br><br />
 
-            
-            <button type="submit" class="loginbtn">Logg inn </button><br><br><br /><br />
+
+            <button type="submit" class="btn btn-info" >Logg inn </button><br><br>
 
 
             <label>
@@ -65,15 +61,6 @@
 
 
         </div>
-
-
-
-
-
-
-
-
-
 
 
 
