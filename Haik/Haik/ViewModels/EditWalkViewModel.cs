@@ -6,24 +6,25 @@ using System.Threading.Tasks;
 
 namespace Haik.ViewModels
 {
-    public class WalkViewModel
+    public class EditWalkViewModel
     {
-        [Required]
+        public int Id { get; set; }
+        
         [DataType(DataType.Text)]
         public string Description { get; set; }
-        [Required]
+        
         [DataType(DataType.Text)]
         public string Participants { get; set; }
-        [Required]
+        
         [DataType(DataType.Text)]
         public string OwnerId { get; set; }
-        [Required]
+       
         [DataType(DataType.Text)]
         public string Name { get; set; }
-        [Required]
+       
         [DataType(DataType.Text)]
         public string Location { get; set; }
-        [Required]
+        
         [DataType(DataType.Text)]
         public string Duration { get; set; }
         [DataType(DataType.Text)]
