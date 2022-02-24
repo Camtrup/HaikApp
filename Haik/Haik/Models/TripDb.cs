@@ -13,7 +13,7 @@ namespace Haik.Models
         public string Name { get; set; }
         public string Location { get; set; }
         public string Description { get; set; }
-        public string Participants { get; set; }
+        public string JsonParticipantUids { get; set; }
         public string OwnerId { get; set; }
         public string Duration { get; set; }
         public string Difficulty { get; set; }
