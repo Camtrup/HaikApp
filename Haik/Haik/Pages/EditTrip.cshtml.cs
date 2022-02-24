@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Haik.Models;
 using Haik.ViewModels;
@@ -26,7 +27,21 @@ namespace Haik.Pages
 
         }
 
-        
+        public async Task<IActionResult> DeleteTrip()
+        {
+            var tripToDelete = dbContext.Trips.Where<TripDb>(d => d.Id == walkViewModel.Id).FirstOrDefault();
+            if (tripToDelete.OwnerId == User.FindFirstValue(ClaimTypes.NameIdentifier))
+            {
+                dbContext.Trips.Remove(tripToDelete);
+                await dbContext.SaveChangesAsync();
+                return Page();
+            }
+            else
+            {
+                return Page();
+            }
+
+        }
 
         public async Task<IActionResult> OnPostAsync()
         {
@@ -44,6 +59,7 @@ namespace Haik.Pages
             {
                 userID = await _userManager.GetUserIdAsync(u);
             }
+
 
 
             if(userID != null)
