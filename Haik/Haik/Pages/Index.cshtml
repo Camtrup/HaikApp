@@ -10,8 +10,8 @@
     <div class="container-fluid">
         <div class=" container-fluid mainIntroductionContainer">
             <div class="indexBtnContainer">
-                <a asp-page="/Login"><button class="btn btn-primary btn-lg">Logg inn</button></a>
-                <a asp-page="/Register"><button class="btn btn-outline-primary btn-lg">Registrer deg</button></a>
+                <a asp-page="/Login"><button class="btn btn-info btn-lg">Logg inn</button></a>
+                <a asp-page="/Register"><button class="btn btn-outline-info btn-lg">Registrer deg</button></a>
             </div>
             <h2 id="introTitle">Velommen til Haik!</h2>
             <p id="introDescription">
@@ -52,7 +52,6 @@ else
                     {
                         @foreach (var d in Model.userUpComingTrips)
                         {
-
                             <a asp-page="/EditTrip" class="tripElementLinkIndex">
                                 <div class="tripElementIndex">
                                     <h4>@d.Name</h4>
@@ -105,3 +104,4 @@ else
 
     </div>
 }
+
