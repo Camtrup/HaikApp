@@ -54,7 +54,7 @@ namespace Haik.Pages
                 Date = vm.date, 
                 Equipment = vm.equipment,
                 OwnerId = userID
-                //Her må man legge inn deltagere på turen etter hvert når de trykker "bli med på tur"?
+                //Predefined participants could be added her, but application owner did not request this.
             };
             dbContext.Trips.Add(newTrip);
             dbContext.SaveChanges();
