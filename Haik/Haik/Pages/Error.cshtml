@@ -1,4 +1,7 @@
-﻿@page
+﻿@page "{id}"
+@{
+var id = RouteData.Values["id"];
+}
 @model ErrorModel
 @{
     ViewData["Title"] = "Error";
@@ -13,7 +16,7 @@
         <strong>Request ID:</strong> <code>@Model.RequestId</code>
     </p>
 }
-
+<h1>@id</h1>
 <h3>Development Mode</h3>
 <p>
     Swapping to the <strong>Development</strong> environment displays detailed information about the error that occurred.

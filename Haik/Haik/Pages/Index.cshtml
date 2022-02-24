@@ -44,13 +44,13 @@ else
 
                 <div class="upcomingTrips">
                     <h3>Dine Kommende Turer</h3>
-                    @if (Model.userData == null)
+                    @if (Model.userUpComingTrips == null)
                     {
                         <h5 style="padding-top: 30px;">Du har ingen kommende turer </h5>
                     }
                     else
                     {
-                        @foreach (var d in Model.userData)
+                        @foreach (var d in Model.userUpComingTrips)
                         {
 
                             <a asp-page="/EditTrip" class="tripElementLinkIndex">
@@ -83,7 +83,7 @@ else
                     @foreach (var d in Model.data)
                     {
 
-                        <a asp-page="/EditTrip" class="tripElementLinkIndex">
+                        <a asp-page="/Error" asp-route-id="@d.Id" class="tripElementLinkIndex">
                             <div class="tripElementIndex">
                                 <h4>@d.Name</h4>
                                 @if (d.Participants == null)

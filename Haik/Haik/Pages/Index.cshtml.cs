@@ -17,7 +17,7 @@ namespace Haik.Pages
         private readonly HaikDBContext dbContext;
         private ApplicationUser user;
         public List<TripDb> data = null;
-        public List<TripDb> userData = null;
+        public List<TripDb> userUpComingTrips = null;
         public SignInManager<ApplicationUser> signInManager;
 
 

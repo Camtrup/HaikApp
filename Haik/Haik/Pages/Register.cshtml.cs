@@ -33,7 +33,7 @@ namespace Haik.Pages
 
         public void OnGet()
         {
-        
+         
         }
 
         public async Task<IActionResult> OnPostAsync()

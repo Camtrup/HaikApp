@@ -23,8 +23,7 @@ namespace Haik.Pages
         {
             _logger = logger;
         }
-
-        public void OnGet()
+        public void OnGet(int id)
         {
             RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier;
         }
