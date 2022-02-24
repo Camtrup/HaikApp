@@ -39,20 +39,20 @@
 
 
     <h1 class="display-3"><b>Logg inn</b></h1><br><br />
-    <form id="register_form" action="/action_page.php">
+    <form id="register_form" asp-action="Login" method="post">
 
 
 
 
         <div class="container">
-            <label asp-for="loginViewModel.Email"><b>Email:</b></label><br>
-            <input type="text" id="email" name="email" required placeholder="olanordmann@epost.no"><br>
+            <label asp-for="loginViewModel.Email"><b>Brukernavn:</b></label><br>
+            <input asp-for="loginViewModel.Email" type="text" id="email" name="email" required placeholder="olanordmann"><br>
             <br />
 
 
 
-            <label for="password"><b>Passord:</b></label><br>
-            <input type="password" id="password" name="password" required placeholder="*********"><br><br><br /><br />
+            <label asp-for="loginViewModel.Password" for="password"><b>Passord:</b></label><br>
+            <input asp-for="loginViewModel.Password" type="password" id="password" name="password" required placeholder="*********"><br><br><br /><br />
 
             
             <button type="submit" class="loginbtn">Logg inn </button><br><br><br /><br />

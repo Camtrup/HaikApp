@@ -276,7 +276,6 @@ C:\Users\amtru\source\repos\haik\Haik\Haik\obj\Debug\net5.0\Razor\Pages\EditTrip
 C:\Users\amtru\source\repos\haik\Haik\Haik\obj\Debug\net5.0\Razor\Pages\Error.cshtml.g.cs
 C:\Users\amtru\source\repos\haik\Haik\Haik\obj\Debug\net5.0\Razor\Pages\Index.cshtml.g.cs
 C:\Users\amtru\source\repos\haik\Haik\Haik\obj\Debug\net5.0\Razor\Pages\Login.cshtml.g.cs
-C:\Users\amtru\source\repos\haik\Haik\Haik\obj\Debug\net5.0\Razor\Pages\Privacy.cshtml.g.cs
 C:\Users\amtru\source\repos\haik\Haik\Haik\obj\Debug\net5.0\Razor\Pages\Profile.cshtml.g.cs
 C:\Users\amtru\source\repos\haik\Haik\Haik\obj\Debug\net5.0\Razor\Pages\Register.cshtml.g.cs
 C:\Users\amtru\source\repos\haik\Haik\Haik\obj\Debug\net5.0\Razor\Pages\Shared\_Layout.cshtml.g.cs
@@ -292,4 +291,4 @@ C:\Users\amtru\source\repos\haik\Haik\Haik\obj\Debug\net5.0\ref\Haik.dll
 C:\Users\amtru\source\repos\haik\Haik\Haik\obj\Debug\net5.0\Haik.pdb
 C:\Users\amtru\source\repos\haik\Haik\Haik\obj\Debug\net5.0\Haik.genruntimeconfig.cache
 C:\Users\amtru\source\repos\haik\Haik\Haik\obj\Debug\net5.0\Haik.csproj.AssemblyReference.cache
-C:\Users\amtru\source\repos\haik\Haik\Haik\obj\Debug\net5.0\Razor\Pages\IndexLoggedIn.cshtml.g.cs
+C:\Users\amtru\Source\Repos\haik\Haik\Haik\obj\Debug\net5.0\Razor\Pages\LogOut.cshtml.g.cs

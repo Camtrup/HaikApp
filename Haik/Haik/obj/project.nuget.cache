@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+hP41Zo9F4I2TWUKBrrdemEVzUVDLJq3Lz0ml6vggFZZRuAgMLeykBPRgPVubgdFivPaBDuBWQTpt3Z9vpuTCQ==",
+  "dgSpecHash": "SoR8gtKEa+hGSveAoZ1vvSCUaJ+Qj+Cp490oO0ghMKUCiZlWBKFREoCozODGEaPUMzT0kdp5UhSF8jY0DPkuMg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\amtru\\source\\repos\\haik\\Haik\\Haik\\Haik.csproj",
+  "projectFilePath": "C:\\Users\\amtru\\Source\\Repos\\haik\\Haik\\Haik\\Haik.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\amtru\\.nuget\\packages\\microsoft.aspnetcore\\2.2.0\\microsoft.aspnetcore.2.2.0.nupkg.sha512",
     "C:\\Users\\amtru\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
