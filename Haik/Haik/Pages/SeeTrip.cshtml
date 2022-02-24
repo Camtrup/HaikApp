@@ -1,0 +1,70 @@
+﻿@page
+@model Haik.Pages.SeeTripModel
+@{
+}
+
+<style>
+    .tripNameContainer {
+        text-align: center;
+    }
+    .tripInfoContainer{
+        border: solid 3px grey;
+        width: 80%
+    }
+
+    .descriptionContainer{
+        border: solid 3px grey;
+        width: 80%
+
+
+
+    }
+
+    .allInfo{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .joinTripButton{
+       
+        align-items: center;
+        text-align: center;
+    }
+</style>
+
+
+<link rel="stylesheet" href="~/css/index.css" />
+
+
+<div class="container-fluid">
+    <div class="tripNameContainer">
+        <h1>@Model.name </h1> 
+    </div>
+
+    <div class="allInfo">
+
+        <div class="tripInfoContainer">
+            Lokasjon: @Model.location <br />
+            Varighet: @Model.duration <br />
+            Dato: @Model.date <br />
+            Vanskelighetsgrad:@Model.difficulty <br />
+            Utstyr: @Model.equipment <br />
+
+        </div>
+
+        <div class="descriptionContainer">
+            <h3>Beskrivelse</h3>
+            @Model.description
+            
+        </div>
+
+
+
+
+    </div>
+
+    <div class="joinTripButton">
+        <button class="btn btn-outline-primary btn-lg">Bli med</button>
+    </div>
+
+</div>
