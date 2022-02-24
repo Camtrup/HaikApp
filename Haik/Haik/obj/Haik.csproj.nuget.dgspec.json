@@ -1,28 +1,35 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\amtru\\source\\repos\\haik\\Haik\\Haik\\Haik.csproj": {}
+    "C:\\Users\\fixyo\\source\\repos\\haik\\Haik\\Haik\\Haik.csproj": {}
   },
   "projects": {
-    "C:\\Users\\amtru\\source\\repos\\haik\\Haik\\Haik\\Haik.csproj": {
+    "C:\\Users\\fixyo\\source\\repos\\haik\\Haik\\Haik\\Haik.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\amtru\\source\\repos\\haik\\Haik\\Haik\\Haik.csproj",
+        "projectUniqueName": "C:\\Users\\fixyo\\source\\repos\\haik\\Haik\\Haik\\Haik.csproj",
         "projectName": "Haik",
-        "projectPath": "C:\\Users\\amtru\\source\\repos\\haik\\Haik\\Haik\\Haik.csproj",
-        "packagesPath": "C:\\Users\\amtru\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\amtru\\source\\repos\\haik\\Haik\\Haik\\obj\\",
+        "projectPath": "C:\\Users\\fixyo\\source\\repos\\haik\\Haik\\Haik\\Haik.csproj",
+        "packagesPath": "C:\\Users\\fixyo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\fixyo\\source\\repos\\haik\\Haik\\Haik\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "C:\\Users\\amtru\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\fixyo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://www.nuget.org/api/v2/curated-feeds/microsoftdotnet/": {}
+          "C:\\Users\\fixyo\\oo\\OsirisPerformanceAnalytics\\localpackages": {},
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
@@ -59,6 +66,12 @@
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[5.0.13, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.13, )"
             }
           },
           "imports": [
@@ -79,7 +92,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.405\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }
