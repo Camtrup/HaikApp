@@ -13,6 +13,9 @@
   <ItemGroup>
     <Content Remove="wwwroot\Pictures\Hiking-register.jpg" />
     <Content Remove="wwwroot\Pictures\" />
+    <Content Remove="wwwroot\Pictures\indexBackground.jpg" />
+    <Content Remove="wwwroot\Pictures\indexSearchBackground.jpg" />
+    <Content Remove="wwwroot\css\index.css" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Microsoft.AspNetCore" />

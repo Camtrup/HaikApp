@@ -1,45 +1,54 @@
 ﻿@page
-@model Haik.Pages.CreateTripModel
+@model Haik.Pages.CreateTrip
 @{
 }
 
 
-<form>
+<form method="post">
     <h1 class="card-title">Opprett turarrangement</h1><br />
-    <div class="p-3 mb-2 bg-info text-white">
 
-        <label for="title"> Navn på arrangement:</label>
-        <input type="text" class="form-control" id="title" placeholder="Navn på arrangement..."><br />
+                                                      <div class="p-3 mb-2 bg-info text-white">
 
-        <label for="location"> Lokasjon: </label>
-        <input type="text" class="form-control" id="location" placeholder="Lokasjon..." /><br />
+                                                          <label for="title"> Navn på arrangement:</label>
+                                                          <input asp-for="walkViewModel.name" type="text" class="form-control" id="title" placeholder="Navn på arrangement..."><br />
 
-        <label for="duration"> Varighet: </label>
-        <input type="text" class="form-control" id="duration" placeholder="Hvor lang er turen?" /><br />
+                                                          <label for="location"> Lokasjon: </label>
+                                                          <input asp-for="walkViewModel.location" type="text" class="form-control" id="location" placeholder="Lokasjon..." /><br />
 
-        <label for="description"> Beskrivelse: </label>
-        <textarea class="form-control" id="description" placeholder="Beskrivelse..."></textarea><br />
+                                                          <label for="duration"> Varighet: </label>
+                                                          <input asp-for="walkViewModel.duration" type="text" class="form-control" id="duration" placeholder="Hvor lang er turen?" /><br />
 
-        <label for="difficulty"> Vanskelighetsgrad: </label><br />
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" >
-            <label class="form-check-label" for="flexRadioDefault1">Lett</label>
-         </div>     
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" >
-            <label class="form-check-label" for="flexRadioDefault2">Middels</label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" >
-            <label class="form-check-label" for="flexRadioDefault3">Vanskelig</label>
-        </div><br />
+                                                          <label for="description"> Beskrivelse: </label>
+                                                          <textarea asp-for="walkViewModel.description" class="form-control" id="description" placeholder="Beskrivelse..."></textarea><br />
 
-        <label for="date"> Dato </label><br />
-        <input type="date" id="date" required value="YYYY-MM-DD" min="today"><br><br />
-
-        <label for="equipments"> Nødvendig utstyr </label>
-        <textarea class="form-control" id="equipments" placeholder="Utstyrsliste..."></textarea><br><br />
-        
-        <button type="button" class="btn btn-light">Opprett</button>
+                                                          <!--
+    <label for="difficulty"> Vanskelighetsgrad: </label><br />
+    <div class="form-check">
+        <input asp-for="walkViewModel.difficulty" class="form-check-input" type="radio" name="difficulty" id="difficulty" value="Lett">
+        <label class="form-check-label" for="flexRadioDefault1">Lett</label>
     </div>
+
+    <div class="form-check">
+        <input asp-for="walkViewModel.difficulty" class="form-check-input" type="radio" name="difficulty" id="difficulty" value="Middels">
+        <label class="form-check-label" for="flexRadioDefault2">Middels</label>
+    </div>
+
+    <div class="form-check">
+        <input asp-for="walkViewModel.difficulty" class="form-check-input" type="radio" name="difficulty" id="difficulty" value="Vanskelig">
+        <label class="form-check-label" for="flexRadioDefault3">Vanskelig</label>
+    </div><br />
+    -->
+                                                          
+                                                          <label for="date"> Dato </label><br />
+                                                          <input asp-for="walkViewModel.date" type="date" id="date" required value="YYYY-MM-DD" min="today"><br><br />
+
+
+                                                          <label for="difficulty"> Vanskelighetsgrad </label><br />
+                                                          <input asp-for="walkViewModel.difficulty" type="text" id="difficulty"><br><br />
+
+                                                          <label for="equipments"> Nødvendig utstyr </label>
+                                                          <textarea class="form-control" asp-for="walkViewModel.equipment" id="equipments" placeholder="Utstyrsliste..."></textarea><br><br />
+
+                                                          <button type="submit" class="btn btn-light">Opprett</button>
+                                                      </div>
 </form>

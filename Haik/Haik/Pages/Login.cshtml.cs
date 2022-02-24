@@ -26,6 +26,7 @@ namespace Haik.Pages
 
         public void OnGet()
         {
+            signInManager.SignOutAsync();
 
         }
 

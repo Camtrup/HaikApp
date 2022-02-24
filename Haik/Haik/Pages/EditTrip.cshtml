@@ -1,0 +1,45 @@
+﻿@page
+@model Haik.Pages.EditTripModel
+@{
+}
+
+<form>
+    <h1 class="card-title">Rediger turarrangement</h1><br />
+    <div class="p-3 mb-2 bg-info text-white">
+
+        <label for="title"> Navn på arrangement:</label>
+        <input type="text" class="form-control" id="title" placeholder="Navn på arrangement..."><br />
+
+        <label for="location"> Lokasjon: </label>
+        <input type="text" class="form-control" id="location" placeholder="Lokasjon..." /><br />
+
+        <label for="duration"> Varighet: </label>
+        <input type="text" class="form-control" id="duration" placeholder="Hvor lang er turen?" /><br />
+
+        <label for="description"> Beskrivelse: </label>
+        <textarea class="form-control" id="description" placeholder="Beskrivelse..."></textarea><br />
+
+        <label for="difficulty"> Vanskelighetsgrad: </label><br />
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" >
+            <label class="form-check-label" for="flexRadioDefault1">Lett</label>
+         </div>     
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" >
+            <label class="form-check-label" for="flexRadioDefault2">Middels</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" >
+            <label class="form-check-label" for="flexRadioDefault3">Vanskelig</label>
+        </div><br />
+
+        <label for="date"> Dato </label><br />
+        <input type="date" id="date" required value="YYYY-MM-DD" min="today"><br><br />
+
+        <label for="equipments"> Nødvendig utstyr </label>
+        <textarea class="form-control" id="equipments" placeholder="Utstyrsliste..."></textarea><br><br />
+        
+        <button type="button" class="btn btn-light">Oppdater</button>
+        <button type="button" class="btn btn-danger">Slett Arrangement</button>
+    </div>
+</form>

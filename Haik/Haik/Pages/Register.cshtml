@@ -7,69 +7,69 @@ ViewData["Title"] = "Home page";
 <link rel="stylesheet" href="~/css/logInsite.css" />
 
 <style>
-.display-4 {
-    margin-left: 550px;
-}
+    .display-4 {
+        margin-left: 550px;
+    }
 
 
-form {
-    margin-left: 550px;
-    height: 600px;
-}
+    form {
+        margin-left: 550px;
+        height: 600px;
+    }
 
-form input{
-    margin-right: 10px;
-}
-
+        form input {
+            margin-right: 10px;
+        }
 </style>
 
 <div style="float: left">
-<img src="~/Pictures/Hiking-register.jpg"
-        width="500"
-        height="650" />
+    <img src="~/Pictures/Hiking-register.jpg"
+         width="500"
+         height="650" />
 
 </div>
 
 
-<h1 class="display-4">Registrer bruker</h1><br>
+<h1 class="display-4">Registrer bruker</h1>
+<br>
 <br>
 <form asp-action="Register" id="register_form" method="post">
     <div class="form-row">
         <div class="form-group col-md-4">
-            <label asp-for="registerViewModel.FirstName" for="firstname">Fornavn:</label>
-            <input asp-for="registerViewModel.FirstName" type="text" id="firstname" name="firstname" required placeholder="Ola" /><br><br>
+            <label asp-for="registerViewModel.FirstName" for="Firstname">Fornavn:</label>
+            <input asp-for="registerViewModel.FirstName" type="text" id="firstname" name="Firstname" required placeholder="Ola" /><br><br>
         </div>
         <div class="form-group col-md-4">
-            <label asp-for="registerViewModel.LastName" for="lastname">Etternavn:</label>
-            <input asp-for="registerViewModel.LastName" type="text" id="lastname" name="lastname" required placeholder="Nordmann" /><br><br>
+            <label asp-for="registerViewModel.LastName" for="Lastname">Etternavn:</label>
+            <input asp-for="registerViewModel.LastName" type="text" id="lastname" name="Lastname" required placeholder="Nordmann" /><br><br>
         </div>
     </div>
     <div class="form-group">
         <p>
             Velg kjønn:
-            <input asp-for="registerViewModel.Gender" type="radio" id="gender_female" name="gender" value="female" />
-            <label asp-for="registerViewModel.Gender" for="female">Kvinne</label>
-            <input asp-for="registerViewModel.Gender" type="radio" id="gender_male" name="gender" value="male" />
-            <label asp-for="registerViewModel.Gender" for="male">Mann</label>
-            <input asp-for="registerViewModel.Gender" type="radio" id="gender_other" name="gender" value="other" />
-            <label asp-for="registerViewModel.Gender" for="other">Annet</label><br>
+            <input asp-for="registerViewModel.Gender" type="radio" id="gender_female" name="Gender" value="female" />
+            <label for="female">Kvinne</label>
+            <input asp-for="registerViewModel.Gender" type="radio" id="gender_male" name="Gender" value="male" />
+            <label for="male">Mann</label>
+            <input asp-for="registerViewModel.Gender" type="radio" id="gender_other" name="Gender" value="other" />
+            <label for="other">Annet</label><br>
         </p>
     </div>
 
     <div class="form-row">
         <div class="form-group col-md-4">
-            <label asp-for="registerViewModel.DateOfBirth" for="dateofbirth">Fødselsdato:</label>
-            <input asp-for="registerViewModel.DateOfBirth" type="date" id="date" name="dateofbirth" required value="YYYY-MM-DD" min="1900-01-01" max="2022-02-10" /><br><br>
+            <label asp-for="registerViewModel.DateOfBirth" for="DateOfBirth">Fødselsdato:</label>
+            <input asp-for="registerViewModel.DateOfBirth" type="date" id="date" name="DateOfBirth" required value="YYYY-MM-DD" min="1900-01-01" max="2022-02-10" /><br><br>
         </div>
     </div>
-     <div class="form-row">
+    <div class="form-row">
         <div class="form-group col-md-4">
-            <label asp-for="registerViewModel.Email" for="email">E-post:</label>
-            <input asp-for="registerViewModel.Email" type="email" id="email" name="email" required placeholder="olanordmann@epost.no" /><br><br>
+            <label asp-for="registerViewModel.Email" for="Email">E-post:</label>
+            <input asp-for="registerViewModel.Email" type="email" id="email" name="Email" required placeholder="olanordmann@epost.no" /><br><br>
         </div>
         <div class="form-group col-md-4">
-            <label asp-for="registerViewModel.UserName" for="username">Brukernavn:</label>
-            <input asp-for="registerViewModel.UserName" type="text" id="username" name="username" required placeholder="olanordmann" /><br><br>
+            <label asp-for="registerViewModel.UserName" for="Username">Brukernavn:</label>
+            <input asp-for="registerViewModel.UserName" type="text" id="username" name="Username" required placeholder="olanordmann" /><br><br>
         </div>
     </div>
     <div class="form-group col-md-4">
@@ -78,21 +78,23 @@ form input{
     </div>
     <div class="form-row">
         <div class="form-group col-md-4">
-            <label asp-for="registerViewModel.Password" for="password">Passord:</label><br>
-            <input asp-for="registerViewModel.Password" type="password" id="password" name="password" required placeholder="*********" /><br><br>
+            <label asp-for="registerViewModel.Password" for="Password">Passord:</label><br>
+            <input asp-for="registerViewModel.Password" type="password" id="password" name="Password" required placeholder="*********" /><br><br>
         </div>
         <div class="form-group col-md-4">
-            <label asp-for="registerViewModel.ConfirmPassword" for="confirmpassword">Gjenta passord:</label><br>
-            <input asp-for="registerViewModel.ConfirmPassword" type="password" id="rpassword" name="confirmpassword" required placeholder="*********" /><br><br>
+            <label asp-for="registerViewModel.ConfirmPassword" for="ConfirmPassword">Gjenta passord:</label><br>
+            <input asp-for="registerViewModel.ConfirmPassword" type="password" id="confirmpassword" name="ConfirmPassword" required placeholder="*********" /><br><br>
         </div>
     </div>
+
+    <label for="adminTekst">Er du administrator? Lag et Admin passord:</label><br />
+    <label for="APIkey">Admin passord:</label><br />
+    <input asp-for="registerViewModel.APIkey" type="text" name="APIKey" placeholder="*********" />
+    <br />
+
+
     <button type="submit" class="registerbtn">Registrer Bruker </button>
+    <br />
     <div asp-validation-summary="All" class="text-danger"> </div>
+
 </form>
-
-       
-
-          
-
-
-<!---form-group col-lg-12-->
