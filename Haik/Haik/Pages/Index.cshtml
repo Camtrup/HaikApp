@@ -50,18 +50,18 @@ else
                     }
                     else
                     {
-                        @foreach (var d in Model.userUpComingTrips)
+                        @foreach (var d in Model.data)
                         {
-                            <a asp-page="/EditTrip" class="tripElementLinkIndex">
+                            <a asp-page="/SeeTrip" class="tripElementLinkIndex">
                                 <div class="tripElementIndex">
                                     <h4>@d.Name</h4>
-                                    @if (d.Participants == null)
+                                    @if (d.JsonParticipantUids == null)
                                     {
                                         <h4>0 Påmeldte</h4>
                                     }
                                     else
                                     {
-                                        <h4>@d.Participants Påmeldte</h4>
+                                        <h4>@d.JsonParticipantUids Påmeldte</h4>
                                     }
                                     <h4>@d.Difficulty</h4>
                                 </div>
@@ -82,16 +82,16 @@ else
                     @foreach (var d in Model.data)
                     {
 
-                        <a asp-page="/Error" asp-route-id="@d.Id" class="tripElementLinkIndex">
+                        <a asp-page="/SeeTrip" asp-route-id="@d.Id" class="tripElementLinkIndex">
                             <div class="tripElementIndex">
                                 <h4>@d.Name</h4>
-                                @if (d.Participants == null)
+                                @if (d.JsonParticipantUids == null)
                                 {
                                     <h4>0 Påmeldte</h4>
                                 }
                                 else
                                 {
-                                    <h4>@d.Participants Påmeldte</h4>
+                                    <h4>@d.JsonParticipantUids Påmeldte</h4>
                                 }
                                 <h4>@d.Difficulty</h4>
                             </div>
