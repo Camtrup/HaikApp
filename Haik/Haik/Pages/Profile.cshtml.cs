@@ -23,9 +23,9 @@ namespace Haik.Pages
 
         public IEnumerable<ApplicationUser> users { get; set; }
         public IEnumerable<TripDb> trips { get; set; }
-        public async void OnGet()
+        public void OnGet()
         {
-            users = await context.Users.ToListAsync();
+            users = context.Users.ToList();
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
             user = users.Where<ApplicationUser>(w => w.Id == userId).FirstOrDefault();

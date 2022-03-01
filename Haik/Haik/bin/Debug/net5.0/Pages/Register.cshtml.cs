@@ -57,6 +57,11 @@ namespace Haik.Pages
                     await signInManager.SignInAsync(user, false);
                     return RedirectToPage("/Index");
                 }
+                else
+                {
+                    return RedirectToPage("/Error");
+                }
+                
             }
             return Page();
 

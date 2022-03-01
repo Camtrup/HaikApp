@@ -66,7 +66,7 @@ namespace Haik.Pages
                     return RedirectToPage("Error");
                 }
             }*/
-            return Page();
+            return RedirectToPage("/Index");
         }
     }
 }

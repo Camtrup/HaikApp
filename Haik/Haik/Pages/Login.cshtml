@@ -38,8 +38,8 @@
 
         <div class="container bg-light" style="width: 350px; height: 500px" ;>
             <h1 class="display-3 text-info"><b>Logg inn</b></h1><br><br />
-            <label asp-for="loginViewModel.Email"><b>Email:</b></label><br>
-            <input asp-for="loginViewModel.Email" type="text" id="email" name="email" required placeholder="olanordmann@epost.no"><br>
+            <label asp-for="loginViewModel.Email"><b>Brukernavn:</b></label><br>
+            <input asp-for="loginViewModel.Email" type="text" id="email" name="email" required placeholder="olanordmann"><br>
             <br />
 
 
@@ -47,6 +47,7 @@
             <label for="password"><b>Passord:</b></label><br>
             <input asp-for="loginViewModel.Password" type="password" id="password" name="password" required placeholder="*********"><br><br><br />
 
+            <div class="text-danger" asp-validation-summary="All"></div>
 
             <button type="submit" class="btn btn-info">Logg inn </button><br><br>
 
@@ -54,7 +55,6 @@
             <label>
                 <input type="checkbox" checked="checked" name="remember"> Husk meg
             </label>
-
 
 
         </div>
