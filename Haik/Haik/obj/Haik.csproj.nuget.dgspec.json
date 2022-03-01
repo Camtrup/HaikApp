@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\amtru\\Source\\Repos\\haik\\Haik\\Haik\\Haik.csproj": {}
+    "C:\\Users\\amtru\\source\\repos\\haik\\Haik\\Haik\\Haik.csproj": {}
   },
   "projects": {
-    "C:\\Users\\amtru\\Source\\Repos\\haik\\Haik\\Haik\\Haik.csproj": {
+    "C:\\Users\\amtru\\source\\repos\\haik\\Haik\\Haik\\Haik.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\amtru\\Source\\Repos\\haik\\Haik\\Haik\\Haik.csproj",
+        "projectUniqueName": "C:\\Users\\amtru\\source\\repos\\haik\\Haik\\Haik\\Haik.csproj",
         "projectName": "Haik",
-        "projectPath": "C:\\Users\\amtru\\Source\\Repos\\haik\\Haik\\Haik\\Haik.csproj",
+        "projectPath": "C:\\Users\\amtru\\source\\repos\\haik\\Haik\\Haik\\Haik.csproj",
         "packagesPath": "C:\\Users\\amtru\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\amtru\\Source\\Repos\\haik\\Haik\\Haik\\obj\\",
+        "outputPath": "C:\\Users\\amtru\\source\\repos\\haik\\Haik\\Haik\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\amtru\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -65,6 +65,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[5.0.13, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
             }
           },
           "imports": [

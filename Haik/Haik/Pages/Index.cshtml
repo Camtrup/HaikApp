@@ -1,5 +1,7 @@
 ﻿@page
 @model IndexModel
+@using Newtonsoft.Json  
+@using System.Collections.Generic
 @{
     ViewData["Title"] = "Home page";
 }
@@ -13,7 +15,7 @@
                 <a asp-page="/Login"><button class="btn btn-info btn-lg">Logg inn</button></a>
                 <a asp-page="/Register"><button class="btn btn-outline-info btn-lg">Registrer deg</button></a>
             </div>
-            <h2 id="introTitle">Velommen til Haik!</h2>
+           <img src="~/Pictures/logo.png" height="300px"/>
             <p id="introDescription">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                 labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
@@ -43,6 +45,7 @@ else
             <div class="personalInfoLoggedInContainer">
 
                 <div class="upcomingTrips">
+                    <button class="btn btn-lg btn-success" asp-page="/CreateTrip">Oprett Arrangement</button>
                     <h3>Dine Kommende Turer</h3>
                     @if (Model.userUpComingTrips == null)
                     {
@@ -91,7 +94,7 @@ else
                                 }
                                 else
                                 {
-                                    <h4>@d.JsonParticipantUids Påmeldte</h4>
+                                    <h4>@(((int)d.JsonParticipantUids.Count()/37)) Påmeldte</h4>
                                 }
                                 <h4>@d.Difficulty</h4>
                             </div>
