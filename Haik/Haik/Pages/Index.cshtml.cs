@@ -7,26 +7,32 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using System.Diagnostics;
+using Haik.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Haik.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
+        private readonly HaikDBContext dbContext;
+        private ApplicationUser user;
+        public List<TripDb> data = null;
+        public List<TripDb> userUpComingTrips = null;
+        public SignInManager<ApplicationUser> signInManager;
 
-        public IndexModel(ILogger<IndexModel> logger)
+
+        public IndexModel(HaikDBContext dbContext, SignInManager<ApplicationUser> signInManager)
         {
-            _logger = logger;
+            //this.user = user;
+            this.dbContext = dbContext;
+            this.signInManager = signInManager;
         }
-        
-        public async Task<IActionResult> OnGet()
+
+        public async Task OnGetAsync()
         {
-            Debug.WriteLine(User.Identity.Name);
-            if (User.Identity.Name != null) //Sjekke om en har sjekket av "husk meg"
-            {
-                return RedirectToPage("/IndexLoggedIn");
-            }
-            return Page();
+            data = await dbContext.Trips.ToListAsync();
+            // user = await user.Trips.ToListAsync();
+            
         }
     }
 }

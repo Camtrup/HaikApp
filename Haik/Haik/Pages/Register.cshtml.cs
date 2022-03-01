@@ -33,7 +33,7 @@ namespace Haik.Pages
 
         public void OnGet()
         {
-        
+         
         }
 
         public async Task<IActionResult> OnPostAsync()
@@ -42,6 +42,8 @@ namespace Haik.Pages
             {
                 var user = new ApplicationUser()
                 {
+                    FirstName = registerViewModel.FirstName,
+                    LastName = registerViewModel.LastName,
                     UserName = registerViewModel.UserName,
                     Email = registerViewModel.Email,
                     Description = registerViewModel.Description,

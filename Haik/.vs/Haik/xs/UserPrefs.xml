@@ -1,26 +1,21 @@
 ﻿<Properties StartupConfiguration="{8E2F8544-59F1-4981-938E-CFCAFDBAAF9F}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Haik/Models/HaikDbContext.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Haik/Pages/Login.cshtml">
     <Files>
-      <File FileName="Haik/Pages/EditTrip.cshtml.cs" Line="1" Column="1" />
-      <File FileName="Haik/Pages/EditTrip.cshtml" Line="44" Column="8" />
-      <File FileName="Haik/Pages/CreateTrip.cshtml" Line="9" Column="1" />
-      <File FileName="Haik/Pages/Register.cshtml" Line="77" Column="31" />
-      <File FileName="Haik/Pages/Register.cshtml.cs" Line="23" Column="65" />
-      <File FileName="Haik/Models/HaikDbContext.cs" Line="12" Column="6" />
-      <File FileName="Haik/ViewModels/RegisterViewModel.cs" Line="1" Column="1" />
-      <File FileName="Haik/Models/TripDb.cs" Line="1" Column="1" />
+      <File FileName="Haik/Pages/Index.cshtml.cs" Line="29" Column="10" />
+      <File FileName="Haik/Pages/Index.cshtml" Line="58" Column="52" />
+      <File FileName="Haik/Pages/Login.cshtml" Line="56" Column="21" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Haik" expanded="True">
             <Node name="Haik" expanded="True">
-              <Node name="Models" expanded="True">
-                <Node name="HaikDbContext.cs" selected="True" />
-              </Node>
+              <Node name="Models" expanded="True" />
               <Node name="Pages" expanded="True">
+                <Node name="CreateTrip.cshtml" expanded="True" />
                 <Node name="EditTrip.cshtml" expanded="True" />
                 <Node name="Index.cshtml" expanded="True" />
+                <Node name="Login.cshtml" expanded="True" selected="True" />
                 <Node name="Register.cshtml" expanded="True" />
               </Node>
               <Node name="ViewModels" expanded="True" />
@@ -36,14 +31,6 @@
             </Node>
           </Node>
         </State>
-      </Pad>
-      <Pad Id="ClassPad">
-        <State name="__root__">
-          <Node name="Haik" selected="True" />
-        </State>
-      </Pad>
-      <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State />
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>

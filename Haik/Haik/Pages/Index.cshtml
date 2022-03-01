@@ -1,26 +1,110 @@
 ﻿@page
 @model IndexModel
+@using Newtonsoft.Json  
+@using System.Collections.Generic
 @{
     ViewData["Title"] = "Home page";
 }
-<link rel="stylesheet" href="~/css/index.css"/>
+<link rel="stylesheet" href="~/css/index.css" />
+
+@if (!Model.signInManager.IsSignedIn(User))
+{
+    <div class="container-fluid">
+        <div class=" container-fluid mainIntroductionContainer">
+            <div class="indexBtnContainer">
+                <a asp-page="/Login"><button class="btn btn-info btn-lg">Logg inn</button></a>
+                <a asp-page="/Register"><button class="btn btn-outline-info btn-lg">Registrer deg</button></a>
+            </div>
+           <img src="~/Pictures/logo.png" height="300px"/>
+            <p id="introDescription">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+        </div>
 
 
-    <div class="container-fluid" >
-    <div class=" container-fluid mainIntroductionContainer" >
-    <div class="indexBtnContainer" >
-    <a asp-page="/Login" > <button class="btn btn-info btn-lg" > Logg inn</button > </a >
-    <a asp-page="/Register" > <button class="btn btn-outline-info btn-lg" > Registrer deg</button > </a >
-    </div >
-    <h1 id="introTitle" > Velkommen til Haik!</h1 >
-    <p id="introDescription" >
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-    commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    </p >
-    </div >
 
+    </div>
+}
+else
+{
+    <div class="container-fluid">
+        <div class="indexSearchBarContainer">
+            <form>
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Hvor vil du på din neste tur? Hvem vil dra med?" name="search">
+                    <button>SØK</button>
+                </div>
+            </form>
+        </div>
 
+        <div class="indexLoggedInMainContainer">
 
-    </div >
+            <div class="personalInfoLoggedInContainer">
+
+                <div class="upcomingTrips">
+                    <button class="btn btn-lg btn-success" asp-page="/CreateTrip">Oprett Arrangement</button>
+                    <h3>Dine Kommende Turer</h3>
+                    @if (Model.userUpComingTrips == null)
+                    {
+                        <h5 style="padding-top: 30px;">Du har ingen kommende turer </h5>
+                    }
+                    else
+                    {
+                        @foreach (var d in Model.data)
+                        {
+                            <a asp-page="/SeeTrip" class="tripElementLinkIndex">
+                                <div class="tripElementIndex">
+                                    <h4>@d.Name</h4>
+                                    @if (d.JsonParticipantUids == null)
+                                    {
+                                        <h4>0 Påmeldte</h4>
+                                    }
+                                    else
+                                    {
+                                        <h4>@d.JsonParticipantUids Påmeldte</h4>
+                                    }
+                                    <h4>@d.Difficulty</h4>
+                                </div>
+                            </a>
+                        }
+                    }
+                </div>
+
+                <div class="tripCategories">
+                    <h3>Finn din neste... (kategorier)</h3>
+                </div>
+
+            </div>
+
+            <div class="allTripsLoggedInContainer">
+                <h2>Alle turer</h2>
+                <div class="allTrips">
+                    @foreach (var d in Model.data)
+                    {
+
+                        <a asp-page="/SeeTrip" asp-route-id="@d.Id" class="tripElementLinkIndex">
+                            <div class="tripElementIndex">
+                                <h4>@d.Name</h4>
+                                @if (d.JsonParticipantUids == null)
+                                {
+                                    <h4>0 Påmeldte</h4>
+                                }
+                                else
+                                {
+                                    <h4>@(((int)d.JsonParticipantUids.Count()/37)) Påmeldte</h4>
+                                }
+                                <h4>@d.Difficulty</h4>
+                            </div>
+                        </a>
+                    }
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+}
+

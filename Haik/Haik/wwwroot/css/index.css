@@ -48,9 +48,31 @@
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 40px;
 }
-.indexLoggedInMainContainer div{
+.indexLoggedInMainContainer .personalInfoLoggedInContainer div{
     height: 200px;
-    border: solid grey 3px;
+    margin-bottom: 20px;
+    border-bottom: solid grey 3px;
     border-radius: 10px;
+    text-align: center;
+}
+.allTrips {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-row-gap: 20px;
+    padding: 30px;
+}
+.tripElementLinkIndex {
+    border-bottom: grey solid 3px;
+    border-radius: 10px;
+    color: black;
+}
+.tripElementIndex {
+    display: inline-flex;
+    width: 90%;
+    justify-content: space-between;
+}
+.allTripsLoggedInContainer {
+    border-left: solid grey 3px;
     text-align: center;
 }

@@ -4,7 +4,7 @@
     ViewData["Title"] = "Home page";
 }
 
-<link rel="stylesheet"  />
+<link rel="stylesheet" />
 
 <style>
     body {
@@ -27,9 +27,6 @@
     button {
         text-align: center;
     }
-
-
-   
 </style>
 
 
@@ -37,21 +34,21 @@
 
 <div class="text-center" style=" text-align: center">
 
-    <form id="register_form" action="/action_page.php">
+    <form id="register_form" method="post">
 
-        <div class="container bg-light" style="width: 350px; height: 500px";>
+        <div class="container bg-light" style="width: 350px; height: 500px" ;>
             <h1 class="display-3 text-info"><b>Logg inn</b></h1><br><br />
             <label asp-for="loginViewModel.Email"><b>Email:</b></label><br>
-            <input type="text" id="email" name="email" required placeholder="olanordmann@epost.no"><br>
+            <input asp-for="loginViewModel.Email" type="text" id="email" name="email" required placeholder="olanordmann@epost.no"><br>
             <br />
 
 
 
             <label for="password"><b>Passord:</b></label><br>
-            <input type="password" id="password" name="password" required placeholder="*********"><br><br><br />
+            <input asp-for="loginViewModel.Password" type="password" id="password" name="password" required placeholder="*********"><br><br><br />
 
 
-            <button type="submit" class="btn btn-info" >Logg inn </button><br><br>
+            <button type="submit" class="btn btn-info">Logg inn </button><br><br>
 
 
             <label>
@@ -66,7 +63,6 @@
 
     </form>
 </div>
-
 
 
 

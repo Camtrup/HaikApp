@@ -1,6 +1,8 @@
-﻿@page
+﻿@page "{id}"
 @model Haik.Pages.SeeTripModel
+@using Haik.Models;
 @{
+    var id = RouteData.Values["id"];
 }
 
 <style>
@@ -38,33 +40,43 @@
 
 <div class="container-fluid">
     <div class="tripNameContainer">
-        <h1>@Model.name </h1> 
+        <h1>@Model.trip.Name </h1> 
     </div>
 
     <div class="allInfo">
 
         <div class="tripInfoContainer">
-            Lokasjon: @Model.location <br />
-            Varighet: @Model.duration <br />
-            Dato: @Model.date <br />
-            Vanskelighetsgrad:@Model.difficulty <br />
-            Utstyr: @Model.equipment <br />
+            Lokasjon: @Model.trip.Location <br />
+            Varighet: @Model.trip.Duration <br />
+            Dato: @Model.trip.Date <br />
+            Vanskelighetsgrad:@Model.trip.Difficulty <br />
+            Utstyr: @Model.trip.Equipment <br />
 
         </div>
 
         <div class="descriptionContainer">
             <h3>Beskrivelse</h3>
-            @Model.description
+            @Model.trip.Description
             
         </div>
 
 
-
+        
 
     </div>
-
     <div class="joinTripButton">
-        <button class="btn btn-outline-primary btn-lg">Bli med</button>
+
+        
+       
+      
+        <form method="post">
+
+            <button type="submit" class="btn btn-secondary btn-lg">Meld meg på</button>
+                
+        </form>
+        
+       
+        
     </div>
 
 </div>
