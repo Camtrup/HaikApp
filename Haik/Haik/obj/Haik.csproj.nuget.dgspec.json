@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\amtru\\source\\repos\\haik\\Haik\\Haik\\Haik.csproj": {}
+    "C:\\PU-prosjekt\\Haik\\Haik\\Haik.csproj": {}
   },
   "projects": {
-    "C:\\Users\\amtru\\source\\repos\\haik\\Haik\\Haik\\Haik.csproj": {
+    "C:\\PU-prosjekt\\Haik\\Haik\\Haik.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\amtru\\source\\repos\\haik\\Haik\\Haik\\Haik.csproj",
+        "projectUniqueName": "C:\\PU-prosjekt\\Haik\\Haik\\Haik.csproj",
         "projectName": "Haik",
-        "projectPath": "C:\\Users\\amtru\\source\\repos\\haik\\Haik\\Haik\\Haik.csproj",
-        "packagesPath": "C:\\Users\\amtru\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\amtru\\source\\repos\\haik\\Haik\\Haik\\obj\\",
+        "projectPath": "C:\\PU-prosjekt\\Haik\\Haik\\Haik.csproj",
+        "packagesPath": "C:\\Users\\marie\\.nuget\\packages\\",
+        "outputPath": "C:\\PU-prosjekt\\Haik\\Haik\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\amtru\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\marie\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,7 +22,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://www.nuget.org/api/v2/curated-feeds/microsoftdotnet/": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
