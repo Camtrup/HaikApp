@@ -32,7 +32,7 @@ namespace Haik.Pages
         {
             data = await dbContext.Trips.ToListAsync();
             // user = await user.Trips.ToListAsync();
-            
+
         }
     }
 }

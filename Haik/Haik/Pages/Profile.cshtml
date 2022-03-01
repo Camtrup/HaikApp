@@ -11,12 +11,11 @@
                 <img src="..." alt="..." class="img-thumbnail">
                 <div class="card-body">
                     <div class="mb-4">
-                        <h3 class="h3">Input Navn</h3>
+                        <h3 class="h3">@Model.user.FirstName @Model.user.LastName</h3>
                     </div>
                     <ul class="list-unstyled mb-5">
-                        <li class="mb-4"><i class="fas fa-calendar-alt text-info"></i>Input Alder</li>
-                        <li class="mb-4"><i class="fas fa-award text-info"></i>Input Nivå</li>
-                        <li class="mb-4"><i class="fas fa-envelope text-info"></i>Input Mail</li>
+                        <li class="mb-4"><i class="fas fa-calendar-alt text-info"></i>@Model.user.DateOfBirth</li>
+                        <li class="mb-4"><i class="fas fa-envelope text-info"></i>@Model.user.Email</li>
                     </ul>
 
                 </div>
@@ -27,16 +26,17 @@
                     <div class="text-start mb-1-6 wow fadeIn">
                         <h2 class="h1 text-info">Om meg</h2> 
                     </div>
-                    <div class="p-3 mb-2 border border-info text-black-50"> Beskrivelse....
+                    <div class="p-3 mb-2 border border-info text-black-50">
+                        @Model.user.Description
                     </div>
                 </div>
-                <div class="mb-5 wow fadeIn">
+                <!--<div class="mb-5 wow fadeIn">
                     <div class="text-start mb-1-6 wow fadeIn">
                         <h2 class="mb-0 text-info">Tidligere turer</h2>
                     </div>
-                    <p> Tidligere turer...</p>
+                    <p> </p>
 
-                </div>
+                </div>-->
             </div>
         </div>
     </div>
