@@ -14,6 +14,9 @@ namespace Haik.Models
         public string Location { get; set; }
         public string Description { get; set; }
         public string JsonParticipantUids { get; set; }
+        public string ImageBlobOne { get; set; }
+        public string ImageBlobTwo { get; set; }
+        public string ImageBlobThree { get; set; }
         public string OwnerId { get; set; }
         public string Duration { get; set; }
         public string Difficulty { get; set; }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -29,6 +30,8 @@ namespace Haik.ViewModels
         public string Duration { get; set; }
         [DataType(DataType.Text)]
         public string Difficulty { get; set; }
+
+        public IFormFile PictureToAdd { get; set; }
         public string Date { get; set; }
         public string Equipment { get; set; }
     }
