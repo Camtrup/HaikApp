@@ -28,6 +28,32 @@ namespace Haik.Pages
             this.dbContext = dbContext;
             this._userManager = userManager;
         }
+
+
+
+        public async Task<IActionResult> RemoveImage(int id)
+        {
+
+            var trip = dbContext.Trips.Where<TripDb>(w => w.Id == id).FirstOrDefault();
+
+            if (id == 1)
+            {
+                trip.ImageBlobOne = null;
+            }
+            if (id == 2)
+            {
+                trip.ImageBlobTwo = null;
+            }
+            if (id == 3)
+            {
+                trip.ImageBlobThree = null;
+            }
+
+            await dbContext.SaveChangesAsync();
+            return Page();
+
+        }
+
         public void OnGet()
         {
 
@@ -84,28 +110,7 @@ namespace Haik.Pages
 
         }
 
-        public async Task<IActionResult> RemoveImage(int id)
-        {
-
-            var trip = dbContext.Trips.Where<TripDb>(w => w.Id == id).FirstOrDefault();
-
-            if (id == 1)
-            {
-                trip.ImageBlobOne = null;
-            }
-            if (id == 2)
-            {
-                trip.ImageBlobTwo = null;
-            }
-            if (id == 3)
-            {
-                trip.ImageBlobThree = null;
-            }
-
-            await dbContext.SaveChangesAsync();
-            return Page();
-
-        }
+        
 
         public async Task<IActionResult> OnPostAsync()
         {
