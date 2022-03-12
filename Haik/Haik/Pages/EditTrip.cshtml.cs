@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -40,6 +41,41 @@ namespace Haik.Pages
             {
                 return Page();
             }
+
+        }
+
+        public async Task<IActionResult> AddImage(EditWalkViewModel model, int id)
+        {
+
+            var trip = dbContext.Trips.Where<TripDb>(w => w.Id == id).FirstOrDefault();
+
+            using (var ms = new MemoryStream())
+            {
+                model.PictureToAdd.CopyTo(ms);
+
+
+                var fileBytes = ms.ToArray();
+
+                string s = Convert.ToBase64String(fileBytes);
+
+
+                if (id == 1)
+                {
+                    trip.ImageBlobOne = s;
+                }
+                if (id == 2)
+                {
+                    trip.ImageBlobTwo = s;
+                }
+                if (id == 3)
+                {
+                    trip.ImageBlobThree = s;
+                }
+
+
+                await dbContext.SaveChangesAsync();
+            }
+            return Page();
 
         }
 
