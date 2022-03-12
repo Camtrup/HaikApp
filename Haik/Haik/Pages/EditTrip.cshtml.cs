@@ -9,6 +9,11 @@ using Haik.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System;
+using System.IO;
+using System.Linq;
+using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace Haik.Pages
 {
@@ -79,11 +84,34 @@ namespace Haik.Pages
 
         }
 
+        public async Task<IActionResult> RemoveImage(int id)
+        {
+
+            var trip = dbContext.Trips.Where<TripDb>(w => w.Id == id).FirstOrDefault();
+
+            if (id == 1)
+            {
+                trip.ImageBlobOne = null;
+            }
+            if (id == 2)
+            {
+                trip.ImageBlobTwo = null;
+            }
+            if (id == 3)
+            {
+                trip.ImageBlobThree = null;
+            }
+
+            await dbContext.SaveChangesAsync();
+            return Page();
+
+        }
+
         public async Task<IActionResult> OnPostAsync()
         {
             var vm = walkViewModel;
             var users = dbContext.Users.Where(w => w.UserName == User.Identity.Name);
-            
+
             ApplicationUser u = null;
             if (users.Count() > 0)
             {
@@ -98,7 +126,7 @@ namespace Haik.Pages
 
 
 
-            if(userID != null)
+            if (userID != null)
             {
                 TripDb foundTrip = dbContext.Trips.Where<TripDb>(w => w.OwnerId == userID && w.Id == vm.Id).First();
 
