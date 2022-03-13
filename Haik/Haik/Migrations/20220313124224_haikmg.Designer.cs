@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Haik.Migrations
 {
     [DbContext(typeof(HaikDBContext))]
-    [Migration("20220224132906_haikdbcontext")]
-    partial class haikdbcontext
+    [Migration("20220313124224_haikmg")]
+    partial class haikmg
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -127,6 +127,15 @@ namespace Haik.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Equipment")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageBlobOne")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageBlobThree")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageBlobTwo")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("JsonParticipantUids")

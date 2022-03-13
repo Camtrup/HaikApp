@@ -127,6 +127,15 @@ namespace Haik.Migrations
                     b.Property<string>("Equipment")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ImageBlobOne")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageBlobThree")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageBlobTwo")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("JsonParticipantUids")
                         .HasColumnType("nvarchar(max)");
 
