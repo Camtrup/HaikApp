@@ -1,6 +1,7 @@
 ﻿@page "{id}"
 @model Haik.Pages.SeeTripModel
 @using Haik.Models;
+@using System.Security.Claims;
 @{
     var id = RouteData.Values["id"];
 }
@@ -70,9 +71,15 @@
        
       
         <form method="post">
+            @if (Model.trip.JsonParticipantUids == null || !Model.trip.JsonParticipantUids.Contains(User.FindFirstValue(ClaimTypes.NameIdentifier)))
+            {
+                <button type="submit" class="btn btn-secondary btn-lg">Meld meg på</button>
+            }
+            else
+            {
+                <button type="submit" class="btn btn-danger btn-lg">Meld meg av</button>
+            }
 
-            <button type="submit" class="btn btn-secondary btn-lg">Meld meg på</button>
-                
         </form>
         
        
