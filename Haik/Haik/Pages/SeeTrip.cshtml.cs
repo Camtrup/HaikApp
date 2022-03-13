@@ -81,10 +81,14 @@ namespace Haik.Pages
                     var jsonPrevdeser = JsonConvert.DeserializeObject<List<string>>(JSONprevOccupantsString);
 
 
-                if (!jsonPrevdeser.Contains(userId))
-                {
-                    jsonPrevdeser.Add(userId);
-                }
+                    if (!jsonPrevdeser.Contains(userId))
+                    {
+                        jsonPrevdeser.Add(userId);
+                    }
+                    else
+                    {
+                        jsonPrevdeser.Remove(userId);
+                    }
 
                     var newJson = JsonConvert.SerializeObject(jsonPrevdeser);
 
@@ -99,11 +103,11 @@ namespace Haik.Pages
                     var jsonPrevdeser = new List<string>();
 
 
-                if (!jsonPrevdeser.Contains(userId))
-                {
-                    jsonPrevdeser.Add(userId);
-                }
-                var newJson = JsonConvert.SerializeObject(jsonPrevdeser);
+                    if (!jsonPrevdeser.Contains(userId))
+                    {
+                        jsonPrevdeser.Add(userId);
+                    }
+                    var newJson = JsonConvert.SerializeObject(jsonPrevdeser);
 
                     trips.Where<TripDb>(w => w.Id == id).FirstOrDefault().JsonParticipantUids = newJson;
                     context.SaveChanges();
