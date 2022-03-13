@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Haik.Migrations
 {
-    public partial class haikdbcontext : Migration
+    public partial class haikmg : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -63,6 +63,9 @@ namespace Haik.Migrations
                     Location = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     JsonParticipantUids = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ImageBlobOne = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ImageBlobTwo = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ImageBlobThree = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     OwnerId = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Duration = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Difficulty = table.Column<string>(type: "nvarchar(max)", nullable: true),
