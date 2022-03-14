@@ -48,8 +48,27 @@
         <input asp-for="walkViewModel.date" type="date" id="date" required value="YYYY-MM-DD" min="today"><br><br />
 
 
-        <label for="difficulty"> Vanskelighetsgrad </label><br />
-        <input asp-for="walkViewModel.difficulty" type="text" id="difficulty" placeholder="Lett/Middels/Vanskelig"><br><br />
+        <!--
+
+    <label for="difficulty"> Vanskelighetsgrad </label><br />
+    <input asp-for="walkViewModel.difficulty" type="text" id="difficulty" placeholder="Lett/Middels/Vanskelig"><br><br />
+    -->
+        <div class="form-group">
+
+            <label for="difficulty"> Vanskelighetsgrad: </label><br />
+            <div class="form-check">
+                <input asp-for="walkViewModel.difficulty" class="form-check-input" value="lett" type="radio" GroupName="difficulty" id="difficulty">
+                <label class="form-check-label" for="flexRadioDefault1">Lett</label>
+            </div>
+            <div class="form-check">
+                <input asp-for="walkViewModel.difficulty" class="form-check-input" value="middels" type="radio" GroupName="difficulty" id="difficulty">
+                <label class="form-check-label" for="flexRadioDefault2">Middels</label>
+            </div>
+            <div class="form-check">
+                <input asp-for="walkViewModel.difficulty" class="form-check-input" value="vanskelig" type="radio" GroupName="difficulty" id="difficulty">
+                <label class="form-check-label" for="flexRadioDefault3">Vanskelig</label>
+            </div><br />
+        </div>
 
         <label for="equipments"> Nødvendig utstyr </label>
         <textarea class="form-control" asp-for="walkViewModel.equipment" id="equipments" placeholder="Utstyrsliste..."></textarea><br><br />

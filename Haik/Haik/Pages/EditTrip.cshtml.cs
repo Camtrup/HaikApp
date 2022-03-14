@@ -150,7 +150,15 @@ namespace Haik.Pages
 
             if (userID != null)
             {
-                TripDb foundTrip = dbContext.Trips.Where<TripDb>(w => w.OwnerId == userID && w.Id == vm.Id).First();
+                TripDb foundTrip = null;
+                if (u.Admin)
+                {
+                    foundTrip = dbContext.Trips.Where<TripDb>(w => w.Id == id).First();
+                }
+                else
+                {
+                    foundTrip = dbContext.Trips.Where<TripDb>(w => w.OwnerId == userID && w.Id == vm.Id).First();
+                }
 
                 foundTrip.Description = vm.Description == null ? foundTrip.Description : vm.Description;
                 foundTrip.Difficulty = vm.Difficulty == null ? foundTrip.Difficulty : vm.Difficulty;

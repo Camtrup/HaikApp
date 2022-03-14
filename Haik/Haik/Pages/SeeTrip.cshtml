@@ -79,7 +79,7 @@
             {
                 <button type="submit" class="btn btn-danger btn-lg">Meld meg av</button>
             }
-            @if (Model.trip.OwnerId.Equals(User.FindFirstValue(ClaimTypes.NameIdentifier)))
+            @if (Model.trip.OwnerId.Equals(User.FindFirstValue(ClaimTypes.NameIdentifier)) || Model.context.Users.Where<ApplicationUser>(u => u.Id == ClaimTypes.NameIdentifier).FirstOrDefault().Admin)
             {
                 <a asp-page="/EditTrip" asp-route-id="@id"><button type="button" class="btn btn-primary btn-lg">Rediger Tur</button></a>
             }
