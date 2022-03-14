@@ -14,7 +14,7 @@ namespace Haik.Pages
     public class SeeTripModel : PageModel
     {
         public HaikDBContext context = null;
-        public List<TripDb> datalookup;
+        private List<TripDb> datalookup;
         public int id;
         public TripDb trip;
 

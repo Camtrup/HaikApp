@@ -14,6 +14,7 @@ using System.IO;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace Haik.Pages
 {
@@ -28,7 +29,9 @@ namespace Haik.Pages
             this.dbContext = dbContext;
             this._userManager = userManager;
         }
-
+        public TripDb trip;
+        public int id;
+        private List<TripDb> datalookup;
 
 
         public async Task<IActionResult> RemoveImage(int id)
@@ -54,9 +57,23 @@ namespace Haik.Pages
 
         }
 
-        public void OnGet()
+        public async void OnGet(int id)
         {
+            ViewData["id"] = id;
+            this.id = id;
+            datalookup = await dbContext.Trips.ToListAsync();
 
+
+
+            foreach (var d in datalookup)
+            {
+                int temp = (int)d.Id;
+
+                if (temp.ToString().Equals(id.ToString()))
+                {
+                    trip = d;
+                }
+            }
         }
 
         public async Task<IActionResult> DeleteTrip()
@@ -112,9 +129,10 @@ namespace Haik.Pages
 
         
 
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(int id)
         {
             var vm = walkViewModel;
+            vm.Id = id;
             var users = dbContext.Users.Where(w => w.UserName == User.Identity.Name);
 
             ApplicationUser u = null;
@@ -130,7 +148,6 @@ namespace Haik.Pages
             }
 
 
-
             if (userID != null)
             {
                 TripDb foundTrip = dbContext.Trips.Where<TripDb>(w => w.OwnerId == userID && w.Id == vm.Id).First();
@@ -143,7 +160,7 @@ namespace Haik.Pages
                 foundTrip.Name = vm.Name == null ? foundTrip.Name : vm.Name;
                 foundTrip.Equipment = vm.Equipment == null ? foundTrip.Equipment : vm.Equipment;
                 dbContext.SaveChanges();
-                return Page();
+                return RedirectToPage("/Index");
             }
             else
             {
