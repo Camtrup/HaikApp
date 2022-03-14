@@ -76,21 +76,6 @@ namespace Haik.Pages
             }
         }
 
-        public async Task<IActionResult> DeleteTrip()
-        {
-            var tripToDelete = dbContext.Trips.Where<TripDb>(d => d.Id == walkViewModel.Id).FirstOrDefault();
-            if (tripToDelete.OwnerId == User.FindFirstValue(ClaimTypes.NameIdentifier))
-            {
-                dbContext.Trips.Remove(tripToDelete);
-                await dbContext.SaveChangesAsync();
-                return Page();
-            }
-            else
-            {
-                return Page();
-            }
-
-        }
 
         public async Task<IActionResult> AddImage(EditWalkViewModel model, int id)
         {

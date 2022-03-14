@@ -43,6 +43,6 @@
         <textarea asp-for="walkViewModel.Equipment" value="@Model.trip.Equipment" class="form-control" id="equipments" placeholder="Utstyrsliste..."></textarea><br><br />
         
         <button type="submit" class="btn btn-light">Oppdater</button>
-        <button type="button" class="btn btn-danger">Slett Arrangement</button>
+        <a asp-page="/DeleteTrip" asp-route-id="@Model.id"><button type="button" class="btn btn-danger">Slett Arrangement</button></a>
     </div>
 </form>

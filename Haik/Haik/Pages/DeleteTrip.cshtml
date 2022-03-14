@@ -1,0 +1,10 @@
+﻿@page
+@model Haik.Pages.DeleteTripModel
+@{
+}
+
+<form method="post" asp-route-id="@Model.id">
+    <p>Er du sikker på at du vil slette Arrangementet?</p>
+    <button type="submit" class="btn btn-lg btn-danger">Ja</button>
+    <a href="##" onClick="history.go(-1); return false;"><button class="btn btnl-lg btn-secondary" type="button">Nei</button></a>
+</form>
