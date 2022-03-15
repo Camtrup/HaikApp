@@ -49,11 +49,12 @@ namespace Haik.Pages
                 Description = vm.description,
                 Location = vm.location,
                 Duration = vm.duration,
-                Name =  vm.name,
+                Name = vm.name,
                 Difficulty = vm.difficulty,
-                Date = vm.date, 
+                Date = vm.date,
                 Equipment = vm.equipment,
-                OwnerId = userID
+                OwnerId = userID,
+                dbIsCommercial = u.isCommercial
                 //Predefined participants could be added her, but application owner did not request this.
             };
             dbContext.Trips.Add(newTrip);
