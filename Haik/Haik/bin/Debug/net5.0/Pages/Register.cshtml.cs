@@ -40,6 +40,11 @@ namespace Haik.Pages
         {
             if (ModelState.IsValid)
             {
+                var isAdmin = false;
+                if(Environment.GetEnvironmentVariable("ApiKey") == registerViewModel.APIkey)
+                {
+                    isAdmin = true;
+                }
                 var user = new ApplicationUser()
                 {
                     FirstName = registerViewModel.FirstName,
@@ -48,7 +53,8 @@ namespace Haik.Pages
                     Email = registerViewModel.Email,
                     Description = registerViewModel.Description,
                     Gender = registerViewModel.Gender,
-                    DateOfBirth = registerViewModel.DateOfBirth
+                    DateOfBirth = registerViewModel.DateOfBirth,
+                    Admin = isAdmin
                 };
 
                 var result = await userManager.CreateAsync(user, registerViewModel.Password);
