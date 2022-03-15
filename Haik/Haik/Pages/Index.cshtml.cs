@@ -14,8 +14,7 @@ namespace Haik.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly HaikDBContext dbContext;
-        private ApplicationUser user;
+        public readonly HaikDBContext dbContext;
         public List<TripDb> data = null;
         public List<TripDb> userUpComingTrips = null;
         public SignInManager<ApplicationUser> signInManager;
@@ -31,7 +30,6 @@ namespace Haik.Pages
         public async Task OnGetAsync()
         {
             data = await dbContext.Trips.ToListAsync();
-            // user = await user.Trips.ToListAsync();
 
         }
     }
