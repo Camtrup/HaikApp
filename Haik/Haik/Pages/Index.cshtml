@@ -2,6 +2,8 @@
 @model IndexModel
 @using Newtonsoft.Json  
 @using System.Collections.Generic
+@using Haik.Models
+@using System.Linq
 @{
     ViewData["Title"] = "Home page";
 }
@@ -43,36 +45,40 @@ else
 
         <div class="indexLoggedInMainContainer">
 
-            <div class="personalInfoLoggedInContainer">
+            <div class="createTripContainer">
+                <a class="btn btn-lg btn-info" asp-page="/CreateTrip">Opprett Arrangement</a>
+            </div>
 
-                <div class="upcomingTrips">
-                    <a class="btn btn-lg btn-info" asp-page="/CreateTrip">Opprett Arrangement</a>
-                    <h3>Dine Kommende Turer</h3>
-                    @if (Model.userUpComingTrips == null)
-                    {
-                        <h5 style="padding-top: 30px;">Du har ingen kommende turer </h5>
-                    }
-                    else
-                    {
-                        @foreach (var d in Model.data)
+            <div class="personalInfoLoggedInContainer">
+                <div class="columnDivider">
+                    <div class="upcomingTrips">
+                        <h3>Dine Kommende Turer</h3>
+                        @if (Model.userUpComingTrips == null)
                         {
-                            <a asp-page="/SeeTrip" class="tripElementLinkIndex">
-                                <div class="tripElementIndex">
-                                    <h4>@d.Name</h4>
-                                    @if (d.JsonParticipantUids == null)
-                                    {
-                                        <h4>0 Påmeldte</h4>
-                                    }
-                                    else
-                                    {
-                                        <h4>@d.JsonParticipantUids Påmeldte</h4>
-                                    }
-                                    <h4>@d.Difficulty</h4>
-                                </div>
-                            </a>
+                            <h5 style="padding-top: 30px;">Du har ingen kommende turer </h5>
                         }
-                    }
+                        else
+                        {
+                            @foreach (var d in Model.data)
+                            {
+                                <a asp-page="/SeeTrip" class="tripElementLinkIndex">
+                                    <div class="tripElementIndex">
+                                        <h4>@d.Name</h4>
+                                        @if (d.JsonParticipantUids == null)
+                                        {
+                                            <h4>0 Påmeldte</h4>
+                                        }
+                                        else
+                                        {
+                                            <h4>@d.JsonParticipantUids Påmeldte</h4>
+                                        }
+                                        <h4>@d.Difficulty</h4>
+                                    </div>
+                                </a>
+                            }
+                        }
                 </div>
+            </div>
 
                 <div class="tripCategories">
                     <h3>Finn din neste... (kategorier)</h3>
@@ -88,16 +94,24 @@ else
 
                         <a asp-page="/SeeTrip" asp-route-id="@d.Id" class="tripElementLinkIndex">
                             <div class="tripElementIndex">
-                                <h4>@d.Name</h4>
-                                @if (d.JsonParticipantUids == null)
-                                {
-                                    <h4>0 Påmeldte</h4>
-                                }
-                                else
-                                {
-                                    <h4>@(((int)d.JsonParticipantUids.Count()/37)) Påmeldte</h4>
-                                }
-                                <h4>@d.Difficulty</h4>
+                                <div class="tripName">
+                                    <h4>@d.Name</h4>
+                                </div>
+                                <div class="tripEnrolled">
+                                    @if (d.JsonParticipantUids == null)
+                                    {
+                                        <h4>0 Påmeldte</h4>
+                                    }
+                                    else
+                                    {
+                                        <h4>@(((int)d.JsonParticipantUids.Count()/37)) Påmeldte</h4>
+                                    }
+                                </div>
+                                <div class="tripDifficulty"> <h4>@d.Difficulty</h4></div>
+
+                                <div class="tripCreator"> <h4>@Model.dbContext.Users.Where(w => w.Id == d.OwnerId).First().FirstName @Model.dbContext.Users.Where(w => w.Id == d.OwnerId).First().LastName</h4></div>
+                               
+                               
                             </div>
                         </a>
                     }

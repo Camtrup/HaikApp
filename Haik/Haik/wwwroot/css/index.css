@@ -45,16 +45,40 @@
     max-width: 80%;
     margin: auto;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     grid-column-gap: 40px;
 }
-.indexLoggedInMainContainer .personalInfoLoggedInContainer div{
+
+.indexLoggedInMainContainer .createTripContainer{
+    width: auto;
+    position: center;
+    margin: auto;
+    text-align: center;
+    padding-bottom: 5px;
+
+
+}
+
+.indexLoggedInMainContainer .personalInfoLoggedInContainer div {
     height: 200px;
+    display: grid;
     margin-bottom: 20px;
     border-bottom: solid grey 3px;
-    border-radius: 10px;
     text-align: center;
 }
+
+
+.indexLoggedInMainContainer .personalInfoLoggedInContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.indexLoggedInMainContainer .columnDivider {
+    border-right: solid grey 2px;
+    margin-right: -1px;
+    padding-right: 1px;
+}
+
 .allTrips {
     margin-top: 30px;
     display: grid;
@@ -64,15 +88,13 @@
 }
 .tripElementLinkIndex {
     border-bottom: grey solid 3px;
-    border-radius: 10px;
     color: black;
 }
 .tripElementIndex {
-    display: inline-flex;
-    width: 90%;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    text-align:left;
 }
 .allTripsLoggedInContainer {
-    border-left: solid grey 3px;
     text-align: center;
 }
