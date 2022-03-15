@@ -22,5 +22,6 @@ namespace Haik.Models
         public string Difficulty { get; set; }
         public string Date { get; set; }
         public string Equipment { get; set; }
+        public bool dbIsCommercial { get; set;  }
     }
 }
