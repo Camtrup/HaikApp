@@ -17,24 +17,23 @@
         background-size: cover;
         background-position: center;
         height: 960px;
-        
     }
 
-    form input {
-        margin-right: 20px;
-    }
+        form input {
+            margin-right: 20px;
+        }
 </style>
+
+<h1 class="display-4 text-info"><b>Registrer bruker</b></h1>
+<br />
 
 <div style="float: left">
     <img src="~/Pictures/Hiking-register.jpg"
          width="500"
-         height="800" />
+         height="810" />
 
 </div>
 
-
-<h1 class="display-4 text-info"><b>Registrer bruker</b></h1>
-<br />
 <form asp-action="Register" id="register_form" method="post">
     <div class="form-row">
         <div class="form-group col-md-4">
@@ -52,7 +51,7 @@
             Velg kjønn:
             <label for="female">Kvinne</label>
             <input type="radio" id="gender_female" name="gender" value="female">
-            <label for="mae">Mann</label>
+            <label for="male">Mann</label>
             <input type="radio" id="gender_male" name="gender" value="male">
             <label for="other">Annet</label>
             <input type="radio" id="gender_other" name="gender" value="other">
@@ -76,10 +75,15 @@
             <input asp-for="registerViewModel.UserName" type="text" id="username" name="Username" required placeholder="olanordmann" /><br><br>
         </div>
     </div>
-    <div class="form-group">
-        <label asp-for="registerViewModel.Description" for="description">Beskrivelse:</label><br />
-        <textarea asp-for="registerViewModel.Description" name="description" form="register_form" placeholder="Skriv litt om deg selv..."></textarea><br>
+
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label asp-for="registerViewModel.Description" for="description">Beskrivelse:</label><br />
+            <textarea asp-for="registerViewModel.Description" name="description" form="register_form" placeholder="Skriv litt om deg selv..."></textarea><br>
+        </div>
+
     </div>
+
     <div class="form-row">
         <div class="form-group col-md-4">
             <label asp-for="registerViewModel.Password" for="Password">Passord:</label><br>
@@ -91,15 +95,22 @@
         </div>
     </div>
 
-    <div class="p-3 mb-2 border border-info text-black-50">
-        <label for="adminTekst">Er du administrator? </label><br />
-        <label for="APIkey">Oppgi API-nøkkel:</label><br />
-        <input asp-for="registerViewModel.APIkey" type="text" name="APIKey" placeholder="*********" />
+    <div class="form-group">
+        <label asp-for="registerViewModel.Commercial" for="commercialCheck"> Komersiell person?</label>
+        <input asp-for="registerViewModel.Commercial" type="checkbox" id="commercialCheck">
     </div>
-        <br />
 
-        <button type="submit" class="btn btn-info">Registrer Bruker </button>
-        <br />
-        <div asp-validation-summary="All" class="text-danger"> </div>
+    <div class="form-row border border-info text-black-50">
+        <div class="p-3 mb-2">
+            <label for="adminTekst">Er du administrator? </label><br />
+            <label for="APIkey">Oppgi API-nøkkel:</label><br />
+            <input asp-for="registerViewModel.APIkey" type="text" name="APIKey" placeholder="*********" />
+        </div>
+    </div>
+    <br />
+
+    <button type="submit" class="btn btn-info">Registrer Bruker </button>
+    <br />
+    <div asp-validation-summary="All" class="text-danger"> </div>
 
 </form>
