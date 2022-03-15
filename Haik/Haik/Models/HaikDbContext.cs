@@ -17,6 +17,7 @@ namespace Haik.Models
         public string Gender { get; set; }
         public string DateOfBirth { get; set; }
         public string JsonParticipatedTrips { get; set; }
+        public Boolean isCommercial { get; set; }
 
     }
 

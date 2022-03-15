@@ -10,13 +10,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Haik.Pages
 {
-    public class CommercialProfileModel : PageModel
+    public class ProfileCommercial : PageModel
     {
         public HaikDBContext context = null;
 
         [BindProperty]
         public ApplicationUser user { get; set; }
-        public CommercialProfileModel(HaikDBContext context)
+        public ProfileCommercial(HaikDBContext context)
         {
             this.context = context;
         }
