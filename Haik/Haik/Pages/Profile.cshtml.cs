@@ -12,24 +12,17 @@ namespace Haik.Pages
 {
     public class ProfileModel : PageModel
     {
-        public HaikDBContext context = null;
-
-        [BindProperty]
+        public HaikDBContext context;
         public ApplicationUser user { get; set; }
+        public IEnumerable<TripDb> trips { get; set; }
+        
         public ProfileModel(HaikDBContext context)
         {
             this.context = context;
         }
-
-        public IEnumerable<ApplicationUser> users { get; set; }
-        public IEnumerable<TripDb> trips { get; set; }
-        public void OnGet()
+        public void OnGet(string id)
         {
-            users = context.Users.ToList();
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-
-            user = users.Where<ApplicationUser>(w => w.Id == userId).FirstOrDefault();
-            
+            user = context.Users.Where<ApplicationUser>(w => w.UserName == id).FirstOrDefault();
         }
     }
 }
