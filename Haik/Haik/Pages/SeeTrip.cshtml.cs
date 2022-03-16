@@ -17,6 +17,7 @@ namespace Haik.Pages
         private List<TripDb> datalookup;
         public int id;
         public TripDb trip;
+        public readonly List<ApplicationUser> tripParticipants = new List<ApplicationUser>();
 
         public SeeTripModel(HaikDBContext context)
         {
@@ -41,7 +42,12 @@ namespace Haik.Pages
                     trip = d;
                 }
             }
-
+            var strList = JsonConvert.DeserializeObject<List<string>>(trip.JsonParticipantUids);
+            foreach(var u in strList)
+            {
+                tripParticipants.Add(context.Users.Where<ApplicationUser>(w => w.Id == u).First());
+            }
+            System.Diagnostics.Debug.WriteLine(tripParticipants.Count());
         }
 
         public IEnumerable<TripDb> trips { get; set; }
@@ -67,6 +73,8 @@ namespace Haik.Pages
                     trip = d;
                 }
             }
+
+            
 
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
@@ -162,9 +170,12 @@ namespace Haik.Pages
                     users.Where<ApplicationUser>(w => w.Id == userId).FirstOrDefault().JsonParticipatedTrips = unewJson;
                     context.SaveChanges();
 
-                }  
-
-            
+                }
+            var strList = JsonConvert.DeserializeObject<List<string>>(trip.JsonParticipantUids);
+            foreach (var u in strList)
+            {
+                tripParticipants.Add(context.Users.Where<ApplicationUser>(w => w.Id == u).First());
+            }
         }
 
     }
