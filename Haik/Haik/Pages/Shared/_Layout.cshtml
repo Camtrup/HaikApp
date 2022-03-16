@@ -30,7 +30,7 @@
                         @if (SignInManager.IsSignedIn(User))
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-page="/Profile">Min Profil</a>
+                                <a class="nav-link text-dark" asp-route-id="@User.Identity.Name" asp-page="/Profile">Min Profil</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-page="/LogOut">Logg Ut</a>
