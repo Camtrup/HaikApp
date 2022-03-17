@@ -17,8 +17,8 @@
             <div class="card border-0 shadow">
                 <div class="card-body">
                     <div class="mb-4">
-                        
-                        @if (Model.context.Users.Where<ApplicationUser>(a => a.Id == Model.trip.OwnerId).First().Commercial)
+
+                        @if (Model.context.Users.Where<ApplicationUser>(a => a.Id == Model.trip.OwnerId).First().IsCommercial)
                         {
                             <h3 class="h3"><i class="fas fa-solid fa-star text-warning"></i>Info</h3>
                         }
@@ -28,7 +28,7 @@
                         }
 
                     </div>
-                    
+
                     <ul class="list-unstyled mb-5">
                         <li class="mb-4"><i class="fas fa-map-marker-alt text-info"></i> @Model.trip.Location </li>
                         <li class="mb-4"><i class="fas fa-clock text-info"></i>@Model.trip.Duration </li>
@@ -67,10 +67,10 @@
 
         </div>
 
-        
 
-        
+
+
 
 
     </div>
-    </div>
+</div>
