@@ -3,9 +3,9 @@
 @{
 }
 <div class="container">
-    <form asp-route-id="" asp-page="/Search">
+    <form method="post" asp-page="/Search">
         <div class="input-group">
-            <input type="text" class="form-control" placeholder="Hvor vil du på din neste tur?" name="search">
+            <input id="searchTrip" type="text" class="form-control" placeholder="Hvor vil du på din neste tur?" name="search">
             <select>
                 <option value="#">Sorter turer</option>
                 <option value="#">Kommende</option>
@@ -13,7 +13,7 @@
                 <option value="#">Dato, synkende</option>
                 <option value="#">Dato, stigende</option>
             </select>
-            <button>SØK</button>
+            <button type="submit">SØK</button>
         </div>
     </form>
 </div>
