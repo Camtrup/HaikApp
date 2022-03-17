@@ -25,12 +25,12 @@
     <form method="post" asp-page="/Search">
         <div class="input-group">
             <input id="searchTrip" type="text" class="form-control" placeholder="Hvor vil du på din neste tur?" name="search">
-            <select>
-                <option value="#">Sorter turer</option>
-                <option value="#">Kommende</option>
-                <option value="#">Fullførte</option>
-                <option value="#">Dato, synkende</option>
-                <option value="#">Dato, stigende</option>
+            <select name="select">
+                <option value="">Sorter turer</option>
+                <option value="upcoming">Kommende</option>
+                <option value="finished">Fullførte</option>
+                <option value="desc">Dato, synkende</option>
+                <option value="asc">Dato, stigende</option>
             </select>
             <button type="submit">SØK</button>
         </div>

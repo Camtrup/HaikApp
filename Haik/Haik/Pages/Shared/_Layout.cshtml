@@ -10,6 +10,7 @@
     <title>@ViewData["Title"] - Haik</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="~/favicon.png" />
 </head>
 <body>
     <header>
@@ -25,6 +26,12 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Index">Hjem</a>
                         </li>
+                        @if (SignInManager.IsSignedIn(User))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Search">Søk</a>
+                            </li>
+                        }
                     </ul>
                     <ul class="navbar-nav navbar-right">
                         @if (SignInManager.IsSignedIn(User))
