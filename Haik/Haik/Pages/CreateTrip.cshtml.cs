@@ -54,7 +54,7 @@ namespace Haik.Pages
                 Date = vm.date,
                 Equipment = vm.equipment,
                 OwnerId = userID,
-                dbIsCommercial = u.isCommercial
+                dbIsCommercial = u.IsCommercial
                 //Predefined participants could be added her, but application owner did not request this.
             };
             dbContext.Trips.Add(newTrip);
