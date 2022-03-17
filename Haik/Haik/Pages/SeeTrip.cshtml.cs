@@ -148,9 +148,13 @@ namespace Haik.Pages
                 {
                     ujsonPrevdeser.Add(id.ToString());
                 }
-                   
+                else
+                {
+                    ujsonPrevdeser.Remove(id.ToString());
+                }
 
-                    var unewJson = JsonConvert.SerializeObject(ujsonPrevdeser);
+
+                var unewJson = JsonConvert.SerializeObject(ujsonPrevdeser);
 
                     users.Where<ApplicationUser>(w => w.Id == userId).FirstOrDefault().JsonParticipatedTrips = unewJson;
                     context.SaveChanges();
