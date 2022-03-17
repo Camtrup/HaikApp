@@ -32,5 +32,10 @@ namespace Haik.Pages
             data = await dbContext.Trips.ToListAsync();
 
         }
+        public async Task<RedirectToPageResult> OnPostAsync()
+        {
+            string keys= Request.Form["search"];
+            return RedirectToPage("/Search", new { s = keys });
+        }
     }
 }
