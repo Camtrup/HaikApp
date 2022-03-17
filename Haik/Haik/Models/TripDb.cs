@@ -23,5 +23,6 @@ namespace Haik.Models
         public string Date { get; set; }
         public string Equipment { get; set; }
         public bool dbIsCommercial { get; set;  }
+        public string Summary { get; set; }
     }
 }
