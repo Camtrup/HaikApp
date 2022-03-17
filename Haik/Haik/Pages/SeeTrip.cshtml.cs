@@ -42,15 +42,12 @@ namespace Haik.Pages
                     trip = d;
                 }
             }
-            if(trip.JsonParticipantUids != null)
+            var strList = JsonConvert.DeserializeObject<List<string>>(trip.JsonParticipantUids);
+            foreach(var u in strList)
             {
-
-                var strList = JsonConvert.DeserializeObject<List<string>>(trip.JsonParticipantUids);
-                foreach(var u in strList)
-                {
-                    tripParticipants.Add(context.Users.Where<ApplicationUser>(w => w.Id == u).First());
-                }
+                tripParticipants.Add(context.Users.Where<ApplicationUser>(w => w.Id == u).First());
             }
+            System.Diagnostics.Debug.WriteLine(tripParticipants.Count());
         }
 
         public IEnumerable<TripDb> trips { get; set; }
