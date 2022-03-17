@@ -4,14 +4,16 @@ using Haik.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Haik.Migrations
 {
     [DbContext(typeof(HaikDBContext))]
-    partial class HaikDBContextModelSnapshot : ModelSnapshot
+    [Migration("20220315122838_haikdbcontext")]
+    partial class haikdbcontext
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
