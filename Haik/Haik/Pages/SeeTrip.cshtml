@@ -119,8 +119,9 @@
                     <ul class="list-group">
                         @foreach (var u in Model.tripParticipants)
                         {
-                            
-                            <li class="list-group-item">@u.FirstName @u.LastName</li>
+
+                            <a asp-route-id="@u.UserName" asp-page="/Profile">
+                            <li class="list-group-item">@u.FirstName @u.LastName</li></a>
                         }
                     </ul>
                 </div>
