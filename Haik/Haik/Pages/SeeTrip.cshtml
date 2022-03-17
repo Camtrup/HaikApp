@@ -94,7 +94,7 @@
         <form method="post">
             @if ((Convert.ToDateTime(Model.trip.Date) < DateTime.Now) && (Model.trip.OwnerId.Equals(User.FindFirstValue(ClaimTypes.NameIdentifier))))
             {
-                <a asp-page="/AddSummary" asp-route-id="@id"><button type="submit" class="btn btn-secondary btn-lg">Skriv oppsummering</button></a>
+                <a asp-page="/AddSummary" asp-route-id="@id"><button type="button" class="btn btn-secondary btn-lg">Skriv oppsummering</button></a>
             }
         </form>
 
