@@ -34,5 +34,8 @@ namespace Haik.ViewModels
         public IFormFile PictureToAdd { get; set; }
         public string Date { get; set; }
         public string Equipment { get; set; }
+
+        [DataType(DataType.Text)]
+        public string Summary { get; set; }
     }
 }
