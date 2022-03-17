@@ -37,9 +37,38 @@ namespace Haik.Pages
         public async Task OnPostAsync()
         {
             var keywords = Request.Form["search"].ToString().Split(" ");
+            var sort = Request.Form["select"];
             foreach (var word in keywords)
             {
                 queriedTrips.AddRange(context.Trips.Where<TripDb>(t => !queriedTrips.Contains(t) && (t.Name.Contains(word) || t.Location.Contains(word))).ToList());
+            }
+            if(sort == "asc")
+            {
+                queriedTrips = queriedTrips.OrderBy(o => o.Date).ToList<TripDb>();
+            }
+            else if(sort == "desc")
+            {
+                queriedTrips = queriedTrips.OrderByDescending(o => o.Date).ToList<TripDb>();
+            }
+            else if(sort == "finished")
+            {
+                foreach(var t in queriedTrips.ToList())
+                {
+                    if ((Convert.ToDateTime(t.Date) > DateTime.Now))
+                    {
+                        queriedTrips.Remove(t);
+                    }
+                }
+            }
+            else if(sort == "upcoming")
+            {
+                foreach (var t in queriedTrips.ToList())
+                {
+                    if ((Convert.ToDateTime(t.Date) < DateTime.Now))
+                    {
+                        queriedTrips.Remove(t);
+                    }
+                }
             }
         }
     }
