@@ -1,5 +1,4 @@
-
-﻿using Haik.Models;
+using Haik.Models;
 using Haik.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -13,38 +12,33 @@ using System.Threading.Tasks;
 
 namespace Haik.Pages
 {
-  public class RegisterModel : PageModel
-  {
+    public class RegisterModel : PageModel
+    {
         private readonly HaikDBContext dbContext;
         private readonly UserManager<ApplicationUser> userManager;
         private SignInManager<ApplicationUser> signInManager;
-    
+
         [BindProperty]
         public RegisterViewModel registerViewModel { get; set; }
 
 
         public RegisterModel(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, HaikDBContext dbContext)
         {
-        this.userManager = userManager;
-        this.signInManager = signInManager;
-        this.dbContext = dbContext;
-        
+            this.userManager = userManager;
+            this.signInManager = signInManager;
+            this.dbContext = dbContext;
+
         }
 
         public void OnGet()
         {
-         
+
         }
 
         public async Task<IActionResult> OnPostAsync()
         {
             if (ModelState.IsValid)
             {
-                var isAdmin = false;
-                if(Environment.GetEnvironmentVariable("ApiKey") == registerViewModel.APIkey)
-                {
-                    isAdmin = true;
-                }
                 var user = new ApplicationUser()
                 {
                     FirstName = registerViewModel.FirstName,
@@ -54,7 +48,7 @@ namespace Haik.Pages
                     Description = registerViewModel.Description,
                     Gender = registerViewModel.Gender,
                     DateOfBirth = registerViewModel.DateOfBirth,
-                    Admin = isAdmin
+                    IsCommercial = registerViewModel.IsCommercial == "True" ? true : false
                 };
 
                 var result = await userManager.CreateAsync(user, registerViewModel.Password);
@@ -67,11 +61,10 @@ namespace Haik.Pages
                 {
                     return RedirectToPage("/Error");
                 }
-                
+
             }
             return Page();
 
         }
     }
 }
-

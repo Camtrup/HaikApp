@@ -6,88 +6,71 @@
     var id = RouteData.Values["id"];
 }
 
-<style>
-    .tripNameContainer {
-        text-align: center;
-    }
-    .tripInfoContainer{
-        border: solid 3px grey;
-        width: 80%
-    }
-
-    .descriptionContainer{
-        border: solid 3px grey;
-        width: 80%
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ti-icons@0.1.2/css/themify-icons.css">
 
 
+<div class="container">
+    <div class="row content-center">
 
-    }
+        <div class="col-md-7 col-lg-4 mb-5 mb-lg-0 wow fadeIn">
+            <div class="card border-0 shadow">
+                <div class="card-body">
+                    <div class="mb-4">
 
-    .allInfo{
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-    }
+                        @if (Model.context.Users.Where<ApplicationUser>(a => a.Id == Model.trip.OwnerId).First().IsCommercial)
+                        {
+                            <h3 class="h3"><i class="fas fa-solid fa-star text-warning"></i>Info</h3>
+                        }
+                        else
+                        {
+                            <h3 class="h3">Info </h3>
+                        }
 
-    .joinTripButton{
-       
-        align-items: center;
-        text-align: center;
-    }
-</style>
+                    </div>
 
+                    <ul class="list-unstyled mb-5">
+                        <li class="mb-4"><i class="fas fa-map-marker-alt text-info"></i> @Model.trip.Location </li>
+                        <li class="mb-4"><i class="fas fa-clock text-info"></i>@Model.trip.Duration </li>
+                        <li class="mb-4"><i class="fas fa-calendar-alt text-info"></i>@Model.trip.Date</li>
+                        <li class="mb-4"><i class="fas fa-signal text-info"></i>@Model.trip.Difficulty</li>
+                        <li class="mb-4"><i class="fas fa-hiking text-info"></i> @Model.trip.Equipment</li>
+                    </ul>
+                    <div>
+                        <form method="post">
+                            @if (Model.trip.JsonParticipantUids == null || !Model.trip.JsonParticipantUids.Contains(User.FindFirstValue(ClaimTypes.NameIdentifier)))
+                            {
+                                <button type="submit" class="btn btn-info btn-lg">Meld meg på</button>
+                            }
+                            else
+                            {
+                                <button type="submit" class="btn btn-danger btn-lg">Meld meg av</button>
+                            }
 
-<link rel="stylesheet" href="~/css/index.css" />
+                        </form>
+                    </div>
 
-
-<div class="container-fluid">
-    <div class="tripNameContainer">
-        <h1>@Model.trip.Name </h1> 
-    </div>
-
-    <div class="allInfo">
-
-        <div class="tripInfoContainer">
-            Lokasjon: @Model.trip.Location <br />
-            Varighet: @Model.trip.Duration <br />
-            Dato: @Model.trip.Date <br />
-            Vanskelighetsgrad:@Model.trip.Difficulty <br />
-            Utstyr: @Model.trip.Equipment <br />
-
-        </div>
-
-        <div class="descriptionContainer">
-            <h3>Beskrivelse</h3>
-            @Model.trip.Description
-            
+                </div>
+            </div>
         </div>
 
 
-        
+        <div class="col-lg-6">
+            <div class="mb-5 wow fadeIn">
+                <div class="text-start mb-1-6 wow fadeIn">
+                    <h2 class="h1 text-info">@Model.trip.Name</h2>
+                </div>
+                <div class="p-3 mb-2 border border-info text-black-50">
+                    @Model.trip.Description
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+
 
     </div>
-    <div class="joinTripButton">
-
-        
-       
-      
-        <form method="post">
-            @if (Model.trip.JsonParticipantUids == null || !Model.trip.JsonParticipantUids.Contains(User.FindFirstValue(ClaimTypes.NameIdentifier)))
-            {
-                <button type="submit" class="btn btn-secondary btn-lg">Meld meg på</button>
-            }
-            else
-            {
-                <button type="submit" class="btn btn-danger btn-lg">Meld meg av</button>
-            }
-            @if (Model.trip.OwnerId.Equals(User.FindFirstValue(ClaimTypes.NameIdentifier)) || Model.context.Users.Where<ApplicationUser>(u => u.UserName == User.Identity.Name).First().Admin)
-            {
-                <a asp-page="/EditTrip" asp-route-id="@id"><button type="button" class="btn btn-primary btn-lg">Rediger Tur</button></a>
-            }
-
-        </form>
-        
-       
-        
-    </div>
-
 </div>

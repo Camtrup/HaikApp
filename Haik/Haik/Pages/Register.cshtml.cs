@@ -1,5 +1,4 @@
-
-﻿using Haik.Models;
+using Haik.Models;
 using Haik.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -13,27 +12,27 @@ using System.Threading.Tasks;
 
 namespace Haik.Pages
 {
-  public class RegisterModel : PageModel
-  {
+    public class RegisterModel : PageModel
+    {
         private readonly HaikDBContext dbContext;
         private readonly UserManager<ApplicationUser> userManager;
         private SignInManager<ApplicationUser> signInManager;
-    
+
         [BindProperty]
         public RegisterViewModel registerViewModel { get; set; }
 
 
         public RegisterModel(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, HaikDBContext dbContext)
         {
-        this.userManager = userManager;
-        this.signInManager = signInManager;
-        this.dbContext = dbContext;
-        
+            this.userManager = userManager;
+            this.signInManager = signInManager;
+            this.dbContext = dbContext;
+
         }
 
         public void OnGet()
         {
-         
+
         }
 
         public async Task<IActionResult> OnPostAsync()
@@ -48,7 +47,8 @@ namespace Haik.Pages
                     Email = registerViewModel.Email,
                     Description = registerViewModel.Description,
                     Gender = registerViewModel.Gender,
-                    DateOfBirth = registerViewModel.DateOfBirth
+                    DateOfBirth = registerViewModel.DateOfBirth,
+                    IsCommercial = registerViewModel.IsCommercial == "True" ? true : false
                 };
 
                 var result = await userManager.CreateAsync(user, registerViewModel.Password);
@@ -61,11 +61,10 @@ namespace Haik.Pages
                 {
                     return RedirectToPage("/Error");
                 }
-                
+
             }
             return Page();
 
         }
     }
 }
-
