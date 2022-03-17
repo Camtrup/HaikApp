@@ -20,14 +20,13 @@ namespace Haik.Pages
         }
         public async void OnGetAsync(string s)
         {
-            var keywords = new string[0];
             if(s == null)
             {
                 queriedTrips = context.Trips.ToList<TripDb>();
             }
             else
             {
-                keywords = s.Split(" ");
+                var keywords = s.Split(" ");
                 foreach(var word in keywords)
                 {
                     queriedTrips.AddRange(context.Trips.Where<TripDb>(t => !queriedTrips.Contains(t) && (t.Name.Contains(word) || t.Location.Contains(word))).ToList());
