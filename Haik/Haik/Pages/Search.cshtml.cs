@@ -11,7 +11,7 @@ namespace Haik.Pages
 {
     public class SearchModel : PageModel
     {
-        private readonly HaikDBContext context;
+        public readonly HaikDBContext context;
         public readonly List<TripDb> queriedTrips = new List<TripDb>();
 
         public SearchModel(HaikDBContext context)
