@@ -42,11 +42,15 @@
                             {
                                 <button type="submit" class="btn btn-info btn-lg">Meld meg på</button>
                             }
+                            else if (Convert.ToDateTime(Model.trip.Date) < DateTime.Now) 
+                            {
+                                <button type="button" class="btn btn-outline-secondary btn-lg">Arrangmentet er over</button>
+                            }
                             else
                             {
                                 <button type="submit" class="btn btn-danger btn-lg">Meld meg av</button>
                             }
-                            @if (Model.trip.OwnerId.Equals(User.FindFirstValue(ClaimTypes.NameIdentifier)) || Model.context.Users.Where<ApplicationUser>(u => u.UserName == User.Identity.Name).First().Admin)
+                            @if ((Model.trip.OwnerId.Equals(User.FindFirstValue(ClaimTypes.NameIdentifier)) || Model.context.Users.Where<ApplicationUser>(u => u.UserName == User.Identity.Name).First().Admin) && Convert.ToDateTime(Model.trip.Date) > DateTime.Now)
                             {
                                 <a asp-page="/EditTrip" asp-route-id="@id"><button type="button" class="btn btn-secondary btn-lg">Rediger Tur</button></a>
                             }
