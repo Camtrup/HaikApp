@@ -2,6 +2,25 @@
 @model Haik.Pages.SearchModel
 @{
 }
+
+<style>
+    .tripContainerSearch {
+        margin-top: 20px;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-row-gap: 10px;
+    }
+    .searchTripDiv {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        border-bottom: grey solid 3px;
+        color: black;
+        
+    }
+    .searchTripDiv * {
+        width: 100%;
+    }
+</style>
 <div class="container">
     <form method="post" asp-page="/Search">
         <div class="input-group">
@@ -16,4 +35,25 @@
             <button type="submit">SØK</button>
         </div>
     </form>
+
+    <div class="tripContainerSearch">
+        @foreach(var t in Model.queriedTrips)
+        {
+            <a asp-route-id="@t.Id" asp-page="/SeeTrip">
+                <div class="searchTripDiv">
+                    <h4 class="">@t.Name</h4>
+                    @if (t.JsonParticipantUids == null)
+                    {
+                        <h4 class="">0 Påmeldte</h4>
+                    }
+                    else
+                    {
+                        <h4 class="">@((int)t.JsonParticipantUids.Count()/37) Påmeldte</h4>
+                    }
+                    <h4 class="">@t.Difficulty</h4>
+                    <h4>@Model.context.Users.Where(w => w.Id == t.OwnerId).First().FirstName @Model.context.Users.Where(w => w.Id == t.OwnerId).First().LastName</h4>
+                </div>
+            </a>
+        }
+    </div>
 </div>
