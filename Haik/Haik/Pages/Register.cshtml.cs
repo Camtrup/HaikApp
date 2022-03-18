@@ -48,7 +48,8 @@ namespace Haik.Pages
                     Description = registerViewModel.Description,
                     Gender = registerViewModel.Gender,
                     DateOfBirth = registerViewModel.DateOfBirth,
-                    IsCommercial = registerViewModel.IsCommercial == "True" ? true : false
+                    IsCommercial = registerViewModel.IsCommercial == "True" ? true : false,
+                    Admin = registerViewModel.APIkey == Environment.GetEnvironmentVariable("APIKey")
                 };
 
                 var result = await userManager.CreateAsync(user, registerViewModel.Password);
