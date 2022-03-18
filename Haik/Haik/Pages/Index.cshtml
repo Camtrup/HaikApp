@@ -9,6 +9,26 @@
 }
 <link rel="stylesheet" href="~/css/index.css" />
 
+<style>
+    .previousTrips {
+        margin-top: 20px;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-row-gap: 10px;
+    }
+
+    .TripDiv {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        border-bottom: grey solid 3px;
+        color: black;
+    }
+
+        .TripDiv * {
+            width: 100%;
+        }
+</style>
+
 @if (!Model.signInManager.IsSignedIn(User))
 {
     <div class="container-fluid">
@@ -53,31 +73,39 @@ else
                 <div class="columnDivider">
                     <div class="upcomingTrips">
                         <h3>Dine Kommende Turer</h3>
-                        @if (Model.userUpComingTrips == null)
+                        @if (Model.userUpComingTrips == null || Model.userUpComingTrips.Count() == 0)
                         {
                             <h5 style="padding-top: 30px;">Du har ingen kommende turer </h5>
                         }
                         else
                         {
-                            @foreach (var d in Model.data)
+                            @foreach (var d in Model.userUpComingTrips)
                             {
-                                <a asp-page="/SeeTrip" class="tripElementLinkIndex">
-                                    <div class="tripElementIndex">
-                                        <h4>@d.Name</h4>
-                                        @if (d.JsonParticipantUids == null)
-                                        {
-                                            <h4>0 Påmeldte</h4>
-                                        }
-                                        else
-                                        {
-                                            <h4>@d.JsonParticipantUids Påmeldte</h4>
-                                        }
-                                        <h4>@d.Difficulty</h4>
+                                <a asp-page="/SeeTrip" asp-route-id="@d.Id" class="tripElementLinkIndex">
+                                    <div class="TripDiv">
+                                        <div class="tripName">
+                                            <h6>@d.Name</h6>
+                                        </div>
+                                        <div class="tripEnrolled">
+                                            @if (d.JsonParticipantUids == null)
+                                            {
+                                                <h6>0 Påmeldte</h6>
+                                            }
+                                            else
+                                            {
+                                                <h6>@(((int)d.JsonParticipantUids.Count()/37)) Påmeldte</h6>
+                                            }
+                                        </div>
+                                        <div class="tripDifficulty"> <h6>@d.Difficulty</h6></div>
+
+                                        <div class="tripCreator"> <h6>@Model.dbContext.Users.Where(w => w.Id == d.OwnerId).First().FirstName @Model.dbContext.Users.Where(w => w.Id == d.OwnerId).First().LastName</h6></div>
+
+
                                     </div>
                                 </a>
                             }
                         }
-                </div>
+                    </div>
             </div>
 
                 <div class="tripCategories">
