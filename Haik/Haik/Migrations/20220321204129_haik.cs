@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Haik.Migrations
 {
-    public partial class haikmg : Migration
+    public partial class haik : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -33,6 +33,7 @@ namespace Haik.Migrations
                     Gender = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DateOfBirth = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     JsonParticipatedTrips = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsCommercial = table.Column<bool>(type: "bit", nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -70,7 +71,9 @@ namespace Haik.Migrations
                     Duration = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Difficulty = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Date = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Equipment = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Equipment = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    dbIsCommercial = table.Column<bool>(type: "bit", nullable: false),
+                    Summary = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
