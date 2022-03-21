@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Haik.Migrations
 {
     [DbContext(typeof(HaikDBContext))]
-    [Migration("20220315122838_haikdbcontext")]
-    partial class haikdbcontext
+    [Migration("20220321204129_haik")]
+    partial class haik
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -55,6 +55,9 @@ namespace Haik.Migrations
                     b.Property<string>("Gender")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("IsCommercial")
+                        .HasColumnType("bit");
+
                     b.Property<string>("JsonParticipatedTrips")
                         .HasColumnType("nvarchar(max)");
 
@@ -93,9 +96,6 @@ namespace Haik.Migrations
                     b.Property<string>("UserName")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
-
-                    b.Property<bool>("isCommercial")
-                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 
@@ -152,6 +152,12 @@ namespace Haik.Migrations
 
                     b.Property<string>("OwnerId")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Summary")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("dbIsCommercial")
+                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 
