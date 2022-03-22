@@ -36,6 +36,13 @@
                         <li class="mb-4"><i class="fas fa-signal text-info"></i>@Model.trip.Difficulty</li>
                         <li class="mb-4"><i class="fas fa-hiking text-info"></i> @Model.trip.Equipment</li>
                     </ul>
+
+                    <div>
+                        <button id="prevBut" type="submit" class="btn btn-info btn-lg">forrige</button>
+                        <img name="CurrentImage" border="0" width="140">
+                        <button id="nextBut" type="submit" class="btn btn-info btn-lg">neste</button>
+                    </div>
+
                     <div>
                         <form method="post">
                             @if (Convert.ToDateTime(Model.trip.Date) < DateTime.Now) 
@@ -102,8 +109,8 @@
                         <button type="submit" class="btn btn-info btn-sm">Send</button>
                     </div>
 
-                    </div>
                 </div>
+            </div>
         </div>
 
 
@@ -124,15 +131,48 @@
 
 
 
-    <div class="addSummary">
-        <form method="post">
-            @if ((Convert.ToDateTime(Model.trip.Date) < DateTime.Now) && (Model.trip.OwnerId.Equals(User.FindFirstValue(ClaimTypes.NameIdentifier))))
-            {
-                <a asp-page="/AddSummary" asp-route-id="@id"><button type="button" class="btn btn-secondary btn-lg">Skriv oppsummering</button></a>
-            }
-        </form>
+    @if (Convert.ToDateTime(Model.trip.Date) < DateTime.Now)
+    {
+        <div class="summarySection">
+            <div class="p-3 mb-2 bg-info text-white col-md-6">
 
-    </div>
+                <div class="p-3 mb-2 border border-white text-white">
+                    <div class="container-fluid">
+                        <h1>Oppsummering av turen</h1>
+                        @if (@Model.trip.Summary is null)
+                        {
+                            <h6>Her blir oppsummering av turen lagt til</h6>
+                        }
+                        else
+                        {
+                            @Model.trip.Summary
+                        }
 
-    
+                    </div>
+                </div>
+            </div>
+
+            <div class="addSummary">
+                <form method="post">
+                    @if (Model.trip.OwnerId.Equals(User.FindFirstValue(ClaimTypes.NameIdentifier)) && Model.trip.Summary is null)
+                    {
+                        <a asp-page="/AddSummary" asp-route-id="@id"><button type="button" class="btn btn-secondary btn-lg">Skriv oppsummering</button></a>
+                    }
+                </form>
+            </div>
+
+            <div class="editSummary">
+                <form method="post">
+                    @if ((Model.trip.OwnerId.Equals(User.FindFirstValue(ClaimTypes.NameIdentifier)) || Model.context.Users.Where<ApplicationUser>(u => u.UserName == User.Identity.Name).First().Admin) && Model.trip.Summary is not null)
+                    {
+                        <a asp-page="/AddSummary" asp-route-id="@id"><button type="button" class="btn btn-secondary btn-lg">Rediger oppsummering</button></a>
+                    }
+                </form>
+            </div>
+
+        </div>
+
+    }
+
+
 </div>

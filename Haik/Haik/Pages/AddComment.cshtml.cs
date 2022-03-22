@@ -6,17 +6,19 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Haik.Models;
 using Haik.ViewModels;
+using Newtonsoft.Json;
+using System.Security.Claims;
+
 namespace Haik.Pages
 {
-    public class AddSummaryModel : PageModel
+    public class AddCommentModel : PageModel
     {
         public HaikDBContext context;
         public TripDb trip;
-
         [BindProperty]
         public EditWalkViewModel walkViewModel { get; set; }
         public int id;
-        public AddSummaryModel(HaikDBContext context)
+        public AddCommentModel(HaikDBContext context)
         {
             this.context = context;
         }
@@ -25,18 +27,15 @@ namespace Haik.Pages
             this.id = id;
             trip = context.Trips.Where<TripDb>(t => t.Id == id).First();
         }
-        public async Task<IActionResult> OnPostAsync(int id)
+        public async Task OnPostAsync(int id)
         {
             trip = context.Trips.Where<TripDb>(t => t.Id == id).First();
-            if(walkViewModel != null)
-            {
-                if(walkViewModel.Summary != null)
-                {
-                    trip.Summary = walkViewModel.Summary;
-                }
-            }
+            var jsonPrevdeser = JsonConvert.DeserializeObject<List<string>>(trip.CommentJSON);
+            jsonPrevdeser.Add(walkViewModel.CommentJSON);
+            jsonPrevdeser.Add(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            var newJson = JsonConvert.SerializeObject(jsonPrevdeser);
+            context.Trips.Where<TripDb>(w => w.Id == id).FirstOrDefault().CommentJSON = newJson;
             context.SaveChanges();
-            return RedirectToPage("/Index");
         }
     }
 }
