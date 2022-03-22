@@ -24,5 +24,8 @@ namespace Haik.Models
         public string Equipment { get; set; }
         public bool dbIsCommercial { get; set;  }
         public string Summary { get; set; }
+        public string CommentJSON { get; set; }
+
+
     }
 }

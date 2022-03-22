@@ -58,14 +58,13 @@
 
 
 }
-
-.indexLoggedInMainContainer .personalInfoLoggedInContainer div {
-    height: 200px;
-    display: grid;
-    margin-bottom: 20px;
-    border-bottom: solid grey 3px;
-    text-align: center;
-}
+    .indexLoggedInMainContainer .personalInfoLoggedInContainer>div {
+        height: 200px;
+        display: grid;
+        margin-bottom: 20px;
+        border-bottom: solid grey 3px;
+        text-align: center;
+    }
 
 
 .indexLoggedInMainContainer .personalInfoLoggedInContainer {

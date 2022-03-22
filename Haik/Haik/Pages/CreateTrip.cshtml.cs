@@ -1,10 +1,12 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Haik.Models;
 using Haik.ViewModels;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -16,18 +18,38 @@ namespace Haik.Pages
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly HaikDBContext dbContext;
+        private readonly IWebHostEnvironment webHostEnvironment;
         [BindProperty]
         public CreateTripModel walkViewModel { get; set; }
-        public CreateTrip(HaikDBContext dbContext, UserManager<ApplicationUser> userManager)
+        public CreateTrip(HaikDBContext dbContext, UserManager<ApplicationUser> userManager, IWebHostEnvironment hostEnvironment)
         {
             this.dbContext = dbContext;
             this._userManager = userManager;
+            this.webHostEnvironment = hostEnvironment;
         }
         public void OnGet()
         {
             var e = walkViewModel;
             var s = 2;
         }
+
+        private string UploadedFile(CreateTripModel model)
+        {
+            string uniqueFileName = null;
+
+            if (model.pictureToAdd != null)
+            {
+                string uploadsFolder = Path.Combine(webHostEnvironment.WebRootPath, "Pictures");
+                uniqueFileName = Guid.NewGuid().ToString() + "_" + model.pictureToAdd.FileName;
+                string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    model.pictureToAdd.CopyTo(fileStream);
+                }
+            }
+            return uniqueFileName;
+        }
+
         public IEnumerable<TripDb> trips { get; set; }
         public async Task<IActionResult> OnPostAsync()
         {
