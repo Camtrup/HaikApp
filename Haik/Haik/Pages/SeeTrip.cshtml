@@ -45,13 +45,13 @@
 
                     <div>
                         <form method="post">
-                            @if (Model.trip.JsonParticipantUids == null || !Model.trip.JsonParticipantUids.Contains(User.FindFirstValue(ClaimTypes.NameIdentifier)))
-                            {
-                                <button type="submit" class="btn btn-info btn-lg">Meld meg på</button>
-                            }
-                            else if (Convert.ToDateTime(Model.trip.Date) < DateTime.Now)
+                            @if (Convert.ToDateTime(Model.trip.Date) < DateTime.Now) 
                             {
                                 <button type="button" class="btn btn-outline-secondary btn-lg">Arrangmentet er over</button>
+                            }
+                            else if (Model.trip.JsonParticipantUids == null || !Model.trip.JsonParticipantUids.Contains(User.FindFirstValue(ClaimTypes.NameIdentifier)))
+                            {
+                                <button type="submit" class="btn btn-info btn-lg">Meld meg på</button>
                             }
                             else
                             {
