@@ -2,7 +2,7 @@
 @model Haik.Pages.AddSummaryModel
 @{
 }
-@if (Model.trip.Summary.Equals(null))
+@if (Model.trip.Summary is null)
 {
     <form method="post" asp-route-id="@Model.id">
         <h1 class="card-title">Legg til oppsumering</h1><br />
