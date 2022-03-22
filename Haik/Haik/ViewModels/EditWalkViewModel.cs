@@ -37,5 +37,8 @@ namespace Haik.ViewModels
 
         [DataType(DataType.Text)]
         public string Summary { get; set; }
+
+        [DataType(DataType.Text)]
+        public string CommentJSON { get; set; } 
     }
 }
