@@ -25,7 +25,7 @@ namespace Haik.Pages
             this.id = id;
             trip = context.Trips.Where<TripDb>(t => t.Id == id).First();
         }
-        public async Task OnPostAsync(int id)
+        public async Task<IActionResult> OnPostAsync(int id)
         {
             trip = context.Trips.Where<TripDb>(t => t.Id == id).First();
             if(walkViewModel != null)
@@ -36,6 +36,7 @@ namespace Haik.Pages
                 }
             }
             context.SaveChanges();
+            return RedirectToPage("/Index");
         }
     }
 }

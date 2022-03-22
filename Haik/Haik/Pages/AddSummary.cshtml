@@ -2,16 +2,31 @@
 @model Haik.Pages.AddSummaryModel
 @{
 }
-<form method="post" asp-route-id="@Model.id">
-    <h1 class="card-title">Legg till oppsumering</h1><br />
-    <div class="p-3 mb-2 bg-info text-white">
+@if (Model.trip.Summary is null)
+{
+    <form method="post" asp-route-id="@Model.id">
+        <h1 class="card-title">Legg til oppsumering</h1><br />
+        <div class="p-3 mb-2 bg-info text-white">
 
-        <label for="description"> Oppsumering: </label>
-        <textarea asp-for="walkViewModel.Summary" value="@Model.trip.Summary" class="form-control" id="description" placeholder="Oppsummering..."></textarea><br />
+            <label for="description"> Oppsumering: </label>
+            <textarea asp-for="walkViewModel.Summary" value="@Model.trip.Summary" class="form-control" id="description" placeholder="Oppsummering..."></textarea><br />
 
-  
+            <button type="submit" class="btn btn-light">Legg til Oppsummering</button>
+        </div>
+    </form>
+}
 
+else
+{
+    <form method="post" asp-route-id="@Model.id">
+        <h1 class="card-title">Rediger oppsumering</h1><br />
+        <div class="p-3 mb-2 bg-info text-white">
 
-        <button type="submit" class="btn btn-light">Legg til Oppsummering</button>
-    </div>
-</form>
+            <label for="description"> Oppsumering: </label>
+            <textarea asp-for="walkViewModel.Summary" value="@Model.trip.Summary" class="form-control" id="description" placeholder="Oppsummering..."></textarea><br />
+
+            <button type="submit" class="btn btn-light">Oppdater oppsummering</button>
+        </div>
+    </form>
+}
+
