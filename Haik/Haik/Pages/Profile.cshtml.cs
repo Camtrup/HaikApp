@@ -14,11 +14,13 @@ namespace Haik.Pages
     public class ProfileModel : PageModel
     {
         public HaikDBContext context;
+
         public ApplicationUser user { get; set; }
         public List<TripDb> trips = new List<TripDb>();
         public ProfileModel(HaikDBContext context)
         {
             this.context = context;
+
         }
         public void OnGet(string id)
         {
