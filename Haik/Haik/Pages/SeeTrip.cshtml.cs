@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Haik.Models;
+using Haik.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
@@ -18,11 +19,14 @@ namespace Haik.Pages
         public int id;
         public TripDb trip;
         public readonly List<ApplicationUser> tripParticipants = new List<ApplicationUser>();
+        public List<string> comments = new List<string>();
+        [BindProperty]
+        public EditWalkViewModel walkViewModel { get; set; }
 
         public SeeTripModel(HaikDBContext context)
         {
             this.context = context;
-            
+
         }
 
         public async Task OnGetAsync(int id)
@@ -31,7 +35,7 @@ namespace Haik.Pages
             this.id = id;
             datalookup = await context.Trips.ToListAsync();
 
-            
+
 
             foreach (var d in datalookup)
             {
@@ -42,14 +46,28 @@ namespace Haik.Pages
                     trip = d;
                 }
             }
-            if(trip.JsonParticipantUids != null)
+
+
+            if (trip.JsonParticipantUids != null)
             {
 
                 var strList = JsonConvert.DeserializeObject<List<string>>(trip.JsonParticipantUids);
-                foreach(var u in strList)
+                foreach (var u in strList)
                 {
                     tripParticipants.Add(context.Users.Where<ApplicationUser>(w => w.Id == u).First());
                 }
+            }
+
+            if (trip.CommentJSON != null)
+            {
+                comments = JsonConvert.DeserializeObject<List<string>>(trip.CommentJSON);
+                
+                //for (int i = 0; i < strList.Count; i += 2)
+                //{
+                //    var u = context.Users.Where<ApplicationUser>(w => w.Id == strList[i + 1]).First();
+                //    comments.Add(strList[i], u);
+                //}
+
             }
         }
 
@@ -65,7 +83,7 @@ namespace Haik.Pages
             this.id = id;
             datalookup = await context.Trips.ToListAsync();
 
-            
+
 
             foreach (var d in datalookup)
             {
@@ -76,18 +94,55 @@ namespace Haik.Pages
                     trip = d;
                 }
             }
-
-            
-
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
-            //trip updating
+            if (!string.IsNullOrEmpty(walkViewModel.CommentJSON))// adding comments
+            {
+                if (trip.CommentJSON is null) {
+                    List<String> jsonPrevdeser = new List<string> { };
+                    jsonPrevdeser.Add(walkViewModel.CommentJSON);
+                    jsonPrevdeser.Add(User.FindFirstValue(ClaimTypes.NameIdentifier));
+                    var newJson = JsonConvert.SerializeObject(jsonPrevdeser);
+                    trip.CommentJSON = newJson;
+                    context.SaveChanges();
+                }
+                else {
+                    var jsonPrevdeser = JsonConvert.DeserializeObject<List<string>>(trip.CommentJSON);
+                    jsonPrevdeser.Add(walkViewModel.CommentJSON);
+                    jsonPrevdeser.Add(User.FindFirstValue(ClaimTypes.NameIdentifier));
+                    var newJson = JsonConvert.SerializeObject(jsonPrevdeser);
+                    trip.CommentJSON = newJson;
+                    context.SaveChanges();
+                }
+                
+                
+                var jsonComments  = JsonConvert.DeserializeObject<List<string>>(trip.CommentJSON);
+                for (int i = 0; i < jsonComments.Count; i += 2)
+                {
+                    var u = context.Users.Where<ApplicationUser>(w => w.Id == jsonComments[i + 1]).First();
 
-            trips = await context.Trips.ToListAsync();
-            var JSONprevOccupantsString = trips.Where<TripDb>(w => w.Id == id).FirstOrDefault().JsonParticipantUids;
+                    comments.Add(jsonComments[i]);
+                    comments.Add(u.Id);
+                }
+                this.walkViewModel.CommentJSON = string.Empty;
+
+                
 
 
-                if(JSONprevOccupantsString != null) {
+            }
+
+            else
+            {
+
+
+                //trip updating
+
+                trips = await context.Trips.ToListAsync();
+                var JSONprevOccupantsString = trips.Where<TripDb>(w => w.Id == id).FirstOrDefault().JsonParticipantUids;
+
+
+                if (JSONprevOccupantsString != null)
+                {
 
                     var jsonPrevdeser = JsonConvert.DeserializeObject<List<string>>(JSONprevOccupantsString);
 
@@ -144,17 +199,17 @@ namespace Haik.Pages
                     var ujsonPrevdeser = JsonConvert.DeserializeObject<List<string>>(uJSONprevOccupantsString);
 
 
-                if (!ujsonPrevdeser.Contains(id.ToString()))
-                {
-                    ujsonPrevdeser.Add(id.ToString());
-                }
-                else
-                {
-                    ujsonPrevdeser.Remove(id.ToString());
-                }
+                    if (!ujsonPrevdeser.Contains(id.ToString()))
+                    {
+                        ujsonPrevdeser.Add(id.ToString());
+                    }
+                    else
+                    {
+                        ujsonPrevdeser.Remove(id.ToString());
+                    }
 
 
-                var unewJson = JsonConvert.SerializeObject(ujsonPrevdeser);
+                    var unewJson = JsonConvert.SerializeObject(ujsonPrevdeser);
 
                     users.Where<ApplicationUser>(w => w.Id == userId).FirstOrDefault().JsonParticipatedTrips = unewJson;
                     context.SaveChanges();
@@ -167,23 +222,24 @@ namespace Haik.Pages
 
 
 
-                if (!ujsonPrevdeser.Contains(id.ToString()))
-                {
-                    ujsonPrevdeser.Add(id.ToString());
-                }
+                    if (!ujsonPrevdeser.Contains(id.ToString()))
+                    {
+                        ujsonPrevdeser.Add(id.ToString());
+                    }
 
-                var unewJson = JsonConvert.SerializeObject(ujsonPrevdeser);
+                    var unewJson = JsonConvert.SerializeObject(ujsonPrevdeser);
 
                     users.Where<ApplicationUser>(w => w.Id == userId).FirstOrDefault().JsonParticipatedTrips = unewJson;
                     context.SaveChanges();
 
                 }
-            var strList = JsonConvert.DeserializeObject<List<string>>(trip.JsonParticipantUids);
-            foreach (var u in strList)
-            {
-                tripParticipants.Add(context.Users.Where<ApplicationUser>(w => w.Id == u).First());
+                var strList = JsonConvert.DeserializeObject<List<string>>(trip.JsonParticipantUids);
+                foreach (var u in strList)
+                {
+                    tripParticipants.Add(context.Users.Where<ApplicationUser>(w => w.Id == u).First());
+                }
             }
-        }
 
+        }
     }
 }
