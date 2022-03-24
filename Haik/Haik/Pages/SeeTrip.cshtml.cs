@@ -19,7 +19,7 @@ namespace Haik.Pages
         public int id;
         public TripDb trip;
         public readonly List<ApplicationUser> tripParticipants = new List<ApplicationUser>();
-        public readonly Dictionary<string, ApplicationUser> comments = new Dictionary<string, ApplicationUser>();
+        public List<string> comments = new List<string>();
         [BindProperty]
         public EditWalkViewModel walkViewModel { get; set; }
 
@@ -60,12 +60,13 @@ namespace Haik.Pages
 
             if (trip.CommentJSON != null)
             {
-                var strList = JsonConvert.DeserializeObject<List<string>>(trip.CommentJSON);
-                for (int i = 0; i < strList.Count; i += 2)
-                {
-                    var u = context.Users.Where<ApplicationUser>(w => w.Id == strList[i + 1]).First();
-                    comments.Add(strList[i], u);
-                }
+                comments = JsonConvert.DeserializeObject<List<string>>(trip.CommentJSON);
+                
+                //for (int i = 0; i < strList.Count; i += 2)
+                //{
+                //    var u = context.Users.Where<ApplicationUser>(w => w.Id == strList[i + 1]).First();
+                //    comments.Add(strList[i], u);
+                //}
 
             }
         }
@@ -119,7 +120,9 @@ namespace Haik.Pages
                 for (int i = 0; i < jsonComments.Count; i += 2)
                 {
                     var u = context.Users.Where<ApplicationUser>(w => w.Id == jsonComments[i + 1]).First();
-                    comments.Add(jsonComments[i], u);
+
+                    comments.Add(jsonComments[i]);
+                    comments.Add(u.Id);
                 }
                 this.walkViewModel.CommentJSON = string.Empty;
 

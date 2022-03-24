@@ -104,15 +104,16 @@
                         <h3 class="h3">Kommentarer </h3>
                     </div>
                     <br />
-                    @foreach (KeyValuePair<string, ApplicationUser> c in Model.comments)
+                    @for (int i = 0; i < Model.comments.Count; i += 2)
                     {
+                        var user = Model.context.Users.Where(u => u.Id == Model.comments[i + 1]).First();
                         <li class="list-group-item">
-                            <a asp-route-id="@c.Value.UserName" asp-page="/Profile">
+                            <a asp-route-id="@user.UserName" asp-page="/Profile">
 
-                                @c.Value.FirstName @c.Value.LastName <br />
+                                @user.FirstName @user.LastName <br />
 
                             </a>
-                            @c.Key
+                            @Model.comments[i]
                         </li>
                     }
                     <br />
