@@ -32,6 +32,7 @@ namespace Haik.ViewModels
         public string Difficulty { get; set; }
 
         public IFormFile PictureToAdd { get; set; }
+        public string BildeNrSlette { get; set; }
         public string Date { get; set; }
         public string Equipment { get; set; }
 

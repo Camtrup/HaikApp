@@ -34,20 +34,20 @@ namespace Haik.Pages
         private List<TripDb> datalookup;
 
 
-        public async Task<IActionResult> RemoveImage(int id)
+        public async Task<IActionResult> RemoveImage(int id, int index)
         {
 
             var trip = dbContext.Trips.Where<TripDb>(w => w.Id == id).FirstOrDefault();
 
-            if (id == 1)
+            if (index == 1)
             {
                 trip.ImageBlobOne = null;
             }
-            if (id == 2)
+            if (index == 2)
             {
                 trip.ImageBlobTwo = null;
             }
-            if (id == 3)
+            if (index == 3)
             {
                 trip.ImageBlobThree = null;
             }
@@ -92,15 +92,15 @@ namespace Haik.Pages
                 string s = Convert.ToBase64String(fileBytes);
 
 
-                if (id == 1)
+                if (trip.ImageBlobOne == null)
                 {
                     trip.ImageBlobOne = s;
                 }
-                if (id == 2)
+                else if (trip.ImageBlobTwo == null)
                 {
                     trip.ImageBlobTwo = s;
                 }
-                if (id == 3)
+                if (trip.ImageBlobThree == null)
                 {
                     trip.ImageBlobThree = s;
                 }
@@ -119,6 +119,17 @@ namespace Haik.Pages
             var vm = walkViewModel;
             vm.Id = id;
             var users = dbContext.Users.Where(w => w.UserName == User.Identity.Name);
+            
+            if (vm.BildeNrSlette != null)
+            {
+                var num = Int32.Parse(vm.BildeNrSlette);
+                await RemoveImage(id, num);
+            }
+
+            if(vm.PictureToAdd != null)
+            {
+                await AddImage(vm, id);
+            }
 
             ApplicationUser u = null;
             if (users.Count() > 0)
