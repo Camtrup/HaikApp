@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -8,6 +9,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
+using System.Drawing;
+using System.Web;
 
 namespace Haik.Pages
 {
@@ -18,6 +21,19 @@ namespace Haik.Pages
         public int id;
         public TripDb trip;
         public readonly List<ApplicationUser> tripParticipants = new List<ApplicationUser>();
+        public string Image1Source { get; set; }
+
+        public void setImages(string base64String)
+        {
+            //Convert Base64 String to byte[]
+            byte[] imageBytes = Convert.FromBase64String(base64String);
+            MemoryStream ms = new MemoryStream(imageBytes, 0, imageBytes.Length);
+            //Convert byte[] to Image
+            ms.Write(imageBytes, 0, imageBytes.Length);
+            
+            //return System.Drawing.Image.FromStream(ms);
+        }
+
 
         public SeeTripModel(HaikDBContext context)
         {
@@ -32,6 +48,7 @@ namespace Haik.Pages
             datalookup = await context.Trips.ToListAsync();
 
             
+            //setImages();
 
             foreach (var d in datalookup)
             {
@@ -51,6 +68,8 @@ namespace Haik.Pages
                     tripParticipants.Add(context.Users.Where<ApplicationUser>(w => w.Id == u).First());
                 }
             }
+
+            Image1Source = "data:image/png;base64," + trip.ImageBlobOne;
         }
 
         public IEnumerable<TripDb> trips { get; set; }
@@ -59,7 +78,7 @@ namespace Haik.Pages
         public async Task OnPostAsync(int id)
         {
 
-
+            
 
             ViewData["id"] = id;
             this.id = id;
@@ -77,6 +96,7 @@ namespace Haik.Pages
                 }
             }
 
+            ;
             
 
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
