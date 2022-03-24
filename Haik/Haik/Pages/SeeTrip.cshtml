@@ -104,14 +104,28 @@
                         <h3 class="h3">Kommentarer </h3>
                     </div>
                     <br />
-                    @* Her tenker jeg kommentarfeltet skal være! *@
+                    @foreach (KeyValuePair<string, ApplicationUser> c in Model.comments)
+                    {
+                        <li class="list-group-item">
+                            <a asp-route-id="@c.Value.UserName" asp-page="/Profile">
+
+                                @c.Value.FirstName @c.Value.LastName <br />
+
+                            </a>
+                            @c.Key
+                        </li>
+                    }
                     <br />
-                    <div class="form-group mb-1">
-                        <input type="text" class="form-control" id="comment" placeholder="Still et spørsmål til turarrangøren!">
-                    </div>
-                    <div>
-                        <button type="submit" class="btn btn-info btn-sm">Send</button>
-                    </div>
+
+                    <form method="post">
+                        <div class="form-group mb-1">
+                            <input asp-for="walkViewModel.CommentJSON" type="text" class="form-control" id="comment" placeholder="Still et spørsmål til turarrangøren!">
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-info btn-sm">Send</button>
+                        </div>
+                    </form>
+
 
                 </div>
             </div>
