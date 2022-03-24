@@ -1,0 +1,11 @@
+﻿@page
+@model Haik.Pages.DeleteCommentModel
+@{
+}
+
+<form asp-route-id="@Model.id" asp-route-index="@Model.index">
+    <button type="submit" class="btn-danger">Slett</button>
+    <a asp-page="/SeeTrip" asp-route-id="@Model.id">
+        <button type="button" class="btn-info">Nei</button>
+    </a>
+</form>
