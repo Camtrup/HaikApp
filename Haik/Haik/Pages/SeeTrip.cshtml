@@ -49,18 +49,22 @@
 
                     <div>
                         <form method="post">
-                            @if (Convert.ToDateTime(Model.trip.Date) < DateTime.Now) 
+                            @if (Convert.ToDateTime(Model.trip.Date) > DateTime.Now)
                             {
-                                <button type="button" class="btn btn-outline-secondary btn-lg">Arrangmentet er over</button>
+                                @if (Model.trip.JsonParticipantUids == null || !Model.trip.JsonParticipantUids.Contains(User.FindFirstValue(ClaimTypes.NameIdentifier)))
+                                {
+                                    <button type="submit" class="btn btn-info btn-lg">Meld meg på</button>
+                                }
+                                else
+                                {
+                                    <button type="submit" class="btn btn-danger btn-lg">Meld meg av</button>
+                                }
                             }
-                            else if (Model.trip.JsonParticipantUids == null || !Model.trip.JsonParticipantUids.Contains(User.FindFirstValue(ClaimTypes.NameIdentifier)))
+                            else if (Convert.ToDateTime(Model.trip.Date) < DateTime.Now)
                             {
-                                <button type="submit" class="btn btn-info btn-lg">Meld meg på</button>
+                                <label class="border border-info">Arrangmentet er over</label>
                             }
-                            else
-                            {
-                                <button type="submit" class="btn btn-danger btn-lg">Meld meg av</button>
-                            }
+
                             @if ((Model.trip.OwnerId.Equals(User.FindFirstValue(ClaimTypes.NameIdentifier)) || Model.context.Users.Where<ApplicationUser>(u => u.UserName == User.Identity.Name).First().Admin) && Convert.ToDateTime(Model.trip.Date) > DateTime.Now)
                             {
                                 <a asp-page="/EditTrip" asp-route-id="@id"><button type="button" class="btn btn-secondary btn-lg">Rediger Tur</button></a>
@@ -104,14 +108,36 @@
                         <h3 class="h3">Kommentarer </h3>
                     </div>
                     <br />
-                    @* Her tenker jeg kommentarfeltet skal være! *@
+                    @for (int i = 0; i < Model.comments.Count; i += 2)
+                    {
+                        var user = Model.context.Users.Where(u => u.Id == Model.comments[i + 1]).First();
+                        <li class="list-group-item">
+                            <a asp-route-id="@user.UserName" asp-page="/Profile">
+
+                                @user.FirstName @user.LastName <br />
+
+                            </a>
+                            @Model.comments[i]
+                            
+                            @if (Model.context.Users.Where<ApplicationUser>(u => u.UserName == User.Identity.Name).First().Admin) { 
+                            <a asp-route-id="@Model.trip.Id" asp-route-index="@i" asp-page="/DeleteComment"> 
+                            <button type="button" class="btn btn-danger btn-sm float-right">
+                                X</button>
+                            </a>
+                            }
+                        </li>
+                    }
                     <br />
-                    <div class="form-group mb-1">
-                        <input type="text" class="form-control" id="comment" placeholder="Still et spørsmål til turarrangøren!">
-                    </div>
-                    <div>
-                        <button type="submit" class="btn btn-info btn-sm">Send</button>
-                    </div>
+
+                    <form method="post">
+                        <div class="form-group mb-1">
+                            <input asp-for="walkViewModel.CommentJSON" type="text" class="form-control" id="comment" placeholder="Still et spørsmål til turarrangøren!">
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-info btn-sm">Send</button>
+                        </div>
+                    </form>
+
 
                 </div>
             </div>
