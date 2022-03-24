@@ -24,6 +24,8 @@ namespace Haik.Pages
         public readonly List<ApplicationUser> tripParticipants = new List<ApplicationUser>();
 
         public string Image1Source { get; set; }
+        public string Image2Source { get; set; }
+        public string Image3Source { get; set; }
 
         public void setImages(string base64String)
         {
@@ -75,6 +77,8 @@ namespace Haik.Pages
             }
 
             Image1Source = "data:image/png;base64," + trip.ImageBlobOne;
+            Image2Source = "data:image/png;base64," + trip.ImageBlobTwo;
+            Image3Source = "data:image/png;base64," + trip.ImageBlobThree;
             if (trip.CommentJSON != null)
             {
                 comments = JsonConvert.DeserializeObject<List<string>>(trip.CommentJSON);
