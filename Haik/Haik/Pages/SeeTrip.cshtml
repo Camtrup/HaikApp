@@ -114,6 +114,13 @@
 
                             </a>
                             @Model.comments[i]
+                            
+                            @if (Model.context.Users.Where<ApplicationUser>(u => u.UserName == User.Identity.Name).First().Admin) { 
+                            <a asp-route-id="@Model.trip.Id" asp-route-index="@i" asp-page="/DeleteComment"> 
+                            <button type="button" class="btn btn-danger btn-sm float-right">
+                                X</button>
+                            </a>
+                            }
                         </li>
                     }
                     <br />
