@@ -1,5 +1,6 @@
 ﻿@page
 @model Haik.Pages.ProfileModel
+@using Haik.Models;
 @{
 }
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
@@ -19,9 +20,9 @@
         color: black;
     }
 
-    .TripDiv * {
-        width: 100%;
-    }
+        .TripDiv * {
+            width: 100%;
+        }
 </style>
 <div class="container">
     <div class="row content-center">
@@ -30,9 +31,14 @@
                 <img src="..." alt="..." class="img-thumbnail">
                 <div class="card-body">
                     <div class="mb-4">
-                        <h3 class="h3">@Model.user.FirstName @Model.user.LastName</h3>
+                        @if (Model.user.IsCommercial){
+                        <h3 class="h3"><i class="fas fa-solid fa-star text-warning"></i>@Model.user.FirstName @Model.user.LastName</h3>}
+                         else { 
+                            <h3 class="h3">@Model.user.FirstName @Model.user.LastName</h3> }
                     </div>
                     <ul class="list-unstyled mb-5">
+                  
+
                         <li class="mb-4"><i class="fas fa-calendar-alt text-info"></i>@Model.user.DateOfBirth</li>
                         <li class="mb-4"><i class="fas fa-envelope text-info"></i>@Model.user.Email</li>
                     </ul>
@@ -41,47 +47,47 @@
             </div>
         </div>
         <div class="col-lg-6">
-                <div class="mb-5 wow fadeIn">
-                    <div class="text-start mb-1-6 wow fadeIn">
-                        <h2 class="h1 text-info">Om meg</h2> 
-                    </div>
-                    <div class="p-3 mb-2 border border-info text-black-50">
-                        @Model.user.Description
-                    </div>
+            <div class="mb-5 wow fadeIn">
+                <div class="text-start mb-1-6 wow fadeIn">
+                    <h2 class="h1 text-info">Om meg</h2>
                 </div>
-                <div class="mb-5 wow fadeIn">
-                    <div class="text-start mb-1-6 wow fadeIn">
-                        <h2 class="mb-0 text-info">Tidligere turer</h2>
-                    </div>
-                    <div class="previousTrips">
-                        @foreach (var d in Model.trips)
-                        {
-                            <a asp-page="/SeeTrip" asp-route-id="@d.Id" class="tripElementLinkIndex">
-                                <div class="TripDiv">
-                                    <div class="tripName">
-                                        <h6>@d.Name</h6>
-                                    </div>
-                                    <div class="tripEnrolled">
-                                        @if (d.JsonParticipantUids == null)
-                                        {
-                                            <h6>0 Påmeldte</h6>
-                                        }
-                                        else
-                                        {
-                                            <h6>@(((int)d.JsonParticipantUids.Count()/37)) Påmeldte</h6>
-                                        }
-                                    </div>
-                                    <div class="tripDifficulty"> <h6>@d.Difficulty</h6></div>
-
-                                    <div class="tripCreator"> <h6>@Model.context.Users.Where(w => w.Id == d.OwnerId).First().FirstName @Model.context.Users.Where(w => w.Id == d.OwnerId).First().LastName</h6></div>
-
-
+                <div class="p-3 mb-2 border border-info text-black-50">
+                    @Model.user.Description
+                </div>
+            </div>
+            <div class="mb-5 wow fadeIn">
+                <div class="text-start mb-1-6 wow fadeIn">
+                    <h2 class="mb-0 text-info">Tidligere turer</h2>
+                </div>
+                <div class="previousTrips">
+                    @foreach (var d in Model.trips)
+                    {
+                        <a asp-page="/SeeTrip" asp-route-id="@d.Id" class="tripElementLinkIndex">
+                            <div class="TripDiv">
+                                <div class="tripName">
+                                    <h6>@d.Name</h6>
                                 </div>
-                            </a>
-                        }
-                    </div>
+                                <div class="tripEnrolled">
+                                    @if (d.JsonParticipantUids == null)
+                                    {
+                                        <h6>0 Påmeldte</h6>
+                                    }
+                                    else
+                                    {
+                                        <h6>@(((int)d.JsonParticipantUids.Count()/37)) Påmeldte</h6>
+                                    }
+                                </div>
+                                <div class="tripDifficulty"> <h6>@d.Difficulty</h6></div>
 
+                                <div class="tripCreator"> <h6>@Model.context.Users.Where(w => w.Id == d.OwnerId).First().FirstName @Model.context.Users.Where(w => w.Id == d.OwnerId).First().LastName</h6></div>
+
+
+                            </div>
+                        </a>
+                    }
                 </div>
+
             </div>
         </div>
     </div>
+</div>
