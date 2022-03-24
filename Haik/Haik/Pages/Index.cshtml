@@ -116,34 +116,92 @@ else
 
             <div class="allTripsLoggedInContainer">
                 <h2>Alle turer</h2>
-                <div class="allTrips">
-                    @foreach (var d in Model.data)
-                    {
 
-                        <a asp-page="/SeeTrip" asp-route-id="@d.Id" class="tripElementLinkIndex">
-                            <div class="tripElementIndex">
-                                <div class="tripName">
-                                    <h4>@d.Name</h4>
-                                </div>
-                                <div class="tripEnrolled">
-                                    @if (d.JsonParticipantUids == null)
-                                    {
-                                        <h4>0 Påmeldte</h4>
-                                    }
-                                    else
-                                    {
-                                        <h4>@(((int)d.JsonParticipantUids.Count()/37)) Påmeldte</h4>
-                                    }
-                                </div>
-                                <div class="tripDifficulty"> <h4>@d.Difficulty</h4></div>
 
-                                <div class="tripCreator"> <h4>@Model.dbContext.Users.Where(w => w.Id == d.OwnerId).First().FirstName @Model.dbContext.Users.Where(w => w.Id == d.OwnerId).First().LastName</h4></div>
-                               
-                               
-                            </div>
-                        </a>
-                    }
-                </div>
+                    <div class="allTrips">
+                        @foreach (var d in Model.data)
+                        {
+
+
+
+                            <a asp-page="/SeeTrip" asp-route-id="@d.Id" class="tripElementLinkIndex">
+
+                                <div class="tripElementIndex">
+                                    <div class="tripName">
+                                        @if (Model.dbContext.Users.Where(w => w.Id == d.OwnerId).First().IsCommercial)
+                                        {
+                                            <h4><mark>@d.Name</mark></h4> }
+
+                    else { 
+
+
+                                            <h4>@d.Name</h4> }
+
+
+                                        </div>
+                                    <div class="tripEnrolled">
+                                        @if (Model.dbContext.Users.Where(w => w.Id == d.OwnerId).First().IsCommercial)
+                                        {
+
+
+                                            @if (d.JsonParticipantUids == null)
+                                            {
+
+                                                <h4><mark>0 Påmeldte</mark></h4>
+                                            }
+                                            else
+                                            {
+                                                <h4><mark>>@(((int)d.JsonParticipantUids.Count()/37)) Påmeldte</mark></h4>
+                                            } }
+                                        else
+                                        { @if (d.JsonParticipantUids == null)
+                                            {
+
+                                                <h4>0 Påmeldte</h4>
+                                            }
+                                            else
+                                            {
+                                                <h4>@(((int)d.JsonParticipantUids.Count()/37)) Påmeldte</h4>
+                                            }}
+                                    </div>
+                                    <div class="tripDifficulty">
+
+                                        @if (Model.dbContext.Users.Where(w => w.Id == d.OwnerId).First().IsCommercial)
+                                        {
+                                            <h4><mark>@d.Difficulty</mark></h4>
+
+                                        }
+                    else { 
+                                        <h4>@d.Difficulty</h4> }
+                                    </div>
+
+                                    <div class="tripCreator">
+
+
+                                        @if (Model.dbContext.Users.Where(w => w.Id == d.OwnerId).First().IsCommercial)
+                                        {
+
+
+                                            <h4><mark>@Model.dbContext.Users.Where(w => w.Id == d.OwnerId).First().FirstName @Model.dbContext.Users.Where(w => w.Id == d.OwnerId).First().LastName</mark></h4>
+                                        }
+                                        else
+                                        {
+                                            <h4>@Model.dbContext.Users.Where(w => w.Id == d.OwnerId).First().FirstName @Model.dbContext.Users.Where(w => w.Id == d.OwnerId).First().LastName</h4>
+
+                                        }
+                                    </div>
+
+
+                                </div>
+
+                            </a>
+
+                        }
+
+                    </div>
+                    
+
+
 
             </div>
         </div>
