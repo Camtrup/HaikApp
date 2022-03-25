@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\PU-prosjekt\\Haik\\Haik\\Haik.csproj": {}
+    "C:\\Users\\marie\\Source\\Repos\\haik\\Haik\\Haik\\Haik.csproj": {}
   },
   "projects": {
-    "C:\\PU-prosjekt\\Haik\\Haik\\Haik.csproj": {
+    "C:\\Users\\marie\\Source\\Repos\\haik\\Haik\\Haik\\Haik.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\PU-prosjekt\\Haik\\Haik\\Haik.csproj",
+        "projectUniqueName": "C:\\Users\\marie\\Source\\Repos\\haik\\Haik\\Haik\\Haik.csproj",
         "projectName": "Haik",
-        "projectPath": "C:\\PU-prosjekt\\Haik\\Haik\\Haik.csproj",
+        "projectPath": "C:\\Users\\marie\\Source\\Repos\\haik\\Haik\\Haik\\Haik.csproj",
         "packagesPath": "C:\\Users\\marie\\.nuget\\packages\\",
-        "outputPath": "C:\\PU-prosjekt\\Haik\\Haik\\obj\\",
+        "outputPath": "C:\\Users\\marie\\Source\\Repos\\haik\\Haik\\Haik\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\marie\\AppData\\Roaming\\NuGet\\NuGet.Config",

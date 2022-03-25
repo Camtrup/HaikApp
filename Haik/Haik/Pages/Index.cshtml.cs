@@ -37,11 +37,15 @@ namespace Haik.Pages
             {
                 foreach (var t in JsonConvert.DeserializeObject<List<int>>(user.JsonParticipatedTrips))
                 {
-                    var trip = dbContext.Trips.Where<TripDb>(u => u.Id == t).First();
-                    if (Convert.ToDateTime(trip.Date) > DateTime.Now)
+                    if(dbContext.Trips != null)
                     {
-                        userUpComingTrips.Add(trip);
+                        var trip = dbContext.Trips.Where<TripDb>(u => u.Id == t).First();
+                        if (Convert.ToDateTime(trip.Date) > DateTime.Now)
+                        {
+                            userUpComingTrips.Add(trip);
+                        }
                     }
+                    
                 }
             }
 
