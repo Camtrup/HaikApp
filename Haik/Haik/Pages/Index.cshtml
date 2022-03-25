@@ -56,7 +56,7 @@ else
             <form method="post">
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="Hvor vil du på din neste tur?" name="search">
-                    <button type="submit">SØK</button>
+                    <button class="btn btn-info" type="submit">SØK</button>
                 </div>
             </form>
         </div>
@@ -65,15 +65,15 @@ else
 
             <div class="createTripContainer">
                 <a class="btn btn-lg btn-info" asp-page="/CreateTrip">Opprett Arrangement</a>
-            </div>
+            </div><br /><br>
 
             <div class="personalInfoLoggedInContainer">
                 <div class="columnDivider">
                     <div class="upcomingTrips">
-                        <h3>Dine Kommende Turer</h3>
+                        <h3 class= "text-info"> Dine Kommende Turer</h3>
                         @if (Model.userUpComingTrips == null || Model.userUpComingTrips.Count() == 0)
                         {
-                            <h5 style="padding-top: 30px;">Du har ingen kommende turer </h5>
+                            <h5 class="font-italic" style="padding-top: 30px;">Du har ingen kommende turer </h5>
                         }
                         else
                         {
@@ -82,21 +82,21 @@ else
                                 <a asp-page="/SeeTrip" asp-route-id="@d.Id" class="tripElementLinkIndex">
                                     <div class="TripDiv">
                                         <div class="tripName">
-                                            <h6>@d.Name</h6>
+                                            <h4>@d.Name</h4>
                                         </div>
                                         <div class="tripEnrolled">
                                             @if (d.JsonParticipantUids == null)
                                             {
-                                                <h6>0 Påmeldte</h6>
+                                                <h4>0 Påmeldte</h4>
                                             }
                                             else
                                             {
-                                                <h6>@(((int)d.JsonParticipantUids.Count()/37)) Påmeldte</h6>
+                                                <h4>@(((int)d.JsonParticipantUids.Count()/37)) Påmeldte</h4>
                                             }
                                         </div>
-                                        <div class="tripDifficulty"> <h6>@d.Difficulty</h6></div>
+                                        <div class="tripDifficulty"> <h4>@d.Difficulty</h4></div>
 
-                                        <div class="tripCreator"> <h6>@Model.dbContext.Users.Where(w => w.Id == d.OwnerId).First().FirstName @Model.dbContext.Users.Where(w => w.Id == d.OwnerId).First().LastName</h6></div>
+                                        <div class="tripCreator"> <h4>@Model.dbContext.Users.Where(w => w.Id == d.OwnerId).First().FirstName @Model.dbContext.Users.Where(w => w.Id == d.OwnerId).First().LastName</h4></div>
 
 
                                     </div>
@@ -106,14 +106,11 @@ else
                     </div>
             </div>
 
-                <div class="tripCategories">
-                    <h3>Finn din neste... (kategorier)</h3>
-                </div>
 
             </div>
 
             <div class="allTripsLoggedInContainer">
-                <h2>Alle turer</h2>
+                <h2 class= "text-info">Alle turer</h2>
 
 
                     <div class="allTrips">
