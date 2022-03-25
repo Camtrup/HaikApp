@@ -61,7 +61,7 @@ namespace Haik.Pages
         {
             ViewData["id"] = id;
             this.id = id;
-            datalookup = await dbContext.Trips.ToListAsync();
+            datalookup = dbContext.Trips.ToList();
 
 
 
@@ -100,7 +100,7 @@ namespace Haik.Pages
                 {
                     trip.ImageBlobTwo = s;
                 }
-                if (trip.ImageBlobThree == null)
+                else if (trip.ImageBlobThree == null)
                 {
                     trip.ImageBlobThree = s;
                 }
