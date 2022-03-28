@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tyf1thQOx9stCizysKQ/2ABJ0sDTXILJJT1eIJUhLmtqn5s4bJwyjBlXvTA964V9R3UiOs5WfFnSV2OCThTlrQ==",
+  "dgSpecHash": "vmdPOpyCa8opQ7eSXOKXknatXNLaCPZPE/DELsicN6kgmHtI5p0H0r6AqGCHgr0geLSFi3eGbvhw+C8wkRCPPA==",
   "success": true,
-  "projectFilePath": "C:\\PU-prosjekt\\Haik\\Haik\\Haik.csproj",
+  "projectFilePath": "C:\\Users\\marie\\Source\\Repos\\haik\\Haik\\Haik\\Haik.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\marie\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\marie\\.nuget\\packages\\microsoft.aspnetcore\\2.2.0\\microsoft.aspnetcore.2.2.0.nupkg.sha512",

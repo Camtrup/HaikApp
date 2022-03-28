@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Haik"
+    "\\Haik",
+    "\\Haik\\Haik",
+    "\\Haik\\Haik\\Migrations"
   ],
-  "SelectedNode": "\\Haik\\Haik.sln",
+  "SelectedNode": "\\Haik\\Haik\\Migrations\\20220324144250_haikdbcontext.cs",
   "PreviewInSolutionExplorer": false
 }

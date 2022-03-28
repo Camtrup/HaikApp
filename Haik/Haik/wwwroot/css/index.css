@@ -58,25 +58,14 @@
 
 
 }
-    .indexLoggedInMainContainer .personalInfoLoggedInContainer>div {
+    .indexLoggedInMainContainer .personalInfoLoggedInContainer > div {
         height: 200px;
         display: grid;
         margin-bottom: 20px;
-        border-bottom: solid grey 3px;
+        border-bottom: cadetblue 1px;
         text-align: center;
     }
 
-
-.indexLoggedInMainContainer .personalInfoLoggedInContainer {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
-
-.indexLoggedInMainContainer .columnDivider {
-    border-right: solid grey 2px;
-    margin-right: -1px;
-    padding-right: 1px;
-}
 
 .allTrips {
     margin-top: 30px;
