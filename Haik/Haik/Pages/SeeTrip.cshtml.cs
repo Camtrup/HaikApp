@@ -117,7 +117,23 @@ namespace Haik.Pages
             }
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
-            if (!string.IsNullOrEmpty(walkViewModel.CommentJSON))// adding comments
+            //image
+            if (trip.JsonParticipantUids != null)
+            {
+
+                var strList = JsonConvert.DeserializeObject<List<string>>(trip.JsonParticipantUids);
+                foreach (var u in strList)
+                {
+                    tripParticipants.Add(context.Users.Where<ApplicationUser>(w => w.Id == u).First());
+                }
+            }
+
+            Image1Source = "data:image/png;base64," + trip.ImageBlobOne;
+            Image2Source = "data:image/png;base64," + trip.ImageBlobTwo;
+            Image3Source = "data:image/png;base64," + trip.ImageBlobThree;
+            //image
+
+            if (!string.IsNullOrEmpty(walkViewModel.CommentJSON)) // adding comments
             {
                 if (trip.CommentJSON is null) {
                     List<String> jsonPrevdeser = new List<string> { };
@@ -146,9 +162,6 @@ namespace Haik.Pages
                     comments.Add(u.Id);
                 }
                 this.walkViewModel.CommentJSON = string.Empty;
-
-                
-
 
             }
 
