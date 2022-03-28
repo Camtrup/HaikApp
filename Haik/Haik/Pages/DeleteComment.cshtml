@@ -4,9 +4,8 @@
 }
 
 <form asp-route-id="@Model.id" asp-route-index="@Model.index">
-    <p>Er du sikker på at du vil slette kommentaren?</p>
-    <button type="submit" class="btn btn-lg btn-danger">Ja</button>
+    <button type="submit" class="btn-danger">Slett</button>
     <a asp-page="/SeeTrip" asp-route-id="@Model.id">
-        <button type="button" class="btn btn-lg btn-info">Nei</button>
+        <button type="button" class="btn-info">Nei</button>
     </a>
 </form>
